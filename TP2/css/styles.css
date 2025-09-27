@@ -1,6 +1,13 @@
+* {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Roboto';
     background-color: black;
+    padding-top: 3.5rem;
 }
 
 
@@ -43,6 +50,23 @@ header .iconos a {
     border-radius: 50%;
 }
 
+/*--------- Header Login ---------*/
+
+.header-login {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.header-login a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+
 #menu-hamburgesa,
 #user,
 header .img-iconos {
@@ -68,10 +92,10 @@ header #buscador input {
 /*-------------Footer-------------*/
 
 footer {
-    position: absolute;
+    /* position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; */
     background-color: #2D2D37;
     color: #fff;
     padding: 1rem 2rem 0 2rem;
@@ -102,7 +126,7 @@ p {
     margin: 0;
 }
 
-.li-footer ul li{
+.li-footer ul li {
     margin-top: 0.5rem;
 }
 
@@ -183,6 +207,224 @@ p {
 }
 
 
+/*----------Login----------- */
+.body-login {
+    background-image: url(../img/icons/fondo-login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 70vh;
+    height: 80vh; */
+}
+
+.register, .start-sesion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27rem;
+    height: 45rem;
+}
+
+.register {
+    color: white;
+    background-color: #5e0f3a;
+}
+
+.register .text-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.register h1 {
+    margin-bottom: 0.5rem;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+}
+
+.register h3 {
+    margin-bottom: 10rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 3rem;
+}
+
+.register p {
+    font-size: 0.7rem;
+}
+
+.register .btn-register {
+    padding: 1rem 1.2rem;
+    border: 0.5px solid white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    background: none;
+    color: white;
+}
+
+.register .btn-register:hover {
+    background: white;
+    color: #5e0f3a;
+    transition: 0.3s;
+}
+
+.front-page-register {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/icons/register.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.start-sesion {
+    justify-content: center;
+    color: black;
+    background-color: #f4f4f8;
+}
+
+.start-sesion h1 {
+    margin: 1rem 0 3rem 0;
+    font-size: 2rem;
+}
+
+.container-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* column-gap: 4px;
+    width: 100%; */
+}
+
+.container-email,
+.container-password {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    padding: 0 3rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+#email,
+#password {
+    width: 100%;
+    padding: 0.8rem;
+    padding-right: 8rem;
+    border-radius: 0.5rem;
+    border: 1px solid gray;
+    font-size: 1rem;
+    background-color: #ECECEC;
+    box-sizing: border-box;
+}
+
+.container-pass-input {
+    position: relative;
+    /* display: inline-block; */
+    box-sizing: border-box;
+}
+
+.container-pass-input input {
+    box-sizing: border-box;
+}
+
+#toggle-password {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+}
+
+.start-sesion a {
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-start-sesion {
+    width: 55%;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    background-color: #F72585;
+    color: white;
+}
+
+.btn-start-sesion:hover {
+    background: #7a194e;
+    transition: 0.3s;
+}
+
+.container-btns-social {
+    display: flex;
+    gap: 4rem;
+    margin: 0.8rem;
+}
+
+.btn-facebook,
+.btn-google {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
     header {
@@ -219,7 +461,7 @@ p {
 
 
     /*----------Footer----------*/
-    
+
     footer {
         display: flex;
         flex-wrap: wrap;
