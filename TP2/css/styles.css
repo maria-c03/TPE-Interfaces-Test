@@ -74,8 +74,8 @@ header .img-iconos {
     color: white;
 }
 
-header #buscador,
-header #buscador input {
+header .buscador,
+header .buscador input {
     display: none;
 }
 
@@ -92,10 +92,6 @@ header #buscador input {
 /*-------------Footer-------------*/
 
 footer {
-    /* position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0; */
     background-color: #2D2D37;
     color: #fff;
     padding: 1rem 2rem 0 2rem;
@@ -208,6 +204,7 @@ p {
 
 
 /*----------Login----------- */
+
 .body-login {
     background-image: url(../img/icons/fondo-login.jpg);
     background-repeat: no-repeat;
@@ -219,48 +216,55 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* min-height: 70vh;
-    height: 80vh; */
 }
 
-.register, .start-sesion {
+.register,
+.start-sesion,
+.form-register,
+.login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 27rem;
-    height: 45rem;
+    width: 30em;
+    height: 55rem;
 }
 
-.register {
+#register,
+#login {
     color: white;
     background-color: #5e0f3a;
 }
 
-.register .text-register {
+.register .text-register,
+.login .text-register {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
 }
 
-.register h1 {
+#register h1,
+#login h1 {
     margin-bottom: 0.5rem;
     margin-top: 5rem;
     font-size: 1.5rem;
 }
 
-.register h3 {
+#register h3,
+#login h3 {
     margin-bottom: 10rem;
     font-size: 1.2rem;
     text-align: center;
     padding: 0 3rem;
 }
 
-.register p {
+#register p,
+#login p {
     font-size: 0.7rem;
 }
 
-.register .btn-register {
+#register .btn-register,
+#login .btn-register {
     padding: 1rem 1.2rem;
     border: 0.5px solid white;
     border-radius: 0.5rem;
@@ -273,7 +277,8 @@ main {
     color: white;
 }
 
-.register .btn-register:hover {
+#register .btn-register:hover,
+#login .btn-register:hover {
     background: white;
     color: #5e0f3a;
     transition: 0.3s;
@@ -288,13 +293,14 @@ main {
     background-position: center;
 }
 
-.start-sesion {
+#start-sesion,
+#form-register {
     justify-content: center;
     color: black;
     background-color: #f4f4f8;
 }
 
-.start-sesion h1 {
+#start-sesion h1 {
     margin: 1rem 0 3rem 0;
     font-size: 2rem;
 }
@@ -303,16 +309,16 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* column-gap: 4px;
-    width: 100%; */
 }
 
 .container-email,
-.container-password {
+.container-password,
+.container-nickName,
+.container-age {
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding: 0 3rem;
     width: 100%;
     box-sizing: border-box;
@@ -324,11 +330,10 @@ label {
     font-weight: bold;
 }
 
-#email,
-#password {
+.complete-form {
     width: 100%;
     padding: 0.8rem;
-    padding-right: 8rem;
+    margin-right: 8rem;
     border-radius: 0.5rem;
     border: 1px solid gray;
     font-size: 1rem;
@@ -338,15 +343,15 @@ label {
 
 .container-pass-input {
     position: relative;
-    /* display: inline-block; */
     box-sizing: border-box;
+    width: 100%;
 }
 
 .container-pass-input input {
     box-sizing: border-box;
 }
 
-#toggle-password {
+.toggle-password {
     position: absolute;
     right: 0.5rem;
     top: 50%;
@@ -355,15 +360,23 @@ label {
     color: black;
 }
 
-.start-sesion a {
+#start-sesion a {
     margin-bottom: 2rem;
     font-size: 0.75rem;
     text-decoration: none;
     color: black;
 }
 
+.btn-start-register {
+    width: 45%;
+}
+
 .btn-start-sesion {
     width: 55%;
+}
+
+.btn-start-sesion,
+.btn-start-register {
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 0.5rem;
@@ -375,12 +388,14 @@ label {
     color: white;
 }
 
-.btn-start-sesion:hover {
+.btn-start-sesion:hover,
+.btn-start-register:hover {
     background: #7a194e;
     transition: 0.3s;
 }
 
-.container-btns-social {
+.container-btns-social,
+.container-btns-social-register {
     display: flex;
     gap: 4rem;
     margin: 0.8rem;
@@ -399,19 +414,82 @@ label {
     justify-content: center;
 }
 
+/* -----Registro----- */
+
+.login, .form-register {
+        display: none;
+    }
+
+#form-register h1 {
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+.container-name-surname {
+    display: flex;
+    flex-direction: row;
+    margin: 0 3rem;
+    gap: 0.5rem;
+}
+
+.container-name,
+.container-surname {
+    margin-bottom: 1rem;
+}
+
+.container-optional {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+
+.container-optional p {
+    font-style: italic;
+}
+
+.container-inputs p {
+    font-size: 0.7rem;
+    color: rgb(92, 88, 88);
+}
 
 
+/* oculto el icono del calendario ya que no puede ajustarse al ancho deseado */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.input-captcha {
+    display: flex;
+    align-items: center;
+    margin: 0 6.5rem 1rem 6.5rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 0.5px solid rgb(156, 155, 155);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+}
+
+#captcha {
+    width: 1rem;
+    height: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.img-captcha {
+    width: 4rem;
+    margin-left: 1.8rem;
+}
+
+.container-btn-register {
+    display: flex;
+    justify-content: center;
+}
 
 
-
-
-
-
-
-
-
-
-
+.container-btns-social-register {
+    justify-content: center;
+}
 
 
 
@@ -431,12 +509,12 @@ label {
         padding: 0.5rem 1rem;
     }
 
-    header #buscador,
-    header div#buscador input {
+    header .buscador,
+    header div.buscador input {
         display: block;
     }
 
-    header #buscador {
+    header .buscador {
         width: 100%;
         max-width: 25rem;
         min-width: 19rem;
@@ -446,7 +524,7 @@ label {
         position: relative;
     }
 
-    header #buscador input {
+    header .buscador input {
         width: 100%;
         max-width: 25rem;
         min-width: 19rem;
@@ -464,8 +542,8 @@ label {
 
     footer {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .contenedor-footer {
