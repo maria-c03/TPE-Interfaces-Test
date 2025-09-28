@@ -201,9 +201,17 @@ p {
     justify-content: center;
     gap: 2rem;
 }
-
+.container-principal {
+    display: flex;
+}
 
 /*----------Login----------- */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 
 .body-login {
     background-image: url(../img/icons/fondo-login.jpg);
@@ -377,6 +385,7 @@ label {
 
 .btn-start-sesion,
 .btn-start-register {
+    width: 12rem;
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 0.5rem;
@@ -416,9 +425,9 @@ label {
 
 /* -----Registro----- */
 
-.login, .form-register {
-        display: none;
-    }
+.oculto {
+    display: none;
+}
 
 #form-register h1 {
     margin: 1rem 0;
@@ -464,10 +473,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 0 6.5rem 1rem 6.5rem;
     flex-direction: row;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
     border: 0.5px solid rgb(156, 155, 155);
     border-radius: 0.5rem;
     padding: 0.2rem;
+    width: 50%;
+}
+
+.container-captcha {
+
+    display: flex;
+    align-items: center;
+}
+
+.container-captcha label {
+    padding-left: 0.5rem;
 }
 
 #captcha {
