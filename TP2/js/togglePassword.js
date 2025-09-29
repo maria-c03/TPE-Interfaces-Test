@@ -1,17 +1,17 @@
 "use strict";
 
-const loginContainer = document.getElementById("container-login");
-const registerContainer = document.getElementById("container-register");
-
-const btnLogin = document.getElementById("btn-login");
-const btnRegister = document.getElementById("btn-registration");
-
-btnRegister.addEventListener("click", () => {
-  loginContainer.classList.add("oculto");
-  registerContainer.classList.remove("oculto");
+let eyeIcon = document.querySelectorAll(".toggle-password").forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", togglePassword);
 });
 
-btnLogin.addEventListener("click", () => {
-  registerContainer.classList.add("oculto");
-  loginContainer.classList.remove("oculto");
-});
+function togglePassword() {
+    // paso el icono que dispara el evento
+    let eyeIcon = this;
+    // guardo en una variable el input anterior al icono
+    let passwordField = eyeIcon.previousElementSibling;
+    //obtengo el valor del atributo type y lo cambio, si es password lo cambio a text y viceversa
+    let type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+    eyeIcon.classList.toggle("fa-eye-slash");
+    eyeIcon.classList.toggle("fa-eye");
+}

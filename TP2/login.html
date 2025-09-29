@@ -37,13 +37,13 @@
                     <div class="container-inputs">
                         <div class="container-email">
                             <label for="email">Email</label>
-                            <input type="email" placeholder="emailejemplo@gmail.com" class="complete-form" name="email"
+                            <input type="email" placeholder="emailejemplo@gmail.com" class="complete-form" id="email" name="email" autocomplete="email"
                                 required>
                         </div>
                         <div class="container-password">
                             <label for="password">Contraseña</label>
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form pass" name="password"
+                                <input type="password" placeholder="********" class="complete-form pass" id="password" name="password"
                                     required>
                                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                             </div>
@@ -66,35 +66,35 @@
                     <div class="container-inputs">
                         <div class="container-name-surname">
                             <div class="container-name">
-                                <label for="name">Nombre</label>
-                                <input type="text" placeholder="nombre" class="complete-form" name="name" required>
+                                <label for="name-register">Nombre</label>
+                                <input type="text" placeholder="nombre" class="complete-form" id="name-register" autocomplete="name" name="name" required>
                             </div>
                             <div class="container-surname">
                                 <label for="surname">Apellido</label>
-                                <input type="text" placeholder="apellido" class="complete-form" name="surname" required>
+                                <input type="text" placeholder="apellido" class="complete-form" name="surname" id="surname"  required>
                             </div>
                         </div>
                         <div class="container-age">
                             <label for="age">Fecha de nacimiento</label>
-                            <input type="date" placeholder="fecha de nacimiento" class="complete-form" name="age" required>
+                            <input type="date" placeholder="fecha de nacimiento" class="complete-form" id="age" name="age" required>
                         </div>
                         <div class="container-nickName">
                             <div class="container-optional">
                                 <label for="nickName">Nickname</label>
                                 <p>-Opcional</p>
                             </div>
-                            <input type="text" placeholder="nombre usuario" class="complete-form" name="nickName">
+                            <input type="text" placeholder="nombre usuario" class="complete-form" name="nickName" id="nickName">
                         </div>
                         <div class="container-email">
                             <label for="email-register">Email</label>
-                            <input type="email" placeholder="emailejemplo@gmail.com" class="complete-form" name="email"
+                            <input type="email" placeholder="emailejemplo@gmail.com" id="email-register"  class="complete-form" name="email-register"
                                 required>
                         </div>
                         <div class="container-password">
                             <label for="password-register">Contraseña</label>
                             <p>debe tener almenos 5 caracteres</p>
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form pass" name="password"
+                                <input type="password" placeholder="********" class="complete-form pass" id="password-register" name="password"
                                     required>
                                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                             </div>
@@ -102,7 +102,7 @@
                         <div class="container-password">
                             <label for="password-repeat">Repetir Contraseña</label>
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form pass" name="password"
+                                <input type="password" placeholder="********" class="complete-form pass" id="password-repeat" name="password"
                                     required>
                                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                             </div>
@@ -186,7 +186,7 @@
                 <h1>Leveling</h1>
                 <p>Unete a nosotros y no te pierdas nada!</p>
                 <form action="" class="suscripcion">
-                    <input type="email" placeholder="ejemplo@email.com">
+                    <input type="email" name="email-suscription" placeholder="ejemplo@email.com">
                     <button type="submit" class="btn-subscribirse">
                         <span>Suscribirse</span>
                     </button>

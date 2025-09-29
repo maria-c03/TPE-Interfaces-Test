@@ -1,5 +1,8 @@
 * {
+    list-style: none;
+    outline: none;
     border: none;
+    text-decoration: none;
     margin: 0;
     padding: 0;
 }
@@ -110,16 +113,12 @@ footer {
     text-align: center;
 }
 
-.contenedor-suscripcion h1,
+.contenedor-suscripcion h1{
+    font-size: 1.2rem;
+}
 p {
     font-size: 1rem;
-}
-
-.li-footer ul,
-.redes-footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0.3rem;
 }
 
 .li-footer ul li {
@@ -142,16 +141,7 @@ p {
 }
 
 .contenedor-suscripcion form {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
-}
-
-.contenedor-suscripcion input {
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
 }
 
 .suscripcion {
@@ -201,6 +191,7 @@ p {
     justify-content: center;
     gap: 2rem;
 }
+
 .container-principal {
     display: flex;
 }
@@ -569,7 +560,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .contenedor-footer {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        align-items: start;
         gap: 2rem;
     }
 
@@ -577,7 +567,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         text-align: start;
     }
 
-    .contenedor-suscripcion h1,
     p {
         text-align: center;
     }
