@@ -14,6 +14,56 @@ body {
 }
 
 
+/* clase que evita el scroll en la carga de la animacion */
+.noScroll {
+    overflow: hidden;
+}
+
+#loadWindow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: opacity 1s ease;
+}
+
+#loadWindow.finalize{
+    opacity: 0;
+}
+
+#loadContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#logoLoad img{
+    width: 8rem;
+    height: 8rem;
+    animation: pulseRotate 1.5s ease-in-out infinite;
+}
+
+#pLoad {
+    font-size: 2rem;
+    color: #F72585;
+}
+
+@keyframes pulseRotate{
+    0%{transform: scale(0.5) rotate(0deg);}
+    50%{transform: scale(1);}
+    100%{transform: scale(0.5) rotate(360deg);}
+}
+
+
+
 /*----------Header----------*/
 
 header {
@@ -90,6 +140,92 @@ header .buscador input {
     transform: translate(-50%);
     pointer-events: none;
 }
+
+/* -----Carrusel Principal----- */
+/* 
+.sliders{
+    width: 38rem;
+    height: 22rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.hide{
+    display: none;
+}
+
+.card {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.5s ease;
+    cursor: pointer
+}
+.cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+.img-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#slide1:checked ~ .cards #item3, #slide2:checked ~ .cards #item1, #slide3:checked ~ .cards #item2 {
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+#slide1:checked ~ .cards #item2, #slide2:checked ~ .cards #item3, #slide3:checked ~ .cards #item1 {
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+#slide1:checked ~ .cards #item1, #slide2:checked ~ .cards #item2, #slide3:checked ~ .cards #item3 {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*-------------Footer-------------*/
@@ -213,6 +349,7 @@ form {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
