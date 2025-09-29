@@ -10,7 +10,7 @@ const divLogoLoad = document.createElement("div");
 divLogoLoad.id = "logoLoad";
 
 const imgLogoLoad = document.createElement("img");
-imgLogoLoad.src = "./img/icons/logoCarga.jpg";
+imgLogoLoad.src = "./img/icons/logoLoad.jpg";
 divLogoLoad.appendChild(imgLogoLoad);
 
 const pLoad = document.createElement("p");
@@ -28,7 +28,7 @@ const intervalTime = duration / total; // Time between each step
 document.body.classList.add("noScroll");
 
 const interval = setInterval(() => {
-    
+
     count++;
     pLoad.innerHTML = Math.round(count) + "%";
 
