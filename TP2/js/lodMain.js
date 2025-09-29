@@ -28,6 +28,7 @@ const intervalTime = duration / total; // Time between each step
 document.body.classList.add("noScroll");
 
 const interval = setInterval(() => {
+    
     count++;
     pLoad.innerHTML = Math.round(count) + "%";
 
