@@ -10,7 +10,7 @@ const divLogoLoad = document.createElement("div");
 divLogoLoad.id = "logoLoad";
 
 const imgLogoLoad = document.createElement("img");
-imgLogoLoad.src = "img/icons/logoCarga.jpg";
+imgLogoLoad.src = "./img/icons/logoCarga.jpg";
 divLogoLoad.appendChild(imgLogoLoad);
 
 const pLoad = document.createElement("p");
