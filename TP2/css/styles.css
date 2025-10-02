@@ -114,9 +114,125 @@ header .logo-menu a {
     height: 32px;
 }
 
-#user {
-    width: 40px;
-    height: 40px;
+
+
+    /*----------- Profile Container -----------*/
+    
+    .profile-settings-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 372px;
+        height: auto;
+        background-color: #2D2D37;
+        border-radius: 8px;
+        color: white;
+    }
+
+    .toggle-cancel{
+        width:100%;
+        display:flex;
+        justify-content: flex-end;
+        font-size: 24px;;
+        color: white
+    }
+
+    .toggle-cancel:hover{
+        transition: 150ms;
+        cursor: pointer;
+        color: #606079;
+    }
+    
+    .toggle-cancel i{
+        padding: 12px 16px 10px 10px;
+    }
+
+
+    .profile-user-data{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width: 179px;
+        height: 167px;
+    }
+    
+    .profile-user-data h2{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .profile-user-data h3{
+       color: #AEA7AA;
+       font-size: 1rem;
+       font-weight: normal;
+    }
+    
+    .profile-user-data img{
+        width: 60px;
+        height: 60px;
+        padding-bottom: 12px;
+    }
+    
+    .container-user-opcion{
+        width: 100%;
+        display: flex;
+        flex-direction:column;
+        align-items: start;
+    }
+
+    .profile-user-opcion{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        padding : 24px 0 20px 38px;;
+        font-weight: normal;
+    }
+
+    .profile-user-opcion li{
+        display:flex;
+        flex-direction: row;
+    }
+
+    .profile-user-opcion li:hover{
+        color:#606079;
+        cursor:pointer;
+    }
+       
+
+    .profile-user-opcion img{
+        width:24px;
+        height:24px;
+        padding-right: 8px
+    }
+
+    .social-icons{
+        display:flex;
+        column-gap: 30px;
+        padding: 20px;
+    }
+
+    .social-icons i{
+        font-size: 24px;
+        cursor: pointer;
+        color: #606079;
+    }
+
+    .social-icons i:hover{
+        transition: 150ms;
+        transform: scale(1.2);
+        cursor: pointer;
+        color: white;
+    }
+
+
+
+
+
+/*--------- Header Login ---------*/
+
+.header-login {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 #menu-hamburgesa,
