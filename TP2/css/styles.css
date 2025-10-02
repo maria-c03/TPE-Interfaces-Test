@@ -370,7 +370,7 @@ main {
 
 .register .btn-register,
 .login .btn-register {
-    width: 150px;
+    width: 160px;
     height: 60px;
     border: 1px solid white;
     border-radius: 8px;
@@ -391,7 +391,7 @@ main {
 .front-page-register {
     width: 354px;
     height: 354px;
-    background-image: url(../img/icons/register.jpg);
+    background-image: url(../img/icons/register.png);
     /* escala la img para que entre completa */
     background-size: contain;
     background-repeat: no-repeat;
@@ -944,9 +944,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
-    header {
-        /* padding: 0.5rem 1rem; */
-    }
+    /* header {
+        padding: 0.5rem 1rem;
+    } */
 
     header .buscador,
     header div.buscador input {
@@ -1118,7 +1118,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #fff;
   padding: 12px 20px;
   width: 100%;
-  transition: background 0.3s;
+  /* transition: background 0.3s; */
 }
 
 .sidebar ul li a:hover {

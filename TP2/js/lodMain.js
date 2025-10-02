@@ -1,5 +1,6 @@
 "use strict";
 
+// Creacion de elementos de HTML
 const divLoadWindow = document.createElement("div");
 divLoadWindow.id = "loadWindow";
 
@@ -10,16 +11,20 @@ const divLogoLoad = document.createElement("div");
 divLogoLoad.id = "logoLoad";
 
 const imgLogoLoad = document.createElement("img");
-imgLogoLoad.src = "./img/icons/logoLoad.jpg";
+imgLogoLoad.src = "./img/icons/logo.png";
+
+// Le indico al div LogoLoad que es padre de imgLogoLoad
 divLogoLoad.appendChild(imgLogoLoad);
 
-const pLoad = document.createElement("p");
-pLoad.id = "pLoad";
+const porcentLoad = document.createElement("p");
+porcentLoad.id = "pLoad";
 
 document.body.appendChild(divLoadWindow);
-divLoadWindow.appendChild(divLoadContent);
+
 divLoadContent.appendChild(divLogoLoad);
-divLoadContent.appendChild(pLoad);
+divLoadContent.appendChild(porcentLoad);
+
+divLoadWindow.appendChild(divLoadContent);
 
 let count = 0;
 const total = 100; // Simulated total loading steps
