@@ -85,6 +85,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #2D2D37;
+    z-index: 1003;
 }
 
 header .iconos {
