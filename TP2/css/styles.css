@@ -85,7 +85,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #2D2D37;
-    z-index: 5;
+    z-index: 1003;
 }
 
 header .iconos,
@@ -95,13 +95,10 @@ header .logo-menu {
     cursor: pointer;
 }
 
-header .logo-menu {
+header .logo-menu, header .iconos {
     gap: 18px;
 }
 
-header .iconos {
-    gap: 1rem;
-}
 
 header .logo-menu a {
     display: flex;
@@ -332,8 +329,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 30em;
-    height: 55rem; */
 }
 
 .register,
@@ -683,6 +678,260 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
+/* ------------------Pagina del Juego----------------*/
+
+.breadcrumb{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 640px;
+    padding: 6px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    column-gap: 13px;
+}
+
+.breadcrumb img{
+    width: 8px;
+    height: auto;
+}
+
+.breadcrumb p{
+    font-size: 14px;
+    color: #484848;
+    font-weight: bold;
+    cursor: pointer;
+}
+.breadcrumb p:hover{
+    color: white;
+}
+
+.game-container, .game-description, .gameplays-container{
+    width: 1562px;
+}
+.game-container{
+  height: 750px;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-container img{
+    width:100%;
+    height: auto;
+}
+
+.btn-play{
+  background-color: #F72585;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.fa-play{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 40px;/*contenido se considera como una fuente por fontweasome*/
+    padding-left: 5px; /*centra icono boton en su contenedor*/
+    border-radius: 4px;
+}
+.btn-play:hover, .btn-share:hover{
+    transition: 0.2s;
+    background-color:#C71D6F;
+}
+
+/* .fa-share{
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 22px;
+    height: 22px;
+    font-size: 16.5px;
+} */
+
+.game-section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 31px;
+}
+
+.game-section h2{
+    color:white;
+    font-size: 23px;
+}
+
+.game-description{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 198px;
+    background-color: #282830;
+    height: 287px;
+    border-radius: 25px;
+}
+
+.game-description h2{
+    color:white;
+    font-size: 23px;
+}
+
+.game-description p{
+     text-align: left;
+     line-height: 150%;
+     color: white;
+}
+
+.game-description span{
+    text-decoration: underline;
+    color: #F72585;
+}
+.game-description-left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 14px;
+    width: 730px;
+    height:192px;
+    padding: 0px 20px;
+}
+
+.game-title{
+    display:flex;
+    flex-direction: row;
+    width:357px;
+    height:55px;
+    padding-bottom: 10px;
+    column-gap: 20px;
+}
+
+.btn-share{
+    background-color: #F72585;
+    color: white;
+    display:flex;
+    flex-direction: row;
+    column-gap:3px;
+    align-items: center;
+    justify-content: center;
+    width: 114px;
+    height: 32px;
+    padding: 4px 8px;
+    border-radius: 40px;
+}
+
+.btn-share img{
+    width: 22px;
+    height:22px;
+}
+
+.btn-share h3{
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.game-description-right{
+  display: flex;
+  flex-direction: column;
+  width: 651px;
+  height: 287px;
+  row-gap: 14px;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.controls-title{
+    display:flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.controls-title img{
+    width: 35px;
+    height: 35px;
+}
+.controls-title div{
+    display:flex;
+    flex-direction: row;
+    column-gap: 3px;
+}
+
+.game-description-right li{
+    color: white;
+    list-style-type: disc;
+}
+
+.game-description-right ul li p, .game-description-left p{
+    padding: 0px;
+}
+
+.gameplays-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 5px;
+    height: 254px;
+    background-color: #282830;
+    border-radius: 25px;
+}
+.gameplays-container h2{
+    padding: 10px 20px;
+}
+.gameplays-show, .gameplays-list{
+     display: flex;
+     flex-direction: row;
+}
+.gameplays-show{
+    padding: 20px;
+    column-gap: 158px;
+    justify-content: start;
+}
+
+.gameplays-list{
+    column-gap: 45px;
+}
+
+.gameplays-list img{
+    border-radius: 8px;
+    width: 229px;
+    height: 160px;
+}
+
+.gameplays-video{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+.gameplays-video img{
+    width: 209px;
+    height: 138px;
+}
+
+.gameplays-video button{
+    position: absolute;
+    top: 50%;
+    right: 97px;
+    background-color: transparent;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+.gameplays-video button img{
+    width: 30px;
+    height: auto;
+}
+
+
+
+.gameplays-video h2{
+    padding: 0px;
+}
+
 
 
 
@@ -696,7 +945,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
     header {
-        padding: 0.5rem 1rem;
+        /* padding: 0.5rem 1rem; */
     }
 
     header .buscador,
@@ -819,4 +1068,93 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
+}
+
+
+/*----------Sidebar----------*/
+
+/* Checkbox oculto */
+#menu-toggle {
+  display: none;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 204px;
+  height: 100%;
+  background: #0b0b0d;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+  z-index: 1002;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Roboto;
+  padding-top: 60px; /* Espacio para el header */
+}
+
+/* Sidebar visible cuando el checkbox está checked */
+#menu-toggle:checked ~ #sidebar-container .sidebar {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 20px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background: #1e1e22;
+}
+
+/* Ícono genérico */
+.icon {
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+/* Overlay (cierra menú al hacer click) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1001;
+}
+
+/* Cuando está activo */
+#menu-toggle:checked ~ .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Estilo para el label del menú hamburguesa */
+label[for="menu-toggle"] {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
