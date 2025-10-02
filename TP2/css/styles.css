@@ -614,21 +614,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* ------------------Pagina del Juego----------------*/
 
 .breadcrumb{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 640px;
+    padding: 6px;
     display: flex;
     flex-direction: row;
     margin-top: 8px;
     column-gap: 13px;
 }
 
+.breadcrumb img{
+    width: 8px;
+    height: auto;
+}
+
 .breadcrumb p{
+    font-size: 14px;
     color: #484848;
+    font-weight: bold;
+    cursor: pointer;
 }
 .breadcrumb p:hover{
     color: white;
 }
 
+.game-container, .game-description, .gameplays-container{
+    width: 1562px;
+}
 .game-container{
-  width: 1562px;
   height: 750px;
   overflow: hidden;
   position: relative;
@@ -678,25 +693,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     row-gap: 31px;
 }
 
+.game-section h2{
+    color:white;
+    font-size: 23px;
+}
+
 .game-description{
     display:flex;
     justify-content: center;
     align-items: center;
     gap: 198px;
     background-color: #282830;
-    width: 1562px;
     height: 287px;
     border-radius: 25px;
 }
 
 .game-description h2{
     color:white;
-    font-size: 16px;
+    font-size: 23px;
 }
 
 .game-description p{
      text-align: left;
-     line-height: 150%;;
+     line-height: 150%;
+     color: white;
 }
 
 .game-description span{
@@ -720,11 +740,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height:55px;
     padding-bottom: 10px;
     column-gap: 20px;
-}
-
-.game-title h2{
-    font-size: 23px;
-    font-weight: bold;
 }
 
 .btn-share{
@@ -761,11 +776,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 10px 20px;
 }
 
-.game-description-right h2{
-    color :white;
-    font-size: 26px;
-}
-
 .controls-title{
     display:flex;
     flex-direction: row;
@@ -791,7 +801,69 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0px;
 }
 
+.gameplays-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 5px;
+    height: 254px;
+    background-color: #282830;
+    border-radius: 25px;
+}
+.gameplays-container h2{
+    padding: 10px 20px;
+}
+.gameplays-show, .gameplays-list{
+     display: flex;
+     flex-direction: row;
+}
+.gameplays-show{
+    padding: 20px;
+    column-gap: 158px;
+    justify-content: start;
+}
 
+.gameplays-list{
+    column-gap: 45px;
+}
+
+.gameplays-list img{
+    border-radius: 8px;
+    width: 229px;
+    height: 160px;
+}
+
+.gameplays-video{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+.gameplays-video img{
+    width: 209px;
+    height: 138px;
+}
+
+.gameplays-video button{
+    position: absolute;
+    top: 50%;
+    right: 97px;
+    background-color: transparent;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+.gameplays-video button img{
+    width: 30px;
+    height: auto;
+}
+
+
+
+.gameplays-video h2{
+    padding: 0px;
+}
 
 
 
