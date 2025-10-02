@@ -9,8 +9,8 @@
 
 body {
     font-family: 'Roboto';
-    background-color: black;
-    padding-top: 3.5rem;
+    background-color: #1E1E1E;
+    padding-top: 86px;
 }
 
 
@@ -79,60 +79,51 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 3.45rem;
-    padding: 0.5rem;
+    height: 60px;
+    padding: 10px 34px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #2D2D37;
 }
 
-header .iconos {
+header .iconos, header .logo-menu {
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-header .iconos {
     cursor: pointer;
 }
 
-header .iconos a {
+header .logo-menu{
+    gap: 18px;
+}
+
+header .iconos{
+    gap: 1rem;
+}
+
+header .logo-menu a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: white;
-    gap: 0.5rem;
+    gap: 3px;
+    padding: 14px 0;
 }
 
 #logo-leveling {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
 }
 
-/*--------- Header Login ---------*/
-
-.header-login {
-    display: flex;
-    align-items: center;
-    justify-content: center
+#user{
+    width: 40px;
+    height: 40px;
 }
-
-.header-login a {
-    display: flex;
-    text-decoration: none;
-    color: white;
-    align-items: center;
-    gap: 0.3rem;
-}
-
 
 #menu-hamburgesa,
-#user,
 header .img-iconos {
-    font-size: 1.5rem;
-    color: white;
+    font-size: 22px;
+    color: #FDF9FB;
 }
 
 header .buscador,
@@ -141,36 +132,40 @@ header .buscador input {
 }
 
 #lupa {
-    width: 1rem;
-    height: 1rem;
+    color: #606079;
     position: absolute;
-    right: 1rem;
+    right: 15px;
     transform: translate(-50%);
     pointer-events: none;
 }
 
 /* -----Carrusel Principal----- */
 
-.sliders {
+section.sliders {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30rem;
+    height: 300px;
+    width: 940px;
+    margin-top: 53px;
 }
 
-.cards {
+div.cards {
     position: relative;
-    width: 100%;
-    height: 100%;
+    height: 90%;
+    width: 80%;
+    margin-top: 53px;
+}
+.img-container .img-card{
+    max-width: 62%;
+    max-height: 100%;
 }
 
 .img-card {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30rem;
-    height: 17rem;
-    border-radius: 2rem;
+    border-radius: 26px;
     cursor: pointer;
     transition: all 0.5s ease;
     transform: translate(-50%, -50%);
@@ -179,36 +174,41 @@ header .buscador input {
 }
 
 .img-card.center {
+    width: 605px;
+    height: 352px;
     transform: translate(-50%, -50%) scale(1.3);
     opacity: 1;
     z-index: 3;
 }
 
 .img-card.left {
+    width: 454px;
+    height: 264px;
     transform: translate(-100%, -50%) scale(1);
     opacity: 0.5;
     z-index: 2;
 }
 
 .img-card.right {
+    width: 454px;
+    height: 264px;
     transform: translate(0%, -50%) scale(1);
     opacity: 0.5;
     z-index: 2;
 }
+
 
 /*-------------Footer-------------*/
 
 footer {
     background-color: #2D2D37;
     color: #fff;
-    padding: 1rem 2rem 0 2rem;
-    margin-top: 2.5rem;
+
 }
 
 .contenedor-footer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
 .li-footer h3,
@@ -245,31 +245,30 @@ p {
     color: #f72585;
 }
 
-.contenedor-suscripcion form {
-    gap: 10px;
-}
-
-.suscripcion {
-    position: relative;
-    width: 100%;
+.contenedor-suscripcion form.suscripcion {
+   /* mobile */
 }
 
 .suscripcion input {
-    padding: 0.5rem 6.5rem 1rem 1rem;
-    border-radius: 1rem;
+    height: 60px;
+    width: 300px;
+    border-radius: 109px;
+    
+    /* padding: 0.5rem 6.5rem 1rem 1rem;
+    border-radius: 1rem; */
 }
 
 .btn-subscribirse {
     position: absolute;
-    right: 0.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 2rem;
+    height: 51px;
+    width: 138px;
+    padding: 8px 10px;
+    margin: 4px 10px 4px 10px;
+    border-radius: 40px;
     background: #f72585;
     color: #fff;
     cursor: pointer;
+    font-size: 23px;
     font-weight: bold;
 }
 
@@ -281,15 +280,13 @@ p {
 /* -------Redes sociales------- */
 
 .redes-footer {
-    margin-top: 2rem;
     background-color: #f72585;
-    padding: 0 2rem;
-    border-radius: 1rem 1rem 0 0;
+    padding: 0 15px;
+    height: 59px;
+    width: 300px;
+    border-radius: 30px 30px 0 0;
 }
 
-.redes-footer ul li a :hover {
-    color: #0d0909;
-}
 
 .redes-footer ul {
     display: flex;
@@ -297,16 +294,22 @@ p {
     gap: 2rem;
 }
 
+
+.redes-footer ul li a :hover {
+    color: #0d0909;
+}
+/*----------Login----------- */
 .container-principal {
     display: flex;
+    width: 1019px;
+    height: 809px;
 }
 
-/*----------Login----------- */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
 }
 
 .body-login {
@@ -330,14 +333,16 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30em;
-    height: 55rem;
+    /* width: 30em;
+    height: 55rem; */
 }
 
-#register,
-#login {
+.register,
+.login {
     color: white;
     background-color: #5e0f3a;
+    height: 100%;
+    width: 510px;
 }
 
 .register .text-register,
@@ -345,69 +350,73 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 397px;
 }
 
-#register h1,
-#login h1 {
-    margin-bottom: 0.5rem;
-    margin-top: 5rem;
-    font-size: 1.5rem;
-}
-
-#register h3,
-#login h3 {
-    margin-bottom: 10rem;
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 0 3rem;
-}
-
-#register p,
-#login p {
-    font-size: 0.7rem;
-}
-
-#register .btn-register,
-#login .btn-register {
-    padding: 1rem 1.2rem;
-    border: 0.5px solid white;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1.4rem;
+.register h1,
+.login h1 {
+    margin: 40px 0 12px 0 ;
+    font-size: 26px;
     font-weight: bold;
-    margin-bottom: 2rem;
-    margin-top: 0.5rem;
+}
+
+.register h3,
+.login h3 {
+    margin-bottom: 150px;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 110px;
+}
+
+.register p,
+.login p {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.register .btn-register,
+.login .btn-register {
+    width: 150px;
+    height: 60px;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 23px;
+    font-weight: bold;
     background: none;
     color: white;
 }
 
-#register .btn-register:hover,
-#login .btn-register:hover {
+.register .btn-register:hover,
+.login .btn-register:hover {
     background: white;
     color: #5e0f3a;
     transition: 0.3s;
 }
 
 .front-page-register {
-    width: 100%;
-    height: 100%;
+    width: 374px;
+    height: 374px;
     background-image: url(../img/icons/register.jpg);
+    /* escala la img para que entre completa */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin: 5px 64px 33px 92px;
 }
 
-#start-sesion,
-#form-register {
+.start-sesion,
+.form-register {
     justify-content: center;
     color: black;
     background-color: #f4f4f8;
+    height: 100%;
+    width: 510px;
 }
 
-#start-sesion h1 {
-    margin: 1rem 0 3rem 0;
-    font-size: 2rem;
+.start-sesion h1 {
+    margin: 213px 40px 8px 40px;
+    font-size: 26px;
 }
 
 .container-inputs {
@@ -422,52 +431,52 @@ main {
 .container-age {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    margin-bottom: 1rem;
-    padding: 0 3rem;
-    width: 100%;
-    box-sizing: border-box;
+    align-items: baseline;
+}
+.container-password label{
+    padding-left: 55px;
 }
 
 label {
-    margin-bottom: 0.3rem;
-    font-size: 0.75rem;
-    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 12px;
 }
 
 .complete-form {
-    width: 100%;
+    width: 400px;
+    height: 38px;
     padding: 0.8rem;
-    margin-right: 8rem;
+    margin: 0 54px 17px 54px;
     border-radius: 0.5rem;
     border: 1px solid gray;
-    font-size: 1rem;
+    font-size: 16px;
     background-color: #ECECEC;
     box-sizing: border-box;
 }
 
+
 .container-pass-input {
     position: relative;
-    box-sizing: border-box;
-    width: 100%;
+    /* box-sizing: border-box;
+    width: 100%; */
 }
 
-.container-pass-input input {
+/* .container-pass-input input {
     box-sizing: border-box;
-}
+} */
 
 .toggle-password {
     position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 65px;
+    top: 4px;
     cursor: pointer;
     color: black;
+    font-size: 30px;
 }
 
-#start-sesion a {
-    margin-bottom: 2rem;
-    font-size: 0.75rem;
+.start-sesion a {
+    margin: 8px 145px;
+    font-size: 12px;
     text-decoration: none;
     color: black;
 }
@@ -482,14 +491,14 @@ label {
 
 .btn-start-sesion,
 .btn-start-register {
-    width: 12rem;
-    padding: 0.7rem 1.2rem;
+    width: 250px;
+    height: 50px;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size:  23px;
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin: 25px 145px 35px 145px;
     background-color: #F72585;
     color: white;
 }
@@ -499,25 +508,25 @@ label {
     background: #7a194e;
     transition: 0.3s;
 }
-
+section.start-sesion form p{
+    height: 24px;
+    font-size: 16px;
+    margin: 0 40px;
+}
 .container-btns-social,
 .container-btns-social-register {
     display: flex;
-    gap: 4rem;
-    margin: 0.8rem;
+    height: 40px;
+    gap: 75px;
+    margin: 8px 0 200px 0;
 }
 
 .btn-facebook,
 .btn-google {
-    width: 3rem;
-    height: 3rem;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 40px;
     color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* -----Registro----- */
@@ -526,7 +535,7 @@ label {
     display: none;
 }
 
-#form-register h1 {
+.form-register h1 {
     margin: 1rem 0;
     font-size: 2rem;
 }
@@ -661,20 +670,92 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 359px;
+        justify-content: space-between;
     }
 
     .contenedor-footer {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 2rem;
+        gap: 182px;
+        margin: 52px 80px;
     }
 
-    .li-footer h3.titulo {
+    div.li-footer{
+        width: 133px;
+    }
+
+    div.li-footer h3.titulo {
         text-align: start;
+        font-size: 23px;
+        margin-bottom: 10px;
     }
 
-    p {
+    div.li-footer ul li a{
+        font-size: 16px;
+    }
+
+    div.contenedor-suscripcion h1{
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 50px;
         text-align: center;
     }
+
+    div.contenedor-suscripcion p{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    div.contenedor-suscripcion{
+        width: 600px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    div.contenedor-suscripcion form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    }
+
+     .suscripcion input {
+    height: 60px;
+    width: 400px;
+    border-radius: 109px;
+    padding: 0 10px;
+    font-size: 20px;
+    }
+
+    .btn-subscribirse {
+    position: absolute;
+    height: 51px;
+    width: 138px;
+    padding: 8px 10px;
+    margin: 4px 10px 4px 10px;
+    border-radius: 40px;
+    background: #f72585;
+    color: #fff;
+    cursor: pointer;
+    }
+
+    .btn-subscribirse span{
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    div.contenedor-suscripcion p {
+        text-align: center;
+    }
+
+    /* ----redes----- */
+    .redes-footer ul li a{
+        font-size: 29px;
+        margin: 15px 30px;
+    }
+
+   
 
 }

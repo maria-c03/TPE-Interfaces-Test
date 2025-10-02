@@ -17,16 +17,16 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="iconos">
+        <div class="logo-menu">
             <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburgesa"></i>
-            <a href="/index.html"><img src="./img/icons/logo.jpg" alt="Logo Leveling" id="logo-leveling"> Leveling</a>
+            <a href="index.html"><img src="./img/icons/logo.jpg" alt="Logo Leveling" id="logo-leveling">Leveling</a>
         </div>
         <div class="buscador">
-            <input type="text" placeholder="Buscar">
+            <input type="text" placeholder="Buscar" id="buscador">
             <i class="fa-solid fa-magnifying-glass" aria-label="icono lupa" id="lupa"></i>
         </div>
         <div class="iconos">
-            <i class="fa-solid fa-circle-user img-iconos icon-hover" id="user" aria-label="Perfil de usuario"></i>
+            <img src="./img/icons/usuario.jpg" alt="Perfil de usuario" id="user">
             <i class="fa-solid fa-cart-shopping img-iconos icon-hover" aria-label="Carro de compras"></i>
 
         </div>
@@ -36,9 +36,9 @@
         <!-- Carrusel principal-->
         <section class="sliders">
             <div class="cards">
-                <img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center">
-                <img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right">
-                <img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left">
+                <div class="img-container"><img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center"></div>
+                <div class="img-container"><img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right"></div>
+                <div class="img-container"><img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left"></div>
             </div>
         </section>
 
@@ -118,7 +118,7 @@
                 <h1>Leveling</h1>
                 <p>Unete a nosotros y no te pierdas nada!</p>
                 <form action="" class="suscripcion">
-                    <input type="email" placeholder="ejemplo@email.com">
+                    <input type="email" placeholder="ejemplo@email.com" id="suscription">
                     <button type="submit" class="btn-subscribirse">
                         <span>Suscribirse</span>
                     </button>
@@ -135,7 +135,7 @@
         </nav>
     </footer>
 
-    <script type="text/javascript" src="js/lodMain.js"></script>
+    <!-- <script type="text/javascript" src="js/lodMain.js"></script> -->
     <script type="text/javascript" src="js/carousel.js"></script>
     <script type="text/javascript" src="js/carouselPopulares.js"></script>
     <!-- <script type="text/javascript" src="js/menuCategories.js"></script> -->
