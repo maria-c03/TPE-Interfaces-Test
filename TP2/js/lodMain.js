@@ -30,7 +30,7 @@ let count = 0;
 const total = 100; // Simulated total loading steps
 const duration = 5000; // Total duration of the loading in milliseconds
 const intervalTime = duration / total; // Time between each step
-document.body.classList.add("noScroll");
+document.body.classList.add("noScroll"); //evito el scroll 
 
 const interval = setInterval(() => {
 
@@ -45,6 +45,6 @@ const interval = setInterval(() => {
         setTimeout(() => {
             document.body.classList.remove("noScroll");
             divLoadWindow.style.display = "none";
-        }, 2000); // Match the duration of the pulseRotate animation
+        }, 2000); 
     }
 }, intervalTime);
