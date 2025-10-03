@@ -16,7 +16,7 @@
 
 <body>
 
-  <!-- Checkbox para el hack -->
+    <!-- Checkbox para el hack -->
     <input type="checkbox" id="menu-toggle" />
 
     <!-- Contenedor para el sidebar (se llenará con JavaScript) -->
@@ -24,12 +24,12 @@
 
     <!-- Overlay -->
     <label class="overlay" for="menu-toggle"></label>
-    
+
     <!-- Header -->
     <header>
         <div class="logo-menu">
             <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburgesa"></i>
-            <a href="index.html"><img src="./img/icons/logo.jpg" alt="Logo Leveling" id="logo-leveling">Leveling</a>
+            <a href="index.html"><img src="./img/icons/logo.png" alt="Logo Leveling" id="logo-leveling">Leveling</a>
         </div>
         <div class="buscador">
             <input type="text" placeholder="Buscar" id="buscador">
@@ -77,25 +77,36 @@
         <!-- Carrusel principal-->
         <section class="sliders">
             <div class="cards">
-                <div class="img-container"><img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center"></div>
-                <div class="img-container"><img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right"></div>
-                <div class="img-container"><img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left"></div>
+                <div class="img-container"><img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center">
+                </div>
+                <div class="img-container"><img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right">
+                </div>
+                <div class="img-container"><img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left">
+                </div>
+            </div>
+        </section>
+
+        <section class="mobile-carousel">
+            <div class="mobile-cards">
+                <img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center">
+                <img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right">
+                <img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left">
             </div>
         </section>
 
         <!-- carrusel por categorias -->
         <section id="carousel-container">
             <div class="category-container">
-         
+
             </div>
             <div class="category-container">
-                
+
             </div>
             <div class="category-container">
-                
+
             </div>
             <div class="category-container">
-             
+
             </div>
         </section>
 
@@ -176,11 +187,13 @@
         </nav>
     </footer>
 
-    <!-- <script type="text/javascript" src="js/lodMain.js"></script> -->
+    <script type="text/javascript" src="js/lodMain.js"></script>
+    <script type="text/javascript" src="js/carouselPopularesMovile.js"></script>
+    <script type="text/javascript" src="js/loadSidebar.js"></script>
     <script type="text/javascript" src="js/menuCategories.js"></script>
     <!-- <script type="text/javascript" src="js/carousel.js"></script> -->
     <script type="text/javascript" src="js/carouselPopulares.js"></script>
-    <script type="text/javascript" src="js/profileDrop.js"></script>
+    <!-- <script type="text/javascript" src="js/dropDownProfile.js"></script> -->
 
 </body>
 

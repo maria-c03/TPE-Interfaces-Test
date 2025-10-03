@@ -4,6 +4,10 @@ let eyeIcon = document.querySelectorAll(".toggle-password").forEach(eyeIcon => {
     eyeIcon.addEventListener("click", togglePassword);
 });
 
+let eyesIcons = document.querySelectorAll(".toggle-password-register").forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", togglePassword);
+});
+
 function togglePassword() {
     // paso el icono que dispara el evento
     let eyeIcon = this;
