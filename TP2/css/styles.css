@@ -112,7 +112,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #111;
+    background-color: #2D2D37;
     color: #eee;
     padding: 0 16px;
 }
@@ -302,6 +302,7 @@ div.contenedor-suscripcion p {
         justify-content: space-between;
         align-items: center;
         background-color: #2D2D37;
+        width: auto;
         z-index: 5;
     }
 
@@ -426,6 +427,7 @@ div.contenedor-suscripcion p {
         flex-direction: column;
         align-items: center;
         height: 359px;
+        background-color: #2D2D37;
     }
 
     .contenedor-footer {
