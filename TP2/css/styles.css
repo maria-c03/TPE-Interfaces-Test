@@ -2154,3 +2154,159 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
 }
+
+
+/* Estilos Caja de comentarios  */
+
+
+body {
+  background-color: #0b0b0d;
+  width: 880px;
+  margin: 0 auto;
+}
+
+.input-container {
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  width: 833px;
+  height: 108px;
+  background: #282830;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-bottom: 27px;
+}
+
+.alto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+}
+
+.alto,
+.bajo-comentario,
+.bajo-crear-comentario {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.linea-divisora {
+  width: 100%;
+  height: 2px;
+  background-color: #2d2d37;
+  margin: 0;
+}
+
+.comment-header-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  line-height: 21px;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  width: 36px;
+  height: 32px;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.register-message {
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.bajo-crear-comentario,
+.bajo-comentario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+}
+
+.input-placeholder {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+.edit-icon {
+  width: 23px;
+  height: 21px;
+}
+
+.profile-avatar svg,
+.edit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+#comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.see-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+#load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  width: 106px;
+  height: 39px;
+  background: #c71d6f;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+#load-more:hover {
+  background: #a8185f;
+}
+
+.content-header {
+  width: 833px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #fff; /* Ajustado el color de la línea según Figma */
+  color: #fff;
+  margin-bottom: 27px;
+  margin-top: 27px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px; /* Agregado según Figma (150% de 12px) */
+  align-items: center; /* Asegura la alineación vertical */
+  gap: 15px; /* Agregado para el espacio entre el ícono y el texto */
+}
+
+.content-header .profile-avatar {
+  width: 25px; /* Ajustado al tamaño del ícono del chat en Figma */
+  height: 29px; /* Ajustado al tamaño del ícono del chat en Figma */
+}
