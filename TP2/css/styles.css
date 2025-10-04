@@ -55,7 +55,6 @@ header .logo-menu a {
     height: 32px;
 }
 
-<<<<<<< HEAD
 #user{
     width: 40px;
     height: 40px;;
@@ -233,8 +232,6 @@ header .logo-menu a {
     justify-content: center
 }
 
-=======
->>>>>>> 18a73ee7da13191749d537be3ea02b0cd92dabac
 #menu-hamburgesa,
 header .img-iconos {
     font-size: 22px;
@@ -395,7 +392,6 @@ div.contenedor-suscripcion p {
 }
 
 
-<<<<<<< HEAD
 .redes-footer ul li a :hover {
     color: #0d0909;
 }
@@ -1021,13 +1017,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0px;
 }
 
-=======
->>>>>>> 18a73ee7da13191749d537be3ea02b0cd92dabac
-
-
-
-
-
 
 
 
@@ -1241,7 +1230,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         grid-template-columns: repeat(5, 1fr);
         justify-items: start;
         margin: 52px 40px;
-        width: 1700px;
+        width: 100%;
     }
 
     div.li-footer {
@@ -1378,7 +1367,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         background-color: #f72585;
         padding: 0 15px;
         height: 59px;
-        width: 300px;
+        width: auto;
         border-radius: 30px 30px 0 0;
     }
 
@@ -1386,7 +1375,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .redes-footer ul {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        padding: 0px 30px;
+        gap: auto;
     }
 
 
@@ -1954,16 +1944,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         background-color: #C71D6F;
     }
 
-    /* .fa-share{
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    width: 22px;
-    height: 22px;
-    font-size: 16.5px;
-} */
-
     .game-section {
         display: flex;
         flex-direction: column;
@@ -2146,7 +2126,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
 
-
     .gameplays-video h2 {
         padding: 0px;
     }
@@ -2240,10 +2219,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         align-items: center;
         cursor: pointer;
     }
-
-
-
-
-
 
 }
