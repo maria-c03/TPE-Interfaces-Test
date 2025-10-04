@@ -60,170 +60,6 @@ header .logo-menu a {
     height: 40px;;
 }
 
-
-
-    /*------------- Profile Container --------------*/
-    
-    .profile-settings-container{
-        position: absolute;
-        visibility: hidden;
-        top: 90px;
-        left: 83%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 372px;
-        height: auto;
-        background-color: #2D2D37;
-        border-radius: 8px;
-        color: white;
-        opacity: 0;
-        transform: translateY(-30px);
-        pointer-events: none;
-        transition: all 0.4s ease-in-out;
-    }
-
-
-.profile-settings-container.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    height: auto;
-    transform: translateY(0);
-    }
-
-    .prof-toggle-cancel{
-        width:100%;
-        display:flex;
-        justify-content: flex-end;
-        font-size: 24px;
-        color: white
-    }
-
-    .prof-toggle-cancel:hover{
-        transition: 150ms;
-        cursor: pointer;
-        color: #606079;
-    }
-    
-    .prof-toggle-cancel i{
-        padding: 12px 16px 10px 10px;
-    }
-
-
-    .profile-user-data{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        width: 179px;
-        height: 167px;
-    }
-    
-    .profile-user-data h2{
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-    .profile-user-data h3{
-       color: #AEA7AA;
-       font-size: 1rem;
-       font-weight: normal;
-    }
-    
-    .profile-user-data img{
-        width: 60px;
-        height: 60px;
-        padding-bottom: 12px;
-    }
-    
-    .container-user-opcion{
-        width: 100%;
-        display: flex;
-        flex-direction:column;
-        align-items: start;
-    }
-
-    .profile-user-opcion{
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-        padding : 24px 0 20px 38px;
-        font-weight: normal;
-    }
-
-    .profile-user-opcion li{
-        opacity: 0;
-        transform: translateY(30px);
-        /* La animación solo se activa cuando el menú está visible */
-        animation: none;
-    }
-
-.profile-settings-container.active .profile-user-opcion li {
-    /* forwards establece que el elemento conserve
-     el ultimo estado que quedo en la animacion, si no esta la animacion se hace
-     y desaparecen */
-    animation: slideUpFade 0.5s forwards; 
-}
-/* Otorgamos animacion por cada hermano individualmente */
-.profile-settings-container.active .profile-user-opcion li:nth-child(1) { animation-delay: 0.08s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(2) { animation-delay: 0.16s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(3) { animation-delay: 0.24s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(4) { animation-delay: 0.32s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(5) { animation-delay: 0.40s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(6) { animation-delay: 0.48s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(7) { animation-delay: 0.56s; }
-.profile-settings-container.active .profile-user-opcion li:nth-child(8) { animation-delay: 0.64s; }
-
-    @keyframes slideUpFade{
-        0% {
-            opacity: 0;
-            transform: translateY(-100%);
-        }
-        100%{
-           opacity: 1;
-           transform: translateY(0%);
-        }
-    }
-
-    .profile-user-opcion li{
-        display:flex;
-        flex-direction: row;
-    }
-
-    .profile-user-opcion li:hover{
-        color:#606079;
-        cursor:pointer;
-    }
-       
-
-    .profile-user-opcion img{
-        width:24px;
-        height:24px;
-        padding-right: 8px
-    }
-
-    .social-icons{
-        display:flex;
-        column-gap: 30px;
-        padding: 20px;
-    }
-
-    .social-icons i{
-        font-size: 24px;
-        cursor: pointer;
-        color: #606079;
-    }
-
-    .social-icons i:hover{
-        transition: 150ms;
-        transform: scale(1.2);
-        cursor: pointer;
-        color: white;
-    }
-
-
-
-
-
 /*--------- Header Login ---------*/
 
 .header-login {
@@ -289,7 +125,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #111;
+    background-color: #2D2D37;
     color: #eee;
     padding: 0 16px;
 }
@@ -1099,6 +935,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         justify-content: space-between;
         align-items: center;
         background-color: #2D2D37;
+        width: auto;
         z-index: 5;
     }
 
@@ -1158,6 +995,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
     /* -----Carrusel Principal----- */
+    
+    .mobile-cards{
+        display: none;
+    }
 
     section.sliders {
         display: flex;
@@ -1223,6 +1064,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         flex-direction: column;
         align-items: center;
         height: 359px;
+        background-color: #2D2D37;
     }
 
     .contenedor-footer {
@@ -1381,7 +1223,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
     .redes-footer ul li a :hover {
-        color: #0d0909;
+        color: #5E0F3A;
     }
 
     /*----------Login----------- */
@@ -1759,9 +1601,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         justify-content: center;
     }
 
-    /*----------- Profile Container -----------*/
-
-    .profile-settings-container {
+   /* ----------perfil------------------ */
+       .profile-settings-container{
+        position: absolute;
+        visibility: hidden;
+        top: 90px;
+        left: 83%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1770,104 +1615,150 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         background-color: #2D2D37;
         border-radius: 8px;
         color: white;
+        opacity: 0;
+        transform: translateY(-30px);
+        pointer-events: none;
+        transition: all 0.4s ease-in-out;
     }
 
-    .toggle-cancel {
-        width: 100%;
-        display: flex;
+
+.profile-settings-container.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    height: auto;
+    transform: translateY(0);
+    }
+
+    .prof-toggle-cancel{
+        width:100%;
+        display:flex;
         justify-content: flex-end;
         font-size: 24px;
-        ;
         color: white
     }
 
-    .toggle-cancel:hover {
+    .prof-toggle-cancel:hover{
         transition: 150ms;
         cursor: pointer;
         color: #606079;
     }
-
-    .toggle-cancel i {
+    
+    .prof-toggle-cancel i{
         padding: 12px 16px 10px 10px;
     }
 
 
-    .profile-user-data {
-        display: flex;
+    .profile-user-data{
+        display:flex;
         flex-direction: column;
         align-items: center;
         width: 179px;
         height: 167px;
     }
-
-    .profile-user-data h2 {
+    
+    .profile-user-data h2{
         font-size: 1.25rem;
         font-weight: bold;
     }
-
-    .profile-user-data h3 {
-        color: #AEA7AA;
-        font-size: 1rem;
-        font-weight: normal;
+    .profile-user-data h3{
+       color: #AEA7AA;
+       font-size: 1rem;
+       font-weight: normal;
     }
-
-    .profile-user-data img {
+    
+    .profile-user-data img{
         width: 60px;
         height: 60px;
         padding-bottom: 12px;
     }
-
-    .container-user-opcion {
+    
+    .container-user-opcion{
         width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-direction:column;
         align-items: start;
     }
 
-    .profile-user-opcion {
+    .profile-user-opcion{
         display: flex;
         flex-direction: column;
         row-gap: 10px;
-        padding: 24px 0 20px 38px;
-        ;
+        padding : 24px 0 20px 38px;
         font-weight: normal;
     }
 
-    .profile-user-opcion li {
-        display: flex;
+    .profile-user-opcion li{
+        opacity: 0;
+        transform: translateY(30px);
+        /* La animación solo se activa cuando el menú está visible */
+        animation: none;
+    }
+
+.profile-settings-container.active .profile-user-opcion li {
+    /* forwards establece que el elemento conserve
+     el ultimo estado que quedo en la animacion, si no esta la animacion se hace
+     y desaparecen */
+    animation: slideUpFade 0.5s forwards; 
+}
+/* Otorgamos animacion por cada hermano individualmente */
+.profile-settings-container.active .profile-user-opcion li:nth-child(1) { animation-delay: 0.08s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(2) { animation-delay: 0.16s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(3) { animation-delay: 0.24s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(4) { animation-delay: 0.32s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(5) { animation-delay: 0.40s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(6) { animation-delay: 0.48s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(7) { animation-delay: 0.56s; }
+.profile-settings-container.active .profile-user-opcion li:nth-child(8) { animation-delay: 0.64s; }
+
+    @keyframes slideUpFade{
+        0% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        100%{
+           opacity: 1;
+           transform: translateY(0%);
+        }
+    }
+
+    .profile-user-opcion li{
+        display:flex;
         flex-direction: row;
     }
 
-    .profile-user-opcion li:hover {
-        color: #606079;
-        cursor: pointer;
+    .profile-user-opcion li:hover{
+        color:#606079;
+        cursor:pointer;
     }
+       
 
-
-    .profile-user-opcion img {
-        width: 24px;
-        height: 24px;
+    .profile-user-opcion img{
+        width:24px;
+        height:24px;
         padding-right: 8px
     }
 
-    .social-icons {
-        display: flex;
+    .social-icons{
+        display:flex;
         column-gap: 30px;
         padding: 20px;
     }
 
-    .social-icons i {
+    .social-icons i{
         font-size: 24px;
         cursor: pointer;
         color: #606079;
     }
 
-    .social-icons i:hover {
+    .social-icons i:hover{
         transition: 150ms;
         transform: scale(1.2);
         cursor: pointer;
         color: white;
     }
+
+
 
 
     /* ------------------Pagina del Juego----------------*/
