@@ -370,6 +370,10 @@ div.contenedor-suscripcion p {
     }
 
     /* -----Carrusel Principal----- */
+    
+    .mobile-cards{
+        display: none;
+    }
 
     section.sliders {
         display: flex;
