@@ -388,6 +388,111 @@ div.contenedor-suscripcion p {
     color: #0d0909;
 }
 
+/*----------------------PROFILE MOVIL----------------------------*/
+
+
+    .profile-settings-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2D2D37;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1003;
+    }
+
+
+.profile-settings-container.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 6;
+    pointer-events: auto;
+    transform: translateY(0);
+    }
+
+.prof-toggle-cancel{
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    color: white
+    }
+
+.prof-toggle-cancel i{
+    padding: 12px 16px 10px 10px;
+    }
+
+
+.profile-user-data{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 179px;
+    height: 167px;
+    }
+    
+.profile-user-data h2{
+    font-size: 1.25rem;
+    font-weight: bold;
+    }
+.profile-user-data h3{
+    color: #AEA7AA;
+    font-size: 1rem;
+    font-weight: normal;
+    }
+    
+.profile-user-data img{
+    width: auto;
+    height: 60px;
+    padding-bottom: 6px;
+    }
+
+.profile-user-opcion li{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-user-opcion img{
+    width:auto;
+    height:30px;
+    padding-right: 24px
+}
+
+.container-user-opcion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    }
+
+.profile-user-opcion{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    padding : 24px 0 40px 50px;
+    font-weight: normal;
+    }
+
+.social-icons{
+    display:flex;
+    column-gap: 40px;
+    padding: 20px;
+    }
+
+.social-icons i{
+    font-size: 35px;
+    color: #606079;
+    }
+
+
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
@@ -1227,7 +1332,7 @@ div.contenedor-suscripcion p {
     }
 
     .profile-user-data img {
-        width: 60px;
+        width: auto;
         height: 60px;
         padding-bottom: 12px;
     }
