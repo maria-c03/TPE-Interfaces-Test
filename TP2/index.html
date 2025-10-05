@@ -39,7 +39,7 @@
             <img src="./img/icons/loged-profile-icon.png" alt="Perfil de usuario" id="user">
             <i class="fa-solid fa-cart-shopping img-iconos icon-hover" aria-label="Carro de compras"></i>
 
-        </div>
+        <!-- </div>
         <div class="profile-settings-container">
             <div class="prof-toggle-cancel">
                 <i class="fa-solid fa-xmark"></i>
@@ -87,10 +87,10 @@
                 <i class="fa-brands fa-instagram"></i>
                 <i class="fa-brands fa-x-twitter"></i>
             </div>
-        </div>
+        </div> -->
     </header>
 
-    <main id="home">
+    <main class="home">
         <!-- Carrusel principal-->
         <section class="sliders">
             <div class="cards">
@@ -101,8 +101,8 @@
                 <div class="img-container"><img src="./img/imgJuegos/pinguin.jpg" alt="pinguin" class="img-card left">
                 </div>
             </div>
-        </section>
-
+        </section> 
+        <!-- Carrusel principal version Mobile-->
         <section class="mobile-carousel">
             <div class="mobile-cards">
                 <img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center">
@@ -112,18 +112,80 @@
         </section>
 
         <!-- carrusel por categorias -->
-        <section id="carousel-container">
-            <div class="category-container">
+        <section class="carousels">
+            <div class="category-container" data-category="recomendados">
+                <h3>Porque jugaste a Monopoly</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
 
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="category-container">
 
+            <div class="category-container" data-category="aventura">
+                <h3>Aventura</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="category-container">
 
+            <div class="category-container" data-category="accion">
+                <h3>Acción</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="category-container">
 
+            <div class="category-container" data-category="terror">
+                <h3>Terror</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="category-container" data-category="logica">
+                <h3>Lógica</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -138,9 +200,9 @@
     </main>
 
 
+    
 
-
-    <footer>
+    <footer class="home">
         <div class="contenedor-footer">
             <div class="li-footer">
                 <h3 class="titulo">Sitio</h3>
@@ -208,9 +270,9 @@
     <script type="text/javascript" src="js/carouselPopularesMovile.js"></script>
     <script type="text/javascript" src="js/loadSidebar.js"></script>
     <script type="text/javascript" src="js/menuCategories.js"></script>
-    <!-- <script type="text/javascript" src="js/carousel.js"></script> -->
     <script type="text/javascript" src="js/carouselPopulares.js"></script>
-    <script type="text/javascript" src="js/dropDownProfile.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/profileDrop.js"></script>
 
 </body>
 
