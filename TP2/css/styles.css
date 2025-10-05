@@ -19,10 +19,6 @@ body {
 
 /*----------Header----------*/
 
-#sidebar-container,
-#menu-toggle, #menu-hamburguesa{
-    display: none;
-}
 
 header {
     display: flex;
@@ -1726,7 +1722,7 @@ div.contenedor-suscripcion p {
         background: #0b0b0d;
         transition: left 0.3s ease;
         overflow-y: auto;
-        z-index: 990;
+        z-index: 999;
         font-size: 13px;
         font-weight: 500;
         font-family: Roboto;
