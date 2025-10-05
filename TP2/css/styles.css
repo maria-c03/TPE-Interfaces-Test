@@ -581,7 +581,7 @@ div.contenedor-suscripcion p {
 /* Estilos Caja de comentarios  */
 
 
-comentarios-container {
+.comentarios-container {
   background-color: #0b0b0d;
   width: 880px;
   margin: 0 auto;
