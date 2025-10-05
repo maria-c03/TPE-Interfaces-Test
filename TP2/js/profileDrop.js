@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	const btnUser = document.querySelector('#user');
 	const profileMenu = document.querySelector('.profile-settings-container');
-    const btnCancel = document.querySelector('.prof-toggle-cancel');
+    const btnCancel = document.querySelector('.fa-xmark');
 	if (btnUser && profileMenu) {
 		btnUser.addEventListener('click', function(e) {
 			profileMenu.classList.toggle('active');

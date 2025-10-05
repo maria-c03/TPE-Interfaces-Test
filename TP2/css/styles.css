@@ -2,6 +2,7 @@
     list-style: none;
     outline: none;
     border: none;
+    box-sizing: border-box;
     text-decoration: none;
     margin: 0;
     padding: 0;
@@ -17,8 +18,9 @@ body {
 }
 
 /*----------Header----------*/
+
 #sidebar-container,
-#menu-toggle {
+#menu-toggle, #menu-hamburguesa{
     display: none;
 }
 
@@ -382,6 +384,10 @@ div.contenedor-suscripcion p {
 }
 
 
+.redes-footer ul li a :hover {
+    color: #0d0909;
+}
+
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
@@ -474,6 +480,10 @@ div.contenedor-suscripcion p {
         display: flex;
         align-items: center;
         cursor: pointer;
+    }
+
+    #menu-hamburguesa{
+        display:block;
     }
 
     header .logo-menu,
@@ -611,7 +621,7 @@ div.contenedor-suscripcion p {
         grid-template-columns: repeat(5, 1fr);
         justify-items: start;
         margin: 52px 40px;
-        width: 1700px;
+        width: 100%;
     }
 
     div.li-footer {
@@ -748,17 +758,9 @@ div.contenedor-suscripcion p {
         background-color: #f72585;
         padding: 0 15px;
         height: 59px;
-        width: 300px;
+        width: auto;
         border-radius: 30px 30px 0 0;
     }
-
-
-    /* .redes-footer ul {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    } */
-
 
     .redes-footer ul li a :hover {
         color: #5E0F3A;
@@ -894,11 +896,21 @@ div.contenedor-suscripcion p {
     .container-email,
     .container-password,
     .container-nickName,
-    .container-age {
+    .container-age, .container-name, .container-surname {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: baseline;
     }
+
+ /* invalid utiliza required de input y valida si se cumple la condicion o no*/
+    #form-register .container-email input:focus:invalid{
+    border: none;
+    outline: 1px solid #F23D4F;
+    }
+
+    #form-register .container-email input:focus:invalid ~ label{
+    color: #F23D4F;
+    } 
 
     div label.login-pass-label {
         padding-left: 54px;
@@ -1014,6 +1026,7 @@ div.contenedor-suscripcion p {
         padding: 30px 0 8px 0;
         font-size: 26px;
         margin-top: 10px;
+        line-height: 1.5;
     }
 
     div.container-name-surname div.container-name .complete-form-info,
@@ -1044,12 +1057,12 @@ div.contenedor-suscripcion p {
         flex-direction: row;
         width: 400px;
         gap: 30px;
-        margin-bottom: 8px;
+        margin-top: 16px;
     }
 
     .container-name,
     .container-surname {
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
         width: 185px;
         height: 38px;
     }
@@ -1067,6 +1080,21 @@ div.contenedor-suscripcion p {
     .container-password label,
     .container-password p {
         padding-left: 40px;
+    }
+
+    /* Validación visual para el mensaje de contraseña */
+    .container-password p.valid {
+        display: none;
+
+    }
+    .container-password p.invalid, .container-password p.invalid + label{
+        color: #e74c3c;
+        display: block;
+    }
+    
+    .container-password .container-pass-input input.invalid:focus{
+        outline: 1px solid #e74c3c;
+        border:none;
     }
 
     .container-optional {
@@ -1139,23 +1167,16 @@ div.contenedor-suscripcion p {
         justify-content: center;
     }
 
+
     /* ----------perfil------------------ */
     .profile-settings-container {
         position: absolute;
-        visibility: hidden;
         top: 90px;
-        left: 83%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        left: 80%;
         width: 372px;
         height: auto;
-        background-color: #2D2D37;
         border-radius: 8px;
-        color: white;
-        opacity: 0;
         transform: translateY(-30px);
-        pointer-events: none;
         transition: all 0.4s ease-in-out;
     }
 
@@ -1173,7 +1194,6 @@ div.contenedor-suscripcion p {
         display: flex;
         justify-content: flex-end;
         font-size: 24px;
-        color: white
     }
 
     .prof-toggle-cancel:hover {
@@ -1286,25 +1306,19 @@ div.contenedor-suscripcion p {
         }
     }
 
-    .profile-user-opcion li {
-        display: flex;
-        flex-direction: row;
+
+    .profile-user-opcion li:hover{
+        color:#606079;
+        cursor:pointer;
     }
 
-    .profile-user-opcion li:hover {
-        color: #606079;
-        cursor: pointer;
-    }
-
-
-    .profile-user-opcion img {
-        width: 24px;
-        height: 24px;
+    .profile-user-opcion img{
+        width:auto;
+        height:24px;
         padding-right: 8px
     }
 
-    .social-icons {
-        display: flex;
+    .social-icons{
         column-gap: 30px;
         padding: 20px;
     }
@@ -1312,7 +1326,6 @@ div.contenedor-suscripcion p {
     .social-icons i {
         font-size: 24px;
         cursor: pointer;
-        color: #606079;
     }
 
     .social-icons i:hover {
@@ -1585,7 +1598,6 @@ div.contenedor-suscripcion p {
     }
 
 
-
     .gameplays-video h2 {
         padding: 0px;
     }
@@ -1679,10 +1691,5 @@ div.contenedor-suscripcion p {
         align-items: center;
         cursor: pointer;
     }
-
-
-
-
-
 
 }

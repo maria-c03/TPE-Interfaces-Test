@@ -19,3 +19,6 @@ function togglePassword() {
     eyeIcon.classList.toggle("fa-eye-slash");
     eyeIcon.classList.toggle("fa-eye");
 }
+
+
+
