@@ -15,19 +15,20 @@
 
 <body>
 
-    <!-- Checkbox para el hack -->
-    <input type="checkbox" id="menu-toggle" />
+<!-- Checkbox debe estar al mismo nivel que el sidebar-container -->
+<input type="checkbox" id="menu-toggle" />
 
-    <!-- Contenedor para el sidebar (se llenará con JavaScript) -->
-    <div id="sidebar-container"></div>
+<!-- Contenedor del sidebar -->
+<div id="sidebar-container"></div>
 
-    <!-- Overlay -->
-    <label class="overlay" for="menu-toggle"></label>
+<!-- Overlay -->
+<label class="overlay" for="menu-toggle"></label>
 
-    <!-- Header -->
-    <header>
-        <div class="logo-menu">
-            <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburguesa"></i>
+<!-- Header -->
+<header>
+    <div class="logo-menu">
+        <!-- El botón hamburguesa NO debe ser un label -->
+        <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburguesa"></i>
             <a href="index.html"><img src="./img/icons/logo.png" alt="Logo Leveling" id="logo-leveling">Leveling</a>
         </div>
         <div class="buscador">
