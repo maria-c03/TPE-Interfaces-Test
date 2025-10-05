@@ -32,6 +32,7 @@ header {
     width: 100%;
     padding: 10px 14px;
     background-color: #2D2D37;
+    z-index: 1100;
 
 }
 
@@ -1725,7 +1726,7 @@ div.contenedor-suscripcion p {
         background: #0b0b0d;
         transition: left 0.3s ease;
         overflow-y: auto;
-        z-index: 1002;
+        z-index: 990;
         font-size: 13px;
         font-weight: 500;
         font-family: Roboto;
@@ -1780,7 +1781,7 @@ div.contenedor-suscripcion p {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        z-index: 1001;
+        z-index: 990;
     }
 
     /* Cuando está activo */
