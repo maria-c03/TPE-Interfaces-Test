@@ -490,6 +490,249 @@ div.contenedor-suscripcion p {
     }
 
 
+    /*----------Sidebar----------*/
+
+     #menu-toggle {
+         display: none;
+     }
+
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 204px;
+        height: 100%;
+        background: #0b0b0d;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        z-index: 999;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: Roboto;
+        padding-top: 60px;
+        /* Espacio para el header */
+    }
+
+    /* Sidebar visible cuando el checkbox está checked */
+    #menu-toggle:checked~#sidebar-container .sidebar {
+        left: 0;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar ul li {
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar ul li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+        padding: 12px 20px;
+        width: 100%;
+        /* transition: background 0.3s; */
+    }
+
+    .sidebar ul li a:hover {
+        background: #1e1e22;
+    }
+
+    /* Ícono genérico */
+    .icon {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    /* Overlay (cierra menú al hacer click) */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 990;
+    }
+
+    /* Cuando está activo */
+    #menu-toggle:checked~.overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+    /* Estilo para el label del menú hamburguesa */
+    label[for="menu-toggle"] {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+/* Estilos Caja de comentarios  */
+
+
+.comentarios-container {
+  background-color: #0b0b0d;
+  width: 880px;
+  margin: 0 auto;
+}
+
+.input-container {
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  width: 833px;
+  height: 108px;
+  background: #282830;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-bottom: 27px;
+}
+
+.alto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+}
+
+.alto,
+.bajo-comentario,
+.bajo-crear-comentario {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.linea-divisora {
+  width: 100%;
+  height: 2px;
+  background-color: #2d2d37;
+  margin: 0;
+}
+
+.comment-header-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  line-height: 21px;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  width: 36px;
+  height: 32px;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.register-message {
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.bajo-crear-comentario,
+.bajo-comentario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+}
+
+.input-placeholder {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+.edit-icon {
+  width: 23px;
+  height: 21px;
+}
+
+.profile-avatar svg,
+.edit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+#comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.see-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+#load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  width: 106px;
+  height: 39px;
+  background: #c71d6f;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+#load-more:hover {
+  background: #a8185f;
+}
+
+.content-header {
+  width: 833px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #fff; /* Ajustado el color de la línea según Figma */
+  color: #fff;
+  margin-bottom: 27px;
+  margin-top: 27px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px; /* Agregado según Figma (150% de 12px) */
+  align-items: center; /* Asegura la alineación vertical */
+  gap: 15px; /* Agregado para el espacio entre el ícono y el texto */
+}
+
+.content-header .profile-avatar {
+  width: 25px; /* Ajustado al tamaño del ícono del chat en Figma */
+  height: 29px; /* Ajustado al tamaño del ícono del chat en Figma */
+}
+
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
@@ -1843,248 +2086,8 @@ div.contenedor-suscripcion p {
     }
 
 
-    /*----------Sidebar----------*/
-
-     #menu-toggle {
-         display: none;
-     }
-
-    /* Sidebar */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 204px;
-        height: 100%;
-        background: #0b0b0d;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-        z-index: 999;
-        font-size: 13px;
-        font-weight: 500;
-        font-family: Roboto;
-        padding-top: 60px;
-        /* Espacio para el header */
-    }
-
-    /* Sidebar visible cuando el checkbox está checked */
-    #menu-toggle:checked~#sidebar-container .sidebar {
-        left: 0;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .sidebar ul li {
-        display: flex;
-        align-items: center;
-    }
-
-    .sidebar ul li a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #fff;
-        padding: 12px 20px;
-        width: 100%;
-        /* transition: background 0.3s; */
-    }
-
-    .sidebar ul li a:hover {
-        background: #1e1e22;
-    }
-
-    /* Ícono genérico */
-    .icon {
-        margin-right: 10px;
-        font-size: 13px;
-    }
-
-    /* Overlay (cierra menú al hacer click) */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-        z-index: 990;
-    }
-
-    /* Cuando está activo */
-    #menu-toggle:checked~.overlay {
-        opacity: 1;
-        pointer-events: auto;
-    }
 
 
-    /* Estilo para el label del menú hamburguesa */
-    label[for="menu-toggle"] {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    /* Estilos Caja de comentarios  */
-
-
-body {
-  background-color: #0b0b0d;
-  width: 880px;
-  margin: 0 auto;
-}
-
-.input-container {
-  font-family: "Roboto", sans-serif;
-  color: #ffffff;
-  width: 833px;
-  height: 108px;
-  background: #282830;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  margin-bottom: 27px;
-}
-
-.alto {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-}
-
-.alto,
-.bajo-comentario,
-.bajo-crear-comentario {
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.linea-divisora {
-  width: 100%;
-  height: 2px;
-  background-color: #2d2d37;
-  margin: 0;
-}
-
-.comment-header-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  line-height: 21px;
-}
-
-.profile-avatar {
-  display: flex;
-  align-items: center;
-  width: 36px;
-  height: 32px;
-}
-
-.user-name {
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.register-message {
-  font-weight: 400;
-  font-size: 12px;
-  margin-left: auto;
-}
-
-.opacity {
-  opacity: 0.5;
-}
-
-.bajo-crear-comentario,
-.bajo-comentario {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50%;
-}
-
-.input-placeholder {
-  font-family: "Roboto";
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 21px;
-  color: #ffffff;
-}
-
-.edit-icon {
-  width: 23px;
-  height: 21px;
-}
-
-.profile-avatar svg,
-.edit-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-#comments-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.see-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-}
-
-#load-more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 10px;
-  width: 106px;
-  height: 39px;
-  background: #c71d6f;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 23px;
-  font-weight: 700;
-  transition: background-color 0.3s;
-}
-
-#load-more:hover {
-  background: #a8185f;
-}
-
-.content-header {
-  width: 833px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 2px solid #fff; /* Ajustado el color de la línea según Figma */
-  color: #fff;
-  margin-bottom: 27px;
-  margin-top: 27px;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px; /* Agregado según Figma (150% de 12px) */
-  align-items: center; /* Asegura la alineación vertical */
-  gap: 15px; /* Agregado para el espacio entre el ícono y el texto */
-}
-
-.content-header .profile-avatar {
-  width: 25px; /* Ajustado al tamaño del ícono del chat en Figma */
-  height: 29px; /* Ajustado al tamaño del ícono del chat en Figma */
-}
 
 }
 
