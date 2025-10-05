@@ -1707,6 +1707,9 @@ div.contenedor-suscripcion p {
 
     /*----------Sidebar----------*/
 
+     #menu-toggle {
+         display: none;
+     }
 
     /* Sidebar */
     .sidebar {
