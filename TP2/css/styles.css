@@ -1585,7 +1585,6 @@ div.contenedor-suscripcion p {
     .share-container.active{
         visibility: visible;
         transform: translateX(0);
-        pointer-events: auto;
         opacity: 1;
         box-shadow: 2px 10px 99px 63px rgba(0,0,0,0.6);
         -webkit-box-shadow: 2px 10px 99px 63px rgba(0,0,0,0.6);
