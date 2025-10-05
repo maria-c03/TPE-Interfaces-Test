@@ -62,46 +62,46 @@
                     <div class="container-inputs">
                         <div class="container-name-surname">
                             <div class="container-name">
-                                <label for="name-register">Nombre</label>
                                 <input type="text" placeholder="nombre" class="complete-form-info" id="name-register" autocomplete="name" name="name" required>
+                                <label for="name-register">Nombre</label>
                             </div>
                             <div class="container-surname">
-                                <label for="surname">Apellido</label>
                                 <input type="text" placeholder="apellido" class="complete-form-info" name="surname" id="surname"  required>
+                                <label for="surname">Apellido</label>
                             </div>
                         </div>
                         <div class="container-age">
-                            <label for="age">Fecha de nacimiento</label>
                             <input type="date" placeholder="fecha de nacimiento" class="complete-form-register" id="age" name="age" required>
+                            <label for="age">Fecha de nacimiento</label>
                         </div>
                         <div class="container-nickName">
+                            <input type="text" placeholder="nombre usuario" class="complete-form-register" name="nickName" id="nickName">
                             <div class="container-optional">
                                 <label for="nickName">Nickname</label>
                                 <p>-Opcional</p>
                             </div>
-                            <input type="text" placeholder="nombre usuario" class="complete-form-register" name="nickName" id="nickName">
                         </div>
                         <div class="container-email">
-                            <label for="email-register">Email</label>
                             <input type="email" placeholder="emailejemplo@gmail.com" id="email-register"  class="complete-form-register" name="email-register"
-                                required>
+                            required>
+                            <label for="email-register" class= "label-email-register">Email</label>
                         </div>
                         <div class="container-password">
-                            <label for="password-register">Contraseña</label>
-                            <p>debe tener almenos 5 caracteres</p>
                             <div class="container-pass-input">
                                 <input type="password" placeholder="********" class="complete-form-register pass" id="password-register" name="password"
-                                    required>
+                                required>
                                 <i class="fa-solid fa-eye-slash toggle-password-register"></i>
                             </div>
+                            <p>debe tener almenos 5 caracteres</p>
+                            <label for="password-register">Contraseña</label>
                         </div>
                         <div class="container-password">
-                            <label for="password-repeat">Repetir Contraseña</label>
                             <div class="container-pass-input">
                                 <input type="password" placeholder="********" class="complete-form-register pass" id="password-repeat" name="password"
-                                    required>
+                                required>
                                 <i class="fa-solid fa-eye-slash toggle-password-register"></i>
                             </div>
+                            <label for="password-repeat">Repetir Contraseña</label>
                         </div>
                     </div>
                     <div class="input-captcha">
@@ -201,6 +201,7 @@
 
     <script type="text/javascript" src="js/togglePassword.js"></script>
     <script type="text/javascript" src="js/toggleLogin.js"></script>
+    <script type="text/javascript" src="js/validatePasswordContainer.js"></script>
 </body>
 
 </html>

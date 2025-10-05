@@ -2,6 +2,7 @@
     list-style: none;
     outline: none;
     border: none;
+    box-sizing: border-box;
     text-decoration: none;
     margin: 0;
     padding: 0;
@@ -13,8 +14,9 @@ body {
 }
 
 /*----------Header----------*/
+
 #sidebar-container,
-#menu-toggle {
+#menu-toggle, #menu-hamburguesa{
     display: none;
 }
 
@@ -233,6 +235,8 @@ div.contenedor-suscripcion p {
 }
 
 /*----------Login----------- */
+
+
 .container-principal {
     display: flex;
     width: 1019px;
@@ -277,6 +281,7 @@ main {
     align-items: center;
     height: 397px;
 }
+
 
 .register h1,
 .login h1 {
@@ -512,12 +517,12 @@ div.container-name-surname div.container-surname .complete-form-info {
     flex-direction: row;
     width: 400px;
     gap: 30px;
-    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 .container-name,
 .container-surname {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     width: 185px;
     height: 38px;
 }
@@ -858,18 +863,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
     .profile-settings-container{
-    position: absolute;
-    top: 85px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
     background-color: #2D2D37;
     color: white;
     opacity: 0;
     pointer-events: none;
+    z-index: 1003;
     }
 
 
@@ -913,7 +920,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
     
 .profile-user-data img{
-    width: 60px;
+    width: auto;
     height: 60px;
     padding-bottom: 6px;
     }
@@ -925,7 +932,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .profile-user-opcion img{
-    width:30px;
+    width:auto;
     height:30px;
     padding-right: 24px
 }
@@ -1045,6 +1052,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         display: flex;
         align-items: center;
         cursor: pointer;
+    }
+
+    #menu-hamburguesa{
+        display:block;
     }
 
     header .logo-menu,
@@ -1457,11 +1468,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .container-email,
     .container-password,
     .container-nickName,
-    .container-age {
+    .container-age, .container-name, .container-surname {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: baseline;
     }
+
+ /* invalid utiliza required de input y valida si se cumple la condicion o no*/
+    #form-register .container-email input:focus:invalid{
+    border: none;
+    outline: 1px solid #F23D4F;
+    }
+
+    #form-register .container-email input:focus:invalid ~ label{
+    color: #F23D4F;
+    } 
 
     div label.login-pass-label {
         padding-left: 54px;
@@ -1577,6 +1598,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         padding: 30px 0 8px 0;
         font-size: 26px;
         margin-top: 10px;
+        line-height: 1.5;
     }
 
     div.container-name-surname div.container-name .complete-form-info,
@@ -1607,12 +1629,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         flex-direction: row;
         width: 400px;
         gap: 30px;
-        margin-bottom: 8px;
+        margin-top: 16px;
     }
 
     .container-name,
     .container-surname {
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
         width: 185px;
         height: 38px;
     }
@@ -1630,6 +1652,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .container-password label,
     .container-password p {
         padding-left: 40px;
+    }
+
+    /* Validación visual para el mensaje de contraseña */
+    .container-password p.valid {
+        display: none;
+
+    }
+    .container-password p.invalid, .container-password p.invalid + label{
+        color: #e74c3c;
+        display: block;
+    }
+    
+    .container-password .container-pass-input input.invalid:focus{
+        outline: 1px solid #e74c3c;
+        border:none;
     }
 
     .container-optional {
@@ -1706,8 +1743,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
        .profile-settings-container{
+        position: absolute;
         top: 90px;
-        left: 77%;
+        left: 80%;
         width: 372px;
         height: auto;
         border-radius: 8px;
@@ -1726,6 +1764,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
     .profile-user-data img{
+        width: auto;
         padding-bottom: 12px;
     }
 
@@ -1778,7 +1817,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
        
 
     .profile-user-opcion img{
-        width:24px;
+        width:auto;
         height:24px;
         padding-right: 8px
     }
@@ -2153,160 +2192,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         cursor: pointer;
     }
 
-}
-
-
-/* Estilos Caja de comentarios  */
-
-
-body {
-  background-color: #0b0b0d;
-  width: 880px;
-  margin: 0 auto;
-}
-
-.input-container {
-  font-family: "Roboto", sans-serif;
-  color: #ffffff;
-  width: 833px;
-  height: 108px;
-  background: #282830;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  margin-bottom: 27px;
-}
-
-.alto {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-}
-
-.alto,
-.bajo-comentario,
-.bajo-crear-comentario {
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.linea-divisora {
-  width: 100%;
-  height: 2px;
-  background-color: #2d2d37;
-  margin: 0;
-}
-
-.comment-header-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  line-height: 21px;
-}
-
-.profile-avatar {
-  display: flex;
-  align-items: center;
-  width: 36px;
-  height: 32px;
-}
-
-.user-name {
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.register-message {
-  font-weight: 400;
-  font-size: 12px;
-  margin-left: auto;
-}
-
-.opacity {
-  opacity: 0.5;
-}
-
-.bajo-crear-comentario,
-.bajo-comentario {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50%;
-}
-
-.input-placeholder {
-  font-family: "Roboto";
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 21px;
-  color: #ffffff;
-}
-
-.edit-icon {
-  width: 23px;
-  height: 21px;
-}
-
-.profile-avatar svg,
-.edit-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-#comments-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.see-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-}
-
-#load-more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 10px;
-  width: 106px;
-  height: 39px;
-  background: #c71d6f;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 23px;
-  font-weight: 700;
-  transition: background-color 0.3s;
-}
-
-#load-more:hover {
-  background: #a8185f;
-}
-
-.content-header {
-  width: 833px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 2px solid #fff; /* Ajustado el color de la línea según Figma */
-  color: #fff;
-  margin-bottom: 27px;
-  margin-top: 27px;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px; /* Agregado según Figma (150% de 12px) */
-  align-items: center; /* Asegura la alineación vertical */
-  gap: 15px; /* Agregado para el espacio entre el ícono y el texto */
-}
-
-.content-header .profile-avatar {
-  width: 25px; /* Ajustado al tamaño del ícono del chat en Figma */
-  height: 29px; /* Ajustado al tamaño del ícono del chat en Figma */
 }
