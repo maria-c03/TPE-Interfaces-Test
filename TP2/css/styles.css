@@ -1996,6 +1996,114 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 16px;
     }
 
+    /*--------- Contenedor share----------- */
+
+    .share-container{
+        width: 484px;
+        height:297px;
+        border-radius: 8px;
+        background-color:#2D2D37;
+    }
+    .share-container-inside{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+        padding:20px;
+    }
+    .upper-share-container{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        width:100%
+    }
+
+    .share-container .upper-share-container div{
+        display:flex;
+        justify-content: end;
+        width:100%;
+        
+    }
+
+    .upper-share-container div i{
+        color: white;
+        font-size: 26px;
+        padding-right: 16px;
+    }
+         
+    
+    .share-container h2{
+        color: white;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.5;
+    }
+
+    .share-container ul{
+        display: flex;
+        flex-direction: row;
+        column-gap: 36px;
+    }
+
+    .share-container li button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color:#0A0A10;
+    }
+
+    .share-container li button i{
+        color: white;
+        font-size: 30px;
+    } 
+
+    .input-copy-link{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 12px;
+        width: 100%;
+    }
+
+    .input-copy-link input{
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 444px;
+        font-size: 16px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        padding: 14px 16px;
+        height:63px;
+        background-color: #0A0A10;
+        color: #fff;
+        border-radius: 109px;
+        border: none;
+    }
+
+    .input-copy-link > button{
+        position:absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 3%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        background: #F72585;
+        color: #fff;
+        border: none;
+        padding: 10px 8px;
+        border-radius: 24px;
+        cursor: pointer;
+        width: 73px;
+        height: 46px;
+    }
+
     .game-description-right {
         display: flex;
         flex-direction: column;
