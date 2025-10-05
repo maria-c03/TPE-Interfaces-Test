@@ -574,7 +574,7 @@ div.contenedor-suscripcion p {
         align-items: center;
         background-color: #2D2D37;
         width: auto;
-        z-index: 5;
+        z-index: 1100;
     }
 
     header .iconos,
@@ -1707,10 +1707,6 @@ div.contenedor-suscripcion p {
 
     /*----------Sidebar----------*/
 
-    /* Checkbox oculto */
-    #menu-toggle {
-        display: none;
-    }
 
     /* Sidebar */
     .sidebar {
@@ -1794,10 +1790,7 @@ div.contenedor-suscripcion p {
         cursor: pointer;
     }
 
-}
-
-
-/* Estilos Caja de comentarios  */
+    /* Estilos Caja de comentarios  */
 
 
 body {
@@ -1951,3 +1944,8 @@ body {
   width: 25px; /* Ajustado al tamaño del ícono del chat en Figma */
   height: 29px; /* Ajustado al tamaño del ícono del chat en Figma */
 }
+
+}
+
+
+
