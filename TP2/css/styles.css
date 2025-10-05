@@ -1264,11 +1264,9 @@ div.contenedor-suscripcion p {
         justify-content: center;
     }
 
-
     .container-btns-social-register {
         justify-content: center;
     }
-
 
     /* ----------perfil------------------ */
     .profile-settings-container {
@@ -1307,7 +1305,6 @@ div.contenedor-suscripcion p {
     .prof-toggle-cancel i {
         padding: 12px 16px 10px 10px;
     }
-
 
     .profile-user-data {
         display: flex;
@@ -1364,50 +1361,25 @@ div.contenedor-suscripcion p {
     }
 
     /* Otorgamos animacion por cada hermano individualmente */
-    .profile-settings-container.active .profile-user-opcion li:nth-child(1) {
-        animation-delay: 0.08s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(2) {
-        animation-delay: 0.16s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(3) {
-        animation-delay: 0.24s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(4) {
-        animation-delay: 0.32s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(5) {
-        animation-delay: 0.40s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(6) {
-        animation-delay: 0.48s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(7) {
-        animation-delay: 0.56s;
-    }
-
-    .profile-settings-container.active .profile-user-opcion li:nth-child(8) {
-        animation-delay: 0.64s;
-    }
+    .profile-settings-container.active .profile-user-opcion li:nth-child(1) {animation-delay: 0.08s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(2) {animation-delay: 0.16s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(3) {animation-delay: 0.24s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(4) {animation-delay: 0.32s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(5) {animation-delay: 0.40s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(6) {animation-delay: 0.48s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(7) {animation-delay: 0.56s;}
+    .profile-settings-container.active .profile-user-opcion li:nth-child(8) {animation-delay: 0.64s;}
 
     @keyframes slideUpFade {
         0% {
             opacity: 0;
             transform: translateY(-100%);
         }
-
         100% {
             opacity: 1;
             transform: translateY(0%);
         }
     }
-
 
     .profile-user-opcion li:hover{
         color:#606079;
@@ -1436,9 +1408,6 @@ div.contenedor-suscripcion p {
         cursor: pointer;
         color: white;
     }
-
-
-
 
     /* ------------------Pagina del Juego----------------*/
 
@@ -1601,19 +1570,69 @@ div.contenedor-suscripcion p {
     /*--------- Contenedor share----------- */
 
     .share-container{
+        position: absolute;
+        left: 35%;
+        visibility: hidden;
         width: 484px;
-        height:297px;
+        height: 297px;
+        opacity: 0;
         border-radius: 8px;
         background-color:#2D2D37;
+        transform: translateX(-1000px);
+        transition: all 0.6s ease-in;
     }
+
+    .share-container.active{
+        visibility: visible;
+        transform: translateX(0);
+        pointer-events: auto;
+        opacity: 1;
+        box-shadow: 2px 10px 99px 63px rgba(0,0,0,0.6);
+        -webkit-box-shadow: 2px 10px 99px 63px rgba(0,0,0,0.6);
+        -moz-box-shadow: 2px 10px 99px 63px rgba(0,0,0,0.6);
+    }
+
+    .share-container li{
+        opacity:0;
+        transform:translateX(-100%);
+        animation: none;
+    }
+
+    .share-container.active li{
+        animation: slide-socialX 1s forwards;
+    }
+
+    @keyframes slide-socialX{
+        0%{
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        50%{
+            opacity: 0.5;
+            transform: translateX(50%);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+    }
+
+    .share-container.active ul li:nth-child(1){animation-delay: 0.20s;}
+    .share-container.active ul li:nth-child(2){animation-delay: 0.40s;}
+    .share-container.active ul li:nth-child(3){animation-delay: 0.60s;}
+    .share-container.active ul li:nth-child(4){animation-delay: 0.80s;}
+    .share-container.active ul li:nth-child(5){animation-delay: 1s;}
+
     .share-container-inside{
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 40px;
-        padding:20px;
+        padding: 20px;
     }
+
     .upper-share-container{
         display: flex;
         flex-direction:column;
@@ -1624,8 +1643,7 @@ div.contenedor-suscripcion p {
     .share-container .upper-share-container div{
         display:flex;
         justify-content: end;
-        width:100%;
-        
+        width:100%;       
     }
 
     .upper-share-container div i{
@@ -1633,8 +1651,13 @@ div.contenedor-suscripcion p {
         font-size: 26px;
         padding-right: 16px;
     }
+
+     .upper-share-container div i:hover{
+        transition: 150ms;
+        color:#606079;
+        cursor: pointer;
+    }
          
-    
     .share-container h2{
         color: white;
         font-size: 20px;
@@ -1704,6 +1727,14 @@ div.contenedor-suscripcion p {
         cursor: pointer;
         width: 73px;
         height: 46px;
+    }
+
+    /* Ensure the h2 title stays on one line and truncates if too long */
+    .game-title h2{
+        white-space: nowrap;
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
     }
 
     .game-description-right {
@@ -2057,6 +2088,5 @@ body {
 }
 
 }
-
 
 
