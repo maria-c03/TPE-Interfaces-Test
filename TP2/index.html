@@ -81,11 +81,11 @@
                 </ul>
             </div>
             <div class="social-icons">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-google"></i>
-                <i class="fa-brands fa-reddit-alien"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-x-twitter"></i>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a>
+                <a href="https://www.reddit.com/"><i class="fa-brands fa-reddit-alien"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/?lang=es"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
         </div>
     </header>
@@ -93,7 +93,7 @@
     <main class="home">
         <!-- Carrusel principal-->
         <section class="sliders">
-            <div class="cards">
+            <div id="tendency" class="cards">
                 <div class="img-container"><img src="./img/imgJuegos/grimp.jpg" alt="grimp" class="img-card center">
                 </div>
                 <div class="img-container"><img src="./img/imgJuegos/hollow.jpg" alt="hollow" class="img-card right">
@@ -114,7 +114,7 @@
         <!-- carrusel por categorias -->
         <section class="carousels">
             <div class="category-container" data-category="recomendados">
-                <h3>Porque jugaste a Monopoly</h3>
+                <h3 id="recent">Porque jugaste a Monopoly</h3>
                 <div class="carousel-container">
                     <button class="btn-carousel btn-left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="category-container" data-category="aventura">
-                <h3>Aventura</h3>
+                <h3 id="adventure">Aventura</h3>
                 <div class="carousel-container">
                     <button class="btn-carousel btn-left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="category-container" data-category="accion">
-                <h3>Acción</h3>
+                <h3 id="action">Acción</h3>
                 <div class="carousel-container">
                     <button class="btn-carousel btn-left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="category-container" data-category="terror">
-                <h3>Terror</h3>
+                <h3 id="terror">Terror</h3>
                 <div class="carousel-container">
                     <button class="btn-carousel btn-left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -174,7 +174,7 @@
             </div>
 
             <div class="category-container" data-category="logica">
-                <h3>Lógica</h3>
+                <h3 id="logic">Lógica</h3>
                 <div class="carousel-container">
                     <button class="btn-carousel btn-left">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -187,6 +187,37 @@
                     </button>
                 </div>
             </div>
+
+            <div class="category-container" data-category="deportes">
+                <h3 id="sport">Deportes</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="category-container" data-category="click">
+                <h3 id="click">Click</h3>
+                <div class="carousel-container">
+                    <button class="btn-carousel btn-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel">
+
+                    </div>
+                    <button class="btn-carousel btn-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
         </section>
 
     </main>
@@ -238,7 +269,7 @@
             </div>
 
             <div class="contenedor-suscripcion">
-                <h1>Leveling</h1>
+                <a href="index.html" class="link-home"><h1>Leveling</h1></a>
                 <p>Unete a nosotros y no te pierdas nada!</p>
                 <form action="" class="suscripcion">
                     <input type="email" placeholder="ejemplo@email.com" id="suscription">
@@ -261,7 +292,6 @@
     <!-- <script type="text/javascript" src="js/lodMain.js"></script> -->
     <script type="text/javascript" src="js/carouselPopularesMovile.js"></script>
     <script type="text/javascript" src="js/loadSidebar.js"></script>
-    <script type="text/javascript" src="js/menuCategories.js"></script>
     <script type="text/javascript" src="js/carouselPopulares.js"></script>
     <script type="text/javascript" src="js/carousel.js"></script>
     <script type="text/javascript" src="js/profileDrop.js"></script>
