@@ -585,6 +585,10 @@ div.contenedor-suscripcion p {
   background-color: #0b0b0d;
   width: 880px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-container {
