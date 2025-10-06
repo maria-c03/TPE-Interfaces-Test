@@ -32,25 +32,25 @@
                 <form action="" class="form-login">
                     <div class="container-inputs">
                         <div class="container-email">
+                            <input type="email" placeholder="emailejemplo@gmail.com" class="complete-form required" id="email"
+                            name="email" autocomplete="email" required>
                             <label for="email">Email</label>
-                            <input type="email" placeholder="emailejemplo@gmail.com" class="complete-form" id="email"
-                                name="email" autocomplete="email" required>
                         </div>
                         <div class="container-password">
-                            <label class="login-pass-label" for="password">Contraseña</label>
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form pass" id="password"
-                                    name="password" required>
+                                <input type="password" placeholder="********" class="complete-form pass required" id="password"
+                                name="password" required>
                                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                             </div>
+                            <label class="login-pass-label" for="password">Contraseña</label>
                         </div>
                     </div>
-                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <a class="forget-pass">¿Olvidaste tu contraseña?</a>
                     <button class="btn-start-sesion">Iniciar sesión</button>
                     <p>o continuar con</p>
                     <div class="container-btns-social">
-                        <button class="btn-facebook"><i class="fa-brands fa-facebook"></i></button>
-                        <button class="btn-google"><i class="fa-brands fa-google"></i></button>
+                        <a href="https://www.facebook.com/" class="btn-facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.google.com/" class="btn-google"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </form>
             </section>
@@ -62,18 +62,18 @@
                     <div class="container-inputs">
                         <div class="container-name-surname">
                             <div class="container-name">
-                                <input type="text" placeholder="nombre" class="complete-form-info" id="name-register"
+                                <input type="text" placeholder="nombre" class="complete-form-info requiredRegister" id="name-register"
                                     autocomplete="name" name="name" required>
                                 <label for="name-register">Nombre</label>
                             </div>
                             <div class="container-surname">
-                                <input type="text" placeholder="apellido" class="complete-form-info" name="surname"
+                                <input type="text" placeholder="apellido" class="complete-form-info requiredRegister" name="surname"
                                     id="surname" required>
                                 <label for="surname">Apellido</label>
                             </div>
                         </div>
                         <div class="container-age">
-                            <input type="date" placeholder="fecha de nacimiento" class="complete-form-register" id="age"
+                            <input type="date" placeholder="fecha de nacimiento" class="complete-form-register requiredRegister" id="age"
                                 name="age" required>
                             <label for="age">Fecha de nacimiento</label>
                         </div>
@@ -87,12 +87,12 @@
                         </div>
                         <div class="container-email">
                             <input type="email" placeholder="emailejemplo@gmail.com" id="email-register"
-                                class="complete-form-register" name="email-register" required>
+                                class="complete-form-register requiredRegister" name="email-register" required>
                             <label for="email-register" class="label-email-register">Email</label>
                         </div>
                         <div class="container-password">
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form-register pass"
+                                <input type="password" placeholder="********" class="complete-form-register pass requiredRegister"
                                     id="password-register" name="password" required>
                                 <i class="fa-solid fa-eye-slash toggle-password-register"></i>
                             </div>
@@ -101,16 +101,17 @@
                         </div>
                         <div class="container-password">
                             <div class="container-pass-input">
-                                <input type="password" placeholder="********" class="complete-form-register pass"
+                                <input type="password" placeholder="********" class="complete-form-register pass requiredRegister"
                                     id="password-repeat" name="password" required>
                                 <i class="fa-solid fa-eye-slash toggle-password-register"></i>
                             </div>
                             <label for="password-repeat">Repetir Contraseña</label>
+                            <p class="equals"></p>
                         </div>
                     </div>
                     <div class="input-captcha">
                         <div class="container-captcha">
-                            <input type="checkbox" name="captcha" id="captcha" required>
+                            <input type="checkbox" name="captcha" id="captcha" class="requiredRegister" required>
                             <label for="captcha">I'm not a robot</label>
                         </div>
                         <img src="img/icons/recaptcha-logo.svg" alt="img captcha" class="img-captcha">
@@ -120,8 +121,8 @@
                     </div>
                     <p>o continuar con</p>
                     <div class="container-btns-social-register">
-                        <button class="btn-facebook"><i class="fa-brands fa-facebook"></i></button>
-                        <button class="btn-google"><i class="fa-brands fa-google"></i></button>
+                        <a href="https://www.facebook.com/" class="btn-facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.google.com/" class="btn-google"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </form>
             </section>
@@ -195,9 +196,9 @@
         </div>
         <nav class="redes-footer">
             <ul>
-                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://x.com/?lang=es"><i class="fa-brands fa-x-twitter"></i></a></li>
             </ul>
         </nav>
     </footer>
@@ -205,7 +206,7 @@
 
     <script type="text/javascript" src="js/togglePassword.js"></script>
     <script type="text/javascript" src="js/toggleLogin.js"></script>
-    <script type="text/javascript" src="js/validatePasswordContainer.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
 </body>
 
 </html>

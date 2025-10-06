@@ -222,7 +222,7 @@ p.game-name,
 
 }
 
-p.game-price{
+p.game-price {
     cursor: pointer;
 }
 
@@ -528,7 +528,7 @@ div.contenedor-suscripcion p {
     color: #606079;
 }
 
-.social-icons a{
+.social-icons a {
     text-decoration: none;
 }
 
@@ -624,13 +624,13 @@ label[for="menu-toggle"] {
 
 
 .comentarios-container {
-  background-color: #0b0b0d;
-  width: 880px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-color: #0b0b0d;
+    width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .input-container {
@@ -736,21 +736,21 @@ label[for="menu-toggle"] {
 }
 
 .btn-see-more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 10px;
-  width: 138px;
-  height: 51px;
-  background: #F72585;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 23px;
-  font-weight: 700;
-  transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    width: 138px;
+    height: 51px;
+    background: #F72585;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    transition: background-color 0.3s;
 }
 
 
@@ -783,55 +783,55 @@ label[for="menu-toggle"] {
 }
 
 .down-side-game {
-  display: flex;
-  flex-direction: row;
-  gap: 120px;
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
 }
 
 /* Doble lista de jeugos */
 
 .doble-game-container {
-  background-color: #0b0b0d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 0;
-  color: #fff;
-  font-family: "Inter", sans-serif;
+    background-color: #0b0b0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    color: #fff;
+    font-family: "Inter", sans-serif;
 }
 
 .doble-game-list-content {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 900px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
 }
 
 .doble-game-list-content-part {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 324px;
-  height: 546px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 324px;
+    height: 546px;
 }
 
 .doble-game-list-content-part img {
-  height: 123px;
-  width: 229px;
-  border-radius: 8px;
-  margin-bottom: 44px;
+    height: 123px;
+    width: 229px;
+    border-radius: 8px;
+    margin-bottom: 44px;
 }
 
 .doble-game-list-content-part h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .game-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
 }
 
 
@@ -840,9 +840,6 @@ label[for="menu-toggle"] {
 @media only screen and (min-width: 800px) {
 
     /* -----Carga de la pagina------*/
-    body {
-        padding-top: 86px;
-    }
 
     main.home {
         display: flex;
@@ -1024,7 +1021,7 @@ label[for="menu-toggle"] {
         height: 300px;
         width: 940px;
         position: relative;
-        margin: 53px;
+        margin: 120px 53px 53px 53px;
     }
 
     div.cards {
@@ -1209,7 +1206,8 @@ label[for="menu-toggle"] {
         font-weight: bold;
     }
 
-    .btn-subscribirse:hover, .btn-see-more:hover {
+    .btn-subscribirse:hover,
+    .btn-see-more:hover {
         background: #d61d6d;
         animation: bounce 4s infinite;
     }
@@ -1270,6 +1268,7 @@ label[for="menu-toggle"] {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 80px 0 150px 0;
     }
 
     .register,
@@ -1432,7 +1431,7 @@ label[for="menu-toggle"] {
         font-size: 25px;
     }
 
-    .start-sesion a {
+    .forget-pass {
         margin: 8px 145px;
         font-size: 12px;
         text-decoration: none;
@@ -1474,6 +1473,26 @@ label[for="menu-toggle"] {
         transition: 0.3s;
     }
 
+    .incomplete {
+        animation: incomplete 1.5s linear .5s infinite;
+    }
+
+    @keyframes incomplete {
+        0% {
+            border: 5px solid #7a194e;
+        }
+
+        50% {
+            border: 5px solid #F72585;
+        }
+
+        100% {
+            border: 5px solid #7a194e;
+        }
+    }
+
+
+
     section.start-sesion form p {
         height: 24px;
         font-size: 16px;
@@ -1495,8 +1514,8 @@ label[for="menu-toggle"] {
         margin: 8px 0 44px 0;
     }
 
-    .btn-facebook,
-    .btn-google {
+    a.btn-facebook,
+    a.btn-google {
         border-radius: 50%;
         cursor: pointer;
         font-size: 40px;
@@ -1593,7 +1612,7 @@ label[for="menu-toggle"] {
     }
 
     .container-optional p {
-        margin-top: 8px;
+        margin-top: 10px;
         font-style: italic;
     }
 
@@ -1822,14 +1841,14 @@ label[for="menu-toggle"] {
 
     /* ------------------Pagina del Juego----------------*/
 
-#game-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 136px;
-    margin-left: 136px;
-    background-color: #1e1e1e;
-  }
+    #game-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 136px;
+        margin-left: 136px;
+        background-color: #1e1e1e;
+    }
 
     .breadcrumb {
         position: relative;
@@ -2272,7 +2291,7 @@ label[for="menu-toggle"] {
         padding: 0px;
     }
 
-    .carousel-gamepage{
+    .carousel-gamepage {
         margin: 15px;
         width: 1550px;
     }
