@@ -693,7 +693,8 @@ div.contenedor-suscripcion p {
   margin-top: 0;
 }
 
-#load-more {
+#load-more,
+.btn-ver-mas {
   display: flex;
   justify-content: center;
   align-items: center;
