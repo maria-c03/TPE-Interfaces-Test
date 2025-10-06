@@ -1636,8 +1636,9 @@ label[for="menu-toggle"] {
   /* ----------perfil------------------ */
   .profile-settings-container {
     position: absolute;
-    top: 90px;
-    left: 80%;
+    /* top: 90px;
+    left: 80%; */
+    left: 81%;
     width: 372px;
     height: auto;
     border-radius: 8px;
