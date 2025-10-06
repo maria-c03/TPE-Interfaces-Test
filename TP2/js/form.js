@@ -24,10 +24,12 @@ btnRegisterForm.addEventListener("click", (e) => {
 
 //si un input esta vacio devuelve false
 function verification(inputForm) {
+    
     for (let input of inputForm) {
-        console.log(input.value + " valor del input")
+        console.log("evaluating inputs, type: " + input.type + ", value:" + input.value + ", isChecked: " + input.checked)
         if (input.type === "checkbox" && !input.checked) {
-            console.log("checkbox " + input.checked )
+            let check = document.querySelector(".check");
+            check.innerHTML = "verifica que no eres un robot";
             return false;
         }
         if(input.value === ""){
