@@ -181,6 +181,7 @@ div.carousel {
     border-radius: 50%;
     background-color: #484848;
     cursor: pointer;
+    z-index: 2;
 }
 
 .heart {
@@ -623,9 +624,13 @@ label[for="menu-toggle"] {
 
 
 .comentarios-container {
-    background-color: #0b0b0d;
-    width: 880px;
-    margin: 0 auto;
+  background-color: #0b0b0d;
+  width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-container {
@@ -730,22 +735,23 @@ label[for="menu-toggle"] {
     margin-top: 0;
 }
 
-#load-more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 10px;
-    width: 106px;
-    height: 39px;
-    background: #c71d6f;
-    border-radius: 40px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    transition: background-color 0.3s;
+#load-more,
+.btn-ver-mas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  width: 106px;
+  height: 39px;
+  background: #c71d6f;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  transition: background-color 0.3s;
 }
 
 #load-more:hover {
@@ -779,6 +785,59 @@ label[for="menu-toggle"] {
     height: 29px;
     /* Ajustado al tamaño del ícono del chat en Figma */
 }
+
+.down-side-game {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+/* Doble lista de jeugos */
+
+.doble-game-container {
+  background-color: #0b0b0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.doble-game-list-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.doble-game-list-content-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 324px;
+  height: 546px;
+}
+
+.doble-game-list-content-part img {
+  height: 123px;
+  width: 229px;
+  border-radius: 8px;
+  margin-bottom: 44px;
+}
+
+.doble-game-list-content-part h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.game-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
 
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
@@ -1767,11 +1826,14 @@ label[for="menu-toggle"] {
 
     /* ------------------Pagina del Juego----------------*/
 
-    #game-page {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+#game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 136px;
+    margin-left: 136px;
+    background-color: #1e1e1e;
+  }
 
     .breadcrumb {
         position: relative;
