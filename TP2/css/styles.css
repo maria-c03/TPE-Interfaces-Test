@@ -1503,7 +1503,7 @@ label[for="menu-toggle"] {
 
   /* -----Registro----- */
 
-  .oculto {
+  .hide {
     display: none;
   }
 
@@ -1651,6 +1651,52 @@ label[for="menu-toggle"] {
   .container-btns-social-register {
     justify-content: center;
   }
+
+  /* ----- animacion registro exitoso ----- */
+
+  div.hide{
+    display: none;
+  }
+
+  .register-comfirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 510px;
+    height: 809px;
+    background-color: #5e0f3a;
+    /* hace que el giro se vea mas realista */
+    perspective: 800px;
+  }
+
+  .register-comfirm h1{
+    color: #ececec;
+    margin: 40px;
+  }
+
+  .register-comfirm img {
+    width: 100%;
+    height: 50%;
+    opacity: 1;
+    animation: spinY 3s linear infinite;
+    transform-style: preserve-3d;
+    /* rotateY(360deg) → gira verticalmente sobre el eje Y
+      linear → mantiene una velocidad constante.
+      infinite → el giro no se detiene.
+      transform-style: preserve-3d; → mantiene el efecto de profundidad 3D. */
+  }
+
+  @keyframes spinY {
+    from {
+      transform: rotateY(0deg);
+    }
+
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
 
   /* ----------perfil------------------ */
   .profile-settings-container {
