@@ -14,74 +14,85 @@
 </head>
 
 <body>
-  <!-- Header -->
-   <header>
-        <div class="logo-menu">
-            <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburgesa"></i>
-            <a href="index.html"><img src="./img/icons/logo.png" alt="Logo Leveling" id="logo-leveling">Leveling</a>
-        </div>
-        <div class="buscador">
-            <input type="text" placeholder="Buscar" id="buscador">
-            <i class="fa-solid fa-magnifying-glass" aria-label="icono lupa" id="lupa"></i>
-        </div>
-        <div class="iconos">
-            <img src="./img/icons/loged-profile-icon.png" alt="Perfil de usuario" id="user">
-            <i class="fa-solid fa-cart-shopping img-iconos icon-hover" aria-label="Carro de compras"></i>
+ <!-- Checkbox debe estar al mismo nivel que el sidebar-container -->
+<input type="checkbox" id="menu-toggle" />
 
-        </div>
-                <div class="profile-settings-container">
-            <div class="prof-toggle-cancel">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <div class="profile-user-data">
-                <img src="./img/icons/loged-profile-icon.png" alt="Foto de usuario">
-                <h2>@Future.Dreamuh6</h1>
-                    <h3>pepito123@gmail.com
-                </h2>
-            </div>
-            <div class="container-user-opcion">
-                <ul class="profile-user-opcion">
-                    <li><img src="./img/icons/profile-settings-icon/profile-s.png" alt="Mi perfil">
-                        <p>Mi perfil</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/bag-s.png" alt="Tus compras">
-                        <p>Tus compras</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/edit-s.png" alt="Editar Perfil">
-                        <p>Editar Perfil</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/p-privacity-s.png" alt="Preferencias de privacidad">
-                        <p>Preferencias de privacidad</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/credit-card-s.png" alt="Editar mi tarjeta">
-                        <p>Editar mi tarjeta</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/configuration-s.png" alt="Configuración">
-                        <p>Configuración</p>
-                    </li>
-                </ul>
-                <ul class="profile-user-opcion">
-                    <li><img src="./img/icons/profile-settings-icon/support-s.png" alt="Soporte">
-                        <p>Soporte</p>
-                    </li>
-                    <li><img src="./img/icons/profile-settings-icon/loguot-s.png" alt="Cerrar Sesión">
-                        <p>Cerrar Sesión</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="social-icons">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-google"></i>
-                <i class="fa-brands fa-reddit-alien"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-            </div>
-        </div>
-    </header>
+<!-- Contenedor del sidebar -->
+<div id="sidebar-container"></div>
+
+<!-- Overlay -->
+<label class="overlay" for="menu-toggle"></label>
+
+<!-- Header -->
+<header>
+    <div class="logo-menu">
+        <!-- El botón hamburguesa NO debe ser un label -->
+        <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburguesa"></i>
+      <a href="index.html"><img src="./img/icons/logo.png" alt="Logo Leveling" id="logo-leveling">Leveling</a>
+    </div>
+    <div class="buscador">
+      <input type="text" placeholder="Buscar" id="buscador">
+      <i class="fa-solid fa-magnifying-glass" aria-label="icono lupa" id="lupa"></i>
+    </div>
+    <div class="iconos">
+      <img src="./img/icons/loged-profile-icon.png" alt="Perfil de usuario" id="user">
+      <i class="fa-solid fa-cart-shopping img-iconos icon-hover" aria-label="Carro de compras"></i>
+
+    </div>
+    <div class="profile-settings-container">
+      <div class="prof-toggle-cancel">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="profile-user-data">
+        <img src="./img/icons/loged-profile-icon.png" alt="Foto de usuario">
+        <h2>@Future.Dreamuh6</h1>
+          <h3>pepito123@gmail.com
+        </h2>
+      </div>
+      <div class="container-user-opcion">
+        <ul class="profile-user-opcion">
+          <li><img src="./img/icons/profile-settings-icon/profile-s.png" alt="Mi perfil">
+            <p>Mi perfil</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/bag-s.png" alt="Tus compras">
+            <p>Tus compras</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/edit-s.png" alt="Editar Perfil">
+            <p>Editar Perfil</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/p-privacity-s.png" alt="Preferencias de privacidad">
+            <p>Preferencias de privacidad</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/credit-card-s.png" alt="Editar mi tarjeta">
+            <p>Editar mi tarjeta</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/configuration-s.png" alt="Configuración">
+            <p>Configuración</p>
+          </li>
+        </ul>
+        <ul class="profile-user-opcion">
+          <li><img src="./img/icons/profile-settings-icon/support-s.png" alt="Soporte">
+            <p>Soporte</p>
+          </li>
+          <li><img src="./img/icons/profile-settings-icon/loguot-s.png" alt="Cerrar Sesión">
+            <p>Cerrar Sesión</p>
+          </li>
+        </ul>
+      </div>
+      <div class="social-icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-google"></i>
+        <i class="fa-brands fa-reddit-alien"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+      </div>
+    </div>
+  </header>
 
   <div id="sidebar-placeholder"></div>
 
   <main id="game-page">
+
     <section>
       <ul class="breadcrumb">
         <li><a>
@@ -93,7 +104,7 @@
         <li><img src="./img/icons/breadcrumb-separator.png"></li>
         <li><a>
             <p>Peg Simpsonizado</p>
-          </a></li>>
+          </a></li>
       </ul>
     </section>
     <section class="game-section">
@@ -112,33 +123,35 @@
             <div class="share-container">
               <div class="share-container-inside">
                 <div class="upper-share-container">
-                    <div>
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <h2>Comparte este Juego</h2>
+                  <div>
+                    <i class="fa-solid fa-xmark"></i>
+                  </div>
+                  <h2>Comparte este Juego</h2>
                 </div>
                 <ul>
-                    <li><button><i class="fa-brands fa-reddit-alien"></i></button></li>
-                    <li><button><i class="fa-brands fa-x-twitter"></i></button></li>
-                    <li><button><i class="fa-brands fa-facebook"></i></button></li>
-                    <li><button><i class="fa-brands fa-instagram"></i></button></li>
-                    <li><button><i class="fa-regular fa-envelope"></i></button></li>
+                  <li><button><i class="fa-brands fa-reddit-alien"></i></button></li>
+                  <li><button><i class="fa-brands fa-x-twitter"></i></button></li>
+                  <li><button><i class="fa-brands fa-facebook"></i></button></li>
+                  <li><button><i class="fa-brands fa-instagram"></i></button></li>
+                  <li><button><i class="fa-regular fa-envelope"></i></button></li>
                 </ul>
                 <div class="input-copy-link">
-                    <input id="share-link-input" type="text" value="https://www.leveling/logica/peg-Simpsonizado" readonly />
-                    <button>Copiar</button>
+                  <input id="share-link-input" type="text" value="https://www.leveling/logica/peg-Simpsonizado"
+                    readonly />
+                  <button>Copiar</button>
                 </div>
               </div>
             </div>
           </div>
-          <p>Peg Simpsonizado es un juego de <span>lógica</span> y <span>estrategia</span> en el que
+          <p>Peg Simpsonizado es un juego de <a href="game.html">lógica</a> y <a href="game.html">estrategia</a> en el
+            que
             deberás saltar a otros personajes por arriba, abajo, izquierda o derecha.
             Piensa estratégicamente y anticipa tu próximo movimiento
             para lograr que solo quede un personaje en el centro del tablero.
           </p>
           <p>Puedes jugar con todos o elegir un personaje e intentar llevarlo a la meta. ¡La diversión te espera!</p>
           <div>
-            <p>Desarrollador: <span>DBugs</span></p>
+            <p>Desarrollador: <a href="game.html">DBugs</a></p>
             <p>Publicado en: septiembre de 2025.</p>
           </div>
         </div>
@@ -185,11 +198,101 @@
         </div>
       </div>
     </section>
-    <section>
-      <!-- Foro y recomendaciones de juegos -->
+
+    <section class="carousel-gamepage">
+      <div class="category-container" data-category="logica">
+        <h3>Juegos relacionados</h3>
+        <div class="carousel-container">
+          <button class="btn-carousel btn-left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="carousel">
+
+          </div>
+          <button class="btn-carousel btn-right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </section>
-    <section class="comentarios-container">
-      <iframe class="iframe-comentarios" src="comentario.html" style="border:0; width:900px; height:815px;"></iframe>
+
+    <!-- Foro y recomendaciones de juegos -->
+    <section class="down-side-game">
+      <div class="comentarios-container">
+
+        <div class="comment-header-section content-header">
+          <div class="profile-avatar">
+            <svg width="25" height="29" viewBox="0 0 25 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.1647 24.0906C3.83136 24.0909 3.51154 23.9324 3.27545 23.6499C3.03937 23.3674 2.90632 22.984 2.90552 22.5838V20.5103L2.90854 7.92672C2.90854 7.12554 3.17365 6.35718 3.64556 5.79067C4.11747 5.22415 4.75751 4.90588 5.42489 4.90588H20.3942C20.7246 4.90588 21.0519 4.98402 21.3571 5.13583C21.6624 5.28764 21.9398 5.51016 22.1735 5.79067C22.4072 6.07118 22.5925 6.40419 22.719 6.77069C22.8454 7.1372 22.9105 7.53002 22.9105 7.92672V18.0888C22.9105 18.4855 22.8454 18.8783 22.719 19.2448C22.5925 19.6113 22.4072 19.9443 22.1735 20.2249C21.9398 20.5054 21.6624 20.7279 21.3571 20.8797C21.0519 21.0315 20.7246 21.1096 20.3942 21.1096H7.79027C7.39012 21.1097 7.00637 21.3005 6.72333 21.6401L5.05448 23.6471C4.93771 23.7876 4.79902 23.8991 4.64635 23.9752C4.49368 24.0512 4.33001 24.0905 4.1647 24.0906ZM5.42489 6.11663C5.02446 6.11663 4.64044 6.30759 4.35729 6.6475C4.07415 6.98741 3.91508 7.44843 3.91508 7.92913L3.90703 20.5091V22.5802C3.90714 22.6399 3.92199 22.6982 3.94971 22.7478C3.97743 22.7974 4.01677 22.836 4.06277 22.8588C4.10876 22.8816 4.15935 22.8874 4.20812 22.8757C4.2569 22.864 4.30169 22.8351 4.33682 22.7928L6.01171 20.7834C6.24463 20.502 6.52179 20.2789 6.8271 20.127C7.13241 19.9752 7.4598 19.8976 7.79027 19.8989H20.3942C20.7946 19.8989 21.1786 19.7079 21.4618 19.368C21.7449 19.0281 21.904 18.5671 21.904 18.0864V7.92913C21.904 7.44843 21.7449 6.98741 21.4618 6.6475C21.1786 6.30759 20.7946 6.11663 20.3942 6.11663H5.42489Z"
+                fill="#FDF9FB" />
+            </svg>
+          </div>
+          <span class="text-header">Cometarios</span>
+        </div>
+
+
+        <div class="input-container">
+          <div class="alto">
+            <div class="comment-header-section">
+              <div class="profile-avatar">
+                <svg width="36" height="32" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="17.9459" cy="16" rx="17.1532" ry="16" fill="#0B0B0D" />
+                  <path
+                    d="M25.4805 16.331C25.2075 16.2157 24.9254 16.12 24.6368 16.0448C25.3637 15.7023 25.8882 15.366 25.539 15.2215C25.1938 15.0785 24.878 15.02 24.5896 15.0217C24.986 14.596 25.1911 14.238 24.9131 14.1227C23.952 13.7247 23.3112 14.2808 22.8968 15.0068C22.5184 12.832 21.4887 11.512 19.7755 11.0085C20.7246 9.89275 21.6275 9.32575 21.6369 9.31975L22.1338 9.0115L21.5535 8.8835C21.4621 8.86325 19.292 8.40775 17.2926 9.99975C17.2751 10.0136 17.2579 10.0276 17.2411 10.0417C17.1428 9.41425 17.1572 9.01825 17.1575 9.0135L17.1784 8.5L16.7407 8.8125C16.692 8.84725 15.6084 9.636 15.254 11.1375C14.0284 10.822 13.0705 11.0233 13.0271 11.0325L12.4441 11.1595L12.9424 11.469C12.9475 11.4722 13.4347 11.7775 14.064 12.374C13.5374 13.0423 13.1825 13.9127 12.9925 15.0027C12.5782 14.2787 11.9379 13.726 10.9789 14.123C10.7007 14.2383 10.906 14.5963 11.3024 15.022C11.0143 15.0202 10.6983 15.0787 10.3531 15.2217C10.0038 15.3662 10.5284 15.7025 11.2552 16.0448C11.0006 16.1102 10.7213 16.2025 10.4112 16.3313C9.46191 16.7245 11.5803 16.9018 12.8306 16.9703C12.8301 17.022 12.8269 17.07 12.8269 17.123C12.8269 17.435 12.8612 17.7243 12.9276 17.9888L12.3506 18.1925L11.6251 16.9913C11.6251 16.9913 10.9757 17.4142 10.9757 18.2332C10.9757 21.1493 13.94 23.5 17.946 23.5C21.9521 23.5 24.9164 21.1493 24.9164 18.2332C24.9164 17.4145 24.2667 16.9913 24.2667 16.9913L23.5414 18.1925L22.9639 17.9885C23.0301 17.7242 23.0652 17.435 23.0652 17.123C23.0652 17.0705 23.0627 17.0218 23.0622 16.9703C24.3122 16.9015 26.4301 16.7243 25.4805 16.331ZM23.7743 18.7917L23.9928 18.4298L24.3315 17.869C24.3715 17.974 24.398 18.0953 24.398 18.2332C24.398 20.9155 21.564 23.017 17.946 23.017C14.328 23.017 11.4938 20.9155 11.4938 18.2332C11.4938 18.0953 11.5203 17.974 11.5605 17.869L11.8993 18.4298L12.1177 18.7917L12.5345 18.6442L13.8914 18.1643L15.5172 19.533L15.7657 19.7425L16.0723 19.617L17.8833 18.878L19.2212 19.7788L19.5421 19.995L19.8497 19.7633L21.9832 18.1578L23.3581 18.6442L23.7743 18.7917ZM21.8888 17.608L19.5241 19.387L17.946 18.3247L15.8638 19.1745L14.0032 17.6077L13.4173 17.8147C13.3701 17.6035 13.345 17.3723 13.345 17.1225C13.345 15.0143 13.7695 13.4622 14.6065 12.5097L14.7507 12.3455L14.5947 12.191C14.3301 11.9285 14.05 11.6798 13.7558 11.4462C14.3049 11.435 14.852 11.5129 15.3725 11.6762L15.6646 11.7685L15.7118 11.4843C15.8603 10.5855 16.3202 9.93725 16.6609 9.565C16.6845 9.83675 16.7311 10.1945 16.8222 10.6145L16.9377 11.1448L17.2843 10.711C17.3849 10.5847 17.5006 10.4694 17.6292 10.3675C18.5156 9.6543 19.654 9.27298 20.8243 9.29725C20.3952 9.636 19.76 10.2027 19.1272 11.0048L18.8932 11.3015L19.2781 11.3837C21.478 11.8525 22.5476 13.7298 22.5476 17.123C22.5476 17.3728 22.523 17.6045 22.4755 17.8155L21.8888 17.608Z"
+                    fill="#FDF9FB" />
+                  <path
+                    d="M17.9456 15.4915C17.3342 15.4915 16.8365 16.1405 16.8365 16.9377C16.8365 17.621 17.412 18.044 17.9456 18.044C18.4792 18.044 19.0552 17.6212 19.0552 16.9377C19.0552 16.1405 18.5575 15.4915 17.9456 15.4915ZM17.9456 15.7332C18.3715 15.7332 18.7218 16.1802 18.7831 16.7595C18.6119 16.5887 18.3029 16.3402 17.9459 16.3402C17.5891 16.3402 17.2798 16.589 17.1086 16.7595C17.1697 16.1802 17.52 15.7332 17.9456 15.7332ZM17.9456 17.8022C17.5733 17.8022 17.1783 17.5262 17.1099 17.074C17.2814 17.2445 17.5902 17.4912 17.9459 17.4912C18.3015 17.4912 18.6103 17.2445 18.7818 17.074C18.7135 17.526 18.3181 17.8022 17.9456 17.8022ZM20.332 13.826C20.111 13.7781 19.879 13.8062 19.6783 13.905C19.4845 13.9975 19.3369 14.1387 19.2246 14.2922C19.3937 14.185 19.565 14.0897 19.7435 14.0295C19.922 13.9705 20.1082 13.9555 20.2851 13.9965C20.4634 14.0335 20.6303 14.1215 20.7874 14.2252C20.9442 14.3302 21.0916 14.454 21.247 14.5762C21.1532 14.4132 21.0412 14.255 20.8895 14.1225C20.741 13.988 20.5531 13.876 20.332 13.826ZM16.2137 13.905C16.0131 13.8057 15.7807 13.7776 15.5597 13.826C15.3394 13.876 15.1512 13.988 15.0028 14.1227C14.8513 14.2552 14.739 14.4135 14.6458 14.5765C14.8007 14.4542 14.9486 14.3305 15.1049 14.2255C15.2625 14.1217 15.4294 14.0337 15.6077 13.9967C15.784 13.9557 15.9703 13.9707 16.1491 14.0297C16.3278 14.09 16.4986 14.1852 16.6677 14.2925C16.5554 14.1387 16.4077 13.9975 16.2137 13.905ZM15.6564 15.2395C15.3273 15.2395 15.0609 15.559 15.0609 15.8582C15.0609 16.1575 15.3273 16.2887 15.6564 16.2887C15.9848 16.2887 16.2512 16.1577 16.2512 15.8582C16.2512 15.5587 15.9848 15.2395 15.6564 15.2395ZM20.2358 15.2395C19.9064 15.2395 19.64 15.559 19.64 15.8582C19.64 16.1575 19.9064 16.2887 20.2358 16.2887C20.5641 16.2887 20.8308 16.1577 20.8308 15.8582C20.8308 15.5587 20.5641 15.2395 20.2358 15.2395Z"
+                    fill="#FDF9FB" />
+                </svg>
+              </div>
+              <span class="user-name">Tú</span>
+              <span class="register-message">Debes registrarte para comentar</span>
+            </div>
+          </div>
+          <div class="linea-divisora"></div>
+          <div class="bajo-crear-comentario">
+            <span class="input-placeholder">¿Qué piensas de este juego?</span>
+            <div class="edit-icon">
+              <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.70921 13.7943L8.97411 16.0912L13.8989 8.13483L9.63545 5.83795L4.71062 13.7956L4.70921 13.7943ZM4.18436 15.0281L4.90761 18.0691L8.09327 17.132L4.18436 15.0281ZM10.3376 4.70133L14.6011 6.9982L15.8478 4.98614L11.5829 2.68927L10.3376 4.70133ZM2.62671 14.5359L11.0693 0.897705L17.7699 4.50577L9.3287 18.1453H9.33011L3.86777 19.7518L2.62671 14.5359ZM11.0693 19.7505V18.438H20.9189V19.7505H11.0693Z"
+                  fill="#FDF9FB" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div id="comments-list">
+          
+        </div>
+
+        <div class="see-more">
+          <button id="load-more" class="btn-see-more">Ver más</button>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="doble-game-container">
+        <div class="doble-game-list-content">
+          <div class="doble-game-list-content-part">
+            <h3>Más populares en lógica</h3>
+            <img src="./img/imgJuegos/pinguin.jpg" class="game-img" alt="Imagen de un juego">
+            <img src="./img/imgJuegos/te_subnautica.jpg" class="game-img" alt="Imagen de un juego">
+            <img src="./img/imgJuegos/te_elden-ring.jpg" class="game-img" alt="Imagen de un juego">
+          </div>
+          <div class="doble-game-list-content-part">
+            <h3>Populares en otras categorías</h3>
+            <img src="./img/imgJuegos/te_repo.jpg" class="game-img" alt="Imagen de un juego">
+            <img src="./img/imgJuegos/te_phasmophobia.jpg" class="game-img" alt="Imagen de un juego">
+            <img src="./img/imgJuegos/te_day-z.jpg" class="game-img" alt="Imagen de un juego">
+          </div>
+        </div>
+        <div class="see-more contenedor-btn">
+          <button class="btn-see-more btn-see-more-games">Ver más</button>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -198,49 +301,51 @@
       <div class="li-footer">
         <h3 class="titulo">Sitio</h3>
         <ul>
-          <li><a href="#">Ayuda</a></li>
-          <li><a href="#">Cookies</a></li>
-          <li><a href="#">Metodos de pago</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Políticas de privacidad</a></li>
+          <li><a href="index.html">Ayuda</a></li>
+          <li><a href="index.html">Cookies</a></li>
+          <li><a href="index.html">Metodos de pago</a></li>
+          <li><a href="index.html">Términos y condiciones</a></li>
+          <li><a href="index.html">Políticas de privacidad</a></li>
         </ul>
       </div>
       <div class="li-footer">
         <h3 class="titulo">Categorías</h3>
         <ul>
-          <li><a href="#">Accion</a></li>
-          <li><a href="#">Aventura</a></li>
-          <li><a href="#">Deportes</a></li>
-          <li><a href="#">Lógica</a></li>
-          <li><a href="#">Todos los juegos</a></li>
+          <li><a href="index.html">Accion</a></li>
+          <li><a href="index.html">Aventura</a></li>
+          <li><a href="index.html">Deportes</a></li>
+          <li><a href="index.html">Lógica</a></li>
+          <li><a href="index.html">Todos los juegos</a></li>
         </ul>
       </div>
       <div class="li-footer">
         <h3 class="titulo">Comunidad</h3>
         <ul>
-          <li><a href="#">Foro de Leveling</a></li>
-          <li><a href="#">Preguntas frecuentes</a></li>
-          <li><a href="#">Próximos eventos</a></li>
-          <li><a href="#">Recompensas</a></li>
-          <li><a href="#">Reportar bug</a></li>
+          <li><a href="index.html">Foro de Leveling</a></li>
+          <li><a href="index.html">Preguntas frecuentes</a></li>
+          <li><a href="index.html">Próximos eventos</a></li>
+          <li><a href="index.html">Recompensas</a></li>
+          <li><a href="index.html">Reportar bug</a></li>
         </ul>
       </div>
       <div class="li-footer">
         <h3 class="titulo">Empresa</h3>
         <ul>
-          <li><a href="#">Colaboradores</a></li>
-          <li><a href="#">Contactanos</a></li>
-          <li><a href="#">Proyectos</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Trabajá con nosotros</a></li>
+          <li><a href="index.html">Colaboradores</a></li>
+          <li><a href="index.html">Contactanos</a></li>
+          <li><a href="index.html">Proyectos</a></li>
+          <li><a href="index.html">Sobre nosotros</a></li>
+          <li><a href="index.html">Trabajá con nosotros</a></li>
         </ul>
       </div>
 
       <div class="contenedor-suscripcion">
-        <h1>Leveling</h1>
+        <a href="index.html" class="link-home">
+          <h1>Leveling</h1>
+        </a>
         <p>Unete a nosotros y no te pierdas nada!</p>
         <form action="" class="suscripcion">
-          <input type="email" placeholder="ejemplo@email.com" />
+          <input type="email" placeholder="ejemplo@email.com">
           <button type="submit" class="btn-subscribirse">
             <span>Suscribirse</span>
           </button>
@@ -250,20 +355,19 @@
 
     <nav class="redes-footer">
       <ul>
-        <li>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        </li>
+        <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://x.com/?lang=es"><i class="fa-brands fa-x-twitter"></i></a></li>
       </ul>
     </nav>
   </footer>
   <script type="text/javascript" src="./js/share-containerDrop.js"></script>
   <script type="text/javascript" src="js/profileDrop.js"></script>
+  <script type="text/javascript" src="js/carousel.js"></script>
+  <script type="text/javascript" src="js/loadSidebar.js"></script>
+  <script src="js/comments.js"></script>
+  
+
 </body>
 
 </html>
