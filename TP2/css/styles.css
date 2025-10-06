@@ -542,7 +542,7 @@ div.contenedor-suscripcion p {
 }
 
 /* Sidebar visible cuando el checkbox está checked */
-#menu-toggle:checked ~ #sidebar-container .sidebar {
+#menu-toggle:checked~#sidebar-container .sidebar {
   left: 0;
 }
 
@@ -592,7 +592,7 @@ div.contenedor-suscripcion p {
 }
 
 /* Cuando está activo */
-#menu-toggle:checked ~ .overlay {
+#menu-toggle:checked~.overlay {
   opacity: 1;
   pointer-events: auto;
 }
@@ -741,8 +741,10 @@ label[for="menu-toggle"] {
 
 .btn-see-more-games {
   position: absolute;
-  bottom: 20px; /* o top/left según donde lo quieras */
-  z-index: 10; /* asegura que esté por encima de otros elementos */
+  bottom: 20px;
+  /* o top/left según donde lo quieras */
+  z-index: 10;
+  /* asegura que esté por encima de otros elementos */
 }
 
 .content-header {
@@ -797,11 +799,11 @@ label[for="menu-toggle"] {
 }
 
 .doble-game-list-content-part {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 324px;
-    height: 546px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 324px;
+  height: 546px;
 }
 
 .doble-game-list-content-part img {
@@ -812,29 +814,27 @@ label[for="menu-toggle"] {
 }
 
 .doble-game-list-content-part h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .game-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
 @media only screen and (min-width: 800px) {
   /* -----Carga de la pagina------*/
-  body {
-    padding-top: 86px;
-  }
 
   main.home {
     display: flex;
     padding: 44px 5%;
     flex-direction: column;
     align-items: center;
+    margin: 120px 53px 53px 53px;
   }
 
   .noScroll {
@@ -1249,6 +1249,7 @@ label[for="menu-toggle"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 80px 0 150px 0;
   }
 
   .register,
@@ -1374,7 +1375,7 @@ label[for="menu-toggle"] {
     outline: 1px solid #f23d4f;
   }
 
-  #form-register .container-email input:focus:invalid ~ label {
+  #form-register .container-email input:focus:invalid~label {
     color: #f23d4f;
   }
 
@@ -1453,6 +1454,24 @@ label[for="menu-toggle"] {
     transition: 0.3s;
   }
 
+  .incomplete {
+    animation: incomplete 1.5s linear .5s infinite;
+  }
+
+  @keyframes incomplete {
+    0% {
+      border: 5px solid #7a194e;
+    }
+
+    50% {
+      border: 5px solid #F72585;
+    }
+
+    100% {
+      border: 5px solid #7a194e;
+    }
+  }
+
   section.start-sesion form p {
     height: 24px;
     font-size: 16px;
@@ -1474,8 +1493,8 @@ label[for="menu-toggle"] {
     margin: 8px 0 44px 0;
   }
 
-  .btn-facebook,
-  .btn-google {
+  a.btn-facebook,
+  a.btn-google {
     border-radius: 50%;
     cursor: pointer;
     font-size: 40px;
@@ -1554,7 +1573,7 @@ label[for="menu-toggle"] {
   }
 
   .container-password p.invalid,
-  .container-password p.invalid + label {
+  .container-password p.invalid+label {
     color: #e74c3c;
     display: block;
   }
@@ -1571,7 +1590,7 @@ label[for="menu-toggle"] {
   }
 
   .container-optional p {
-    margin-top: 8px;
+    margin-top: 10px;
     font-style: italic;
   }
 
@@ -2116,7 +2135,7 @@ label[for="menu-toggle"] {
     border: none;
   }
 
-  .input-copy-link > button {
+  .input-copy-link>button {
     position: absolute;
     display: flex;
     align-items: center;
