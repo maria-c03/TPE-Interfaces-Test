@@ -735,15 +735,14 @@ label[for="menu-toggle"] {
     margin-top: 0;
 }
 
-#load-more,
-.btn-ver-mas {
+.btn-see-more {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 10px;
-  width: 106px;
-  height: 39px;
-  background: #c71d6f;
+  width: 138px;
+  height: 51px;
+  background: #F72585;
   border-radius: 40px;
   border: none;
   cursor: pointer;
@@ -754,9 +753,6 @@ label[for="menu-toggle"] {
   transition: background-color 0.3s;
 }
 
-#load-more:hover {
-    background: #a8185f;
-}
 
 .content-header {
     width: 833px;
@@ -1213,7 +1209,7 @@ label[for="menu-toggle"] {
         font-weight: bold;
     }
 
-    .btn-subscribirse:hover {
+    .btn-subscribirse:hover, .btn-see-more:hover {
         background: #d61d6d;
         animation: bounce 4s infinite;
     }
@@ -2276,7 +2272,10 @@ label[for="menu-toggle"] {
         padding: 0px;
     }
 
-
+    .carousel-gamepage{
+        margin: 15px;
+        width: 1550px;
+    }
 
 
 
