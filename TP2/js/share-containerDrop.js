@@ -3,16 +3,17 @@
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const btnShare = document.querySelector('.btn-share');
-    const btnCancel = document.querySelector('.fa-xmark');
+    const btnCancel = document.querySelector('.share-container .fa-xmark');
     const shareBox = document.querySelector('.share-container');
     
     btnShare.addEventListener('click',()=>{
         shareBox.classList.toggle('active');
-    })
+    });
     document.addEventListener('click', (e)=>{
         if(!shareBox.contains(e.target) && !btnShare.contains(e.target)
              || btnCancel.contains(e.target)){
+            console.log('Hola');
                 shareBox.classList.remove('active');
         }
-    })
+    });
 })
