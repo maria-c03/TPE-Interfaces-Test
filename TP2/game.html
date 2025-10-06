@@ -14,10 +14,20 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
+ <!-- Checkbox debe estar al mismo nivel que el sidebar-container -->
+<input type="checkbox" id="menu-toggle" />
+
+<!-- Contenedor del sidebar -->
+<div id="sidebar-container"></div>
+
+<!-- Overlay -->
+<label class="overlay" for="menu-toggle"></label>
+
+<!-- Header -->
+<header>
     <div class="logo-menu">
-      <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburgesa"></i>
+        <!-- El botón hamburguesa NO debe ser un label -->
+        <i class="fa-solid fa-bars img-iconos" aria-label="Menu hamburgesa" id="menu-hamburguesa"></i>
       <a href="index.html"><img src="./img/icons/logo.png" alt="Logo Leveling" id="logo-leveling">Leveling</a>
     </div>
     <div class="buscador">
@@ -279,8 +289,8 @@
             <img src="./img/imgJuegos/te_day-z.jpg" class="game-img" alt="Imagen de un juego">
           </div>
         </div>
-        <div class="see-more">
-          <button class="btn-see-more">Ver más</button>
+        <div class="see-more contenedor-btn">
+          <button class="btn-see-more btn-see-more-games">Ver más</button>
         </div>
       </div>
     </section>
@@ -354,7 +364,9 @@
   <script type="text/javascript" src="./js/share-containerDrop.js"></script>
   <script type="text/javascript" src="js/profileDrop.js"></script>
   <script type="text/javascript" src="js/carousel.js"></script>
+  <script type="text/javascript" src="js/loadSidebar.js"></script>
   <script src="js/comments.js"></script>
+  
 
 </body>
 
