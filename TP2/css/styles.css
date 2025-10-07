@@ -429,6 +429,10 @@ div.contenedor-suscripcion p {
   pointer-events: none;
   z-index: 1003;
 }
+.container-user-opcion ul a{
+    text-decoration: none;
+    color:white;
+}
 
 .profile-settings-container.active {
   opacity: 1;
@@ -1375,7 +1379,7 @@ label[for="menu-toggle"] {
     outline: 1px solid #f23d4f;
   }
 
-  #form-register .container-email input:focus:invalid~label {
+  #form-register .container-email input:focus:invalid~label{
     color: #f23d4f;
   }
 
@@ -1568,6 +1572,7 @@ label[for="menu-toggle"] {
   }
 
   /* Validación visual para el mensaje de contraseña */
+
   .container-password p.valid {
     display: none;
   }
@@ -1578,7 +1583,7 @@ label[for="menu-toggle"] {
     display: block;
   }
 
-  .container-password .container-pass-input input.invalid:focus {
+  .container-password .container-pass-input input.invalid{
     outline: 1px solid #e74c3c;
     border: none;
   }
@@ -1789,7 +1794,8 @@ label[for="menu-toggle"] {
     }
   }
 
-  .profile-user-opcion li:hover {
+
+  .profile-user-opcion li:hover, .container-user-opcion ul a:hover{
     color: #606079;
     cursor: pointer;
   }

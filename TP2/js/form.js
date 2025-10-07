@@ -4,6 +4,34 @@ const btnLoginForm = document.querySelector(".btn-start-sesion");
 const formRegister = document.querySelector(".form-login");
 const formLogin = document.querySelector(".form-registration");
 
+const passwordContainers = document.querySelectorAll('.container-password');
+
+    passwordContainers.forEach(container => {
+        // Busca el input de password dentro del contenedor
+        let input = container.querySelector('input[type="password"]');
+        // Busca el <p> dentro del contenedor
+        let msg = container.querySelector('p');
+        input.addEventListener('input', ()=>{
+        if (input.value.length === 0) {
+            msg.classList.remove('valid', 'invalid');
+            input.classList.remove('invalid');
+            return;
+            }
+            else if (input.value.length >= 5){
+                msg.classList.add('valid');
+                msg.classList.remove('invalid');
+                input.classList.add('valid');
+                input.classList.remove('invalid');
+            }
+            else{
+                msg.classList.add('invalid');
+                msg.classList.remove('valid');
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+        });
+    });
+
 btnLoginForm.addEventListener("click", (e) => {
     e.preventDefault();
     let inputForm = document.querySelectorAll(".required");
@@ -40,12 +68,14 @@ function verification(inputForm) {
 }
 
 function verificationPass() {
+
     let pass = document.querySelector("#password-register");
     let passRep = document.querySelector("#password-repeat");
     let equals = document.querySelector(".equals");
     if (pass.value.length < 5) {
         pass.classList.add("incomplete");
         return false;
+
     } else {
         pass.classList.remove('incomplete');
         if (pass.value !== passRep.value) {
@@ -53,14 +83,15 @@ function verificationPass() {
             pass.classList.add("incomplete");
             passRep.classList.add("incomplete");
             return false;
+
         } else {
             pass.classList.remove('incomplete');
             passRep.classList.remove('incomplete');
             return true;
+
         }
     }
 }
-
 
 //Le aviso al usuario donde debe completar
 function showError(inputForm) {
