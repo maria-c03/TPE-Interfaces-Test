@@ -1,8 +1,7 @@
 const btnRegisterForm = document.querySelector(".btn-start-register");
 const btnLoginForm = document.querySelector(".btn-start-sesion");
 
-const formRegister = document.querySelector(".form-login");
-const formLogin = document.querySelector(".form-registration");
+const formLogin = document.querySelector(".login");
 
 const passwordContainers = document.querySelectorAll('.container-password');
 
@@ -46,21 +45,25 @@ btnRegisterForm.addEventListener("click", (e) => {
     let inputForm = document.querySelectorAll(".requiredRegister");
     showError(inputForm);
     if (verification(inputForm) && verificationPass()) {
-        window.location.href = "index.html";
+        formLogin.classList.add("hide");
+        let confirmMensage = document.querySelector(".register-comfirm");
+        confirmMensage.classList.remove("hide");
+        confirmMensage.classList.add("show-confirmation");
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 5000);
     }
 })
 
 //si un input esta vacio devuelve false
 function verification(inputForm) {
-    
     for (let input of inputForm) {
-        console.log("evaluating inputs, type: " + input.type + ", value:" + input.value + ", isChecked: " + input.checked)
         if (input.type === "checkbox" && !input.checked) {
             let check = document.querySelector(".check");
             check.innerHTML = "verifica que no eres un robot";
             return false;
         }
-        if(input.value === ""){
+        if (input.value === "") {
             return false;
         }
     }
