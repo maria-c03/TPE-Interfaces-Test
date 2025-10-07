@@ -119,6 +119,10 @@ header .buscador input {
 
 /* -----Carrusel Categorias ------ */
 
+.category-container{
+  margin: 0px 10px;
+}
+
 .carousels {
   display: flex;
   flex-direction: column;
@@ -269,7 +273,7 @@ div.product-free:focus {
 
 div.product-free a i,
 div.product i {
-  padding-right: 2px;
+  padding-left: 3px;
   font-size: 17px;
   color: #fdf9fb;
 }
