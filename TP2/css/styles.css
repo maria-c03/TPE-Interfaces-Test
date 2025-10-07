@@ -1908,6 +1908,7 @@ label[for="menu-toggle"] {
     height: 750px;
     overflow: hidden;
     position: relative;
+    border-radius: 8px;
   }
 
   .game-container img {
