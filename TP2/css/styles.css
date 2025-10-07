@@ -632,6 +632,10 @@ label[for="menu-toggle"] {
   margin-bottom: 27px;
 }
 
+.user-comentary{
+  background-color: #777475;
+}
+
 .alto {
   display: flex;
   flex-direction: column;
@@ -1867,6 +1871,7 @@ main.home {
     margin-right: 136px;
     margin-left: 136px;
     background-color: #1e1e1e;
+    margin-top: 68px;
   }
 
   .breadcrumb {
@@ -2195,7 +2200,6 @@ main.home {
     height: 46px;
   }
 
-  /* Ensure the h2 title stays on one line and truncates if too long */
   .game-title h2 {
     white-space: nowrap;
     margin: 0;
