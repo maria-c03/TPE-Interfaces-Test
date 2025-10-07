@@ -1,3 +1,4 @@
+
 "use strict";
 
 let eyeIcon = document.querySelectorAll(".toggle-password").forEach(eyeIcon => {
@@ -19,6 +20,3 @@ function togglePassword() {
     eyeIcon.classList.toggle("fa-eye-slash");
     eyeIcon.classList.toggle("fa-eye");
 }
-
-
-

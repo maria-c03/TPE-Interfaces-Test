@@ -367,6 +367,7 @@ footer {
   color: #fdf9fb;
   font-weight: bold;
   font-size: 16px;
+  font-family: "Roboto";
   cursor: pointer;
 }
 
@@ -1700,8 +1701,8 @@ label[for="menu-toggle"] {
   /* ----------perfil------------------ */
   .profile-settings-container {
     position: absolute;
-    /* top: 90px;
-    left: 80%; */
+    top: 90px;
+    left: 80%;
     left: 81%;
     width: 372px;
     height: auto;
@@ -2065,12 +2066,12 @@ label[for="menu-toggle"] {
 
     50% {
       opacity: 0.5;
-      transform: translateX(50%);
+      transform: translateX(50%) scale(1.5);
     }
 
     100% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) scale(1);
     }
   }
 
