@@ -822,14 +822,6 @@ label[for="menu-toggle"] {
 
   /* -----Carga de la pagina------*/
 
-  main.home {
-    display: flex;
-    padding: 44px 5%;
-    flex-direction: column;
-    align-items: center;
-    margin: 120px 53px 53px 53px;
-  }
-
   .noScroll {
     /* clase que evita el scroll en la carga de la animacion */
     overflow: hidden;
@@ -890,6 +882,13 @@ label[for="menu-toggle"] {
 @media only screen and (min-width: 800px) {
 
   /* -----Header----- */
+main.home {
+    display: flex;
+    padding: 44px 5%;
+    flex-direction: column;
+    align-items: center;
+    margin: 120px 53px 53px 53px;
+  }
 
   header {
     position: fixed;

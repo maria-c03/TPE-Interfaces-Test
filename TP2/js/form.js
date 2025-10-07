@@ -71,7 +71,7 @@ function verification(inputForm) {
 }
 
 function verificationPass() {
-
+  
     let pass = document.querySelector("#password-register");
     let passRep = document.querySelector("#password-repeat");
     let equals = document.querySelector(".equals");
@@ -80,6 +80,7 @@ function verificationPass() {
         return false;
 
     } else {
+        
         pass.classList.remove('incomplete');
         if (pass.value !== passRep.value) {
             equals.innerHTML = "Las contraseñas deben coincidir ";
