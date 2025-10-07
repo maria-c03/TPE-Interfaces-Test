@@ -1076,6 +1076,7 @@ main.home {
     justify-items: start;
     margin: 42px 40px;
     width: 100%;
+    padding: 0px 40px;
   }
 
   div.li-footer {
@@ -1369,14 +1370,14 @@ main.home {
   }
 
   /* invalid utiliza required de input y valida si se cumple la condicion o no*/
-  #form-register .container-email input:focus:invalid {
+  /* #form-register .container-email input:focus:invalid {
     border: none;
     outline: 1px solid #f23d4f;
   }
 
   #form-register .container-email input:focus:invalid~label{
     color: #f23d4f;
-  }
+  } */
 
   div label.login-pass-label {
     padding-left: 54px;
@@ -1701,7 +1702,7 @@ main.home {
   .profile-settings-container {
     position: absolute;
     top: 90px;
-    left: 81%;
+    left: 80%;
     width: 372px;
     height: auto;
     border-radius: 8px;
