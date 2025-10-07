@@ -539,7 +539,6 @@ div.contenedor-suscripcion p {
   font-weight: 500;
   font-family: Roboto;
   padding-top: 60px;
-  /* Espacio para el header */
 }
 
 /* Sidebar visible cuando el checkbox está checked */
@@ -565,7 +564,6 @@ div.contenedor-suscripcion p {
   color: #fff;
   padding: 12px 20px;
   width: 100%;
-  /* transition: background 0.3s; */
 }
 
 .sidebar ul li a:hover {
@@ -743,9 +741,7 @@ label[for="menu-toggle"] {
 .btn-see-more-games {
   position: absolute;
   bottom: 20px;
-  /* o top/left según donde lo quieras */
   z-index: 10;
-  /* asegura que esté por encima de otros elementos */
 }
 
 .content-header {
@@ -754,7 +750,6 @@ label[for="menu-toggle"] {
   display: flex;
   flex-direction: row;
   border-bottom: 2px solid #fff;
-  /* Ajustado el color de la línea según Figma */
   color: #fff;
   margin-bottom: 27px;
   margin-top: 27px;
@@ -762,18 +757,13 @@ label[for="menu-toggle"] {
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  /* Agregado según Figma (150% de 12px) */
   align-items: center;
-  /* Asegura la alineación vertical */
   gap: 15px;
-  /* Agregado para el espacio entre el ícono y el texto */
 }
 
 .content-header .profile-avatar {
   width: 25px;
-  /* Ajustado al tamaño del ícono del chat en Figma */
   height: 29px;
-  /* Ajustado al tamaño del ícono del chat en Figma */
 }
 
 .down-side-game {
@@ -782,7 +772,7 @@ label[for="menu-toggle"] {
   gap: 40px;
 }
 
-/* Doble lista de jeugos */
+/* Doble lista de juegos */
 
 .doble-game-container {
   display: flex;
@@ -826,8 +816,6 @@ label[for="menu-toggle"] {
   box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
 }
 
-/* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
-@media only screen and (min-width: 800px) {
   /* -----Carga de la pagina------*/
 
   main.home {
@@ -853,7 +841,7 @@ label[for="menu-toggle"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 1110;
     transition: opacity 1s ease;
   }
 
@@ -893,6 +881,9 @@ label[for="menu-toggle"] {
       transform: scale(0.5) rotate(360deg);
     }
   }
+
+/* las reglas dentro de este bloque solo se activan si el ancho de la pantalla es mayor a 800 píxeles */
+@media only screen and (min-width: 800px) {
 
   /* -----Header----- */
 
@@ -1702,7 +1693,6 @@ label[for="menu-toggle"] {
   .profile-settings-container {
     position: absolute;
     top: 90px;
-    left: 80%;
     left: 81%;
     width: 372px;
     height: auto;
