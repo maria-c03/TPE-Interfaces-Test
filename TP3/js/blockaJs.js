@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = canvas.getContext("2d");
     const width = canvas.width;
     const height = canvas.height;
-    let playBtn = "Jugar";
-
-
+    //array con la ruta de las imagenes del juego
     const images = [
         "img/imgBlocka/image1.png",
         "img/imgBlocka/image2.jpg",
@@ -15,26 +13,38 @@ document.addEventListener("DOMContentLoaded", function () {
         "img/imgBlocka/image5.jpg",
         "img/imgBlocka/image6.jpg"
     ];
+    //--- botón jugar ---
+    let playBtn = "Jugar";
+    const playButton = {
+        x: 650,
+        y: 600,
+        width: 200,
+        height: 50
+    };
 
     const thumbnails = [];
     let pieces = [];
-    let image1 = new Image();
     let selectedImage = null;
+    let imageActual = new Image();
     let gameStarted = false;
     let time = 0;
     let timerInterval = null;
-
+    //cantidad de partes del puzle si quiero 4 cols=2, para 6 cols=3, para 8 cols=4
     const cols = 2;
     const rows = 2;
+    //posicion donde se dibujara la img del puzzle en el canvas
     const posStartX = 660;
     const posStartY = 350;
 
-    // Cargar thumbnails
+    // Carga de miniaturas 
     images.forEach((src, index) => {
+        //por cada ruta se crea un image() y se fija un src
         const thumb = new Image();
         thumb.src = src;
-        const thumbX = 450 + index * 110;
+        // calculo la posicion de la miniatura, separada por 110px 
+        const thumbX = 420 + index * 110;
         const thumbY = 150;
+        //añado un objeto con la miniatura y su posicion al array thumbnails
         thumbnails.push({
             image: thumb,
             x: thumbX,
@@ -45,63 +55,56 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Dibujar botón JUGAR
-    const playButton = {
-        x: 650,
-        y: 600,
-        width: 200,
-        height: 50
-    };
-
+    // --- interfaz de usuario ---
     function drawUI() {
-        // Fondo
+        // Fondo del canva
         ctx.fillStyle = "#000000";
         ctx.fillRect(0, 0, width, height);
 
-        // miniaturas
+        // dibujo las miniaturas
         thumbnails.forEach((thumb) => {
             ctx.drawImage(thumb.image, thumb.x, thumb.y, thumb.width, thumb.height);
         });
+        //si el juego no esta activo, dibujo el boton de jugar
         if (!gameStarted) {
-            // boton jugar
-            ctx.fillStyle = "#4444ff";
-            ctx.fillRect(playButton.x, playButton.y, playButton.width, playButton.height);
-            ctx.fillStyle = "white";
-            ctx.font = "18px Arial";
-            ctx.textAlign = "center";
-            ctx.fillText(playBtn, playButton.x + playButton.width / 2, playButton.y + 30);
+            drawBtnPlay();
         }
-
-
-        // Tiempo en pantalla
-        ctx.fillStyle = "white";
-        ctx.font = "16px Roboto";
-        ctx.textAlign = "left";
-        ctx.fillText(`Tiempo: ${time}s`, 700, 80);
+        //muestro el tiempo de juego
+        drawTimer();
     }
 
+    // --- logica ---
+
+    //devuelvo una rotacion aleatoria
     function getRandomRotation() {
+        //angulos
         const rotations = [0, 90, 180, 270];
         return rotations[Math.floor(Math.random() * rotations.length)];
     }
-
+    //si todas las piezas tienen rotacion 0 devuelve true
     function isPuzzleSolved() {
         return pieces.every(piece => piece.rotation === 0);
     }
 
     function drawPuzzle() {
+        //dibujo la interfaz de usuario
         drawUI();
-
+        //si no hay imagen seleccionada no dibujo piezas
         if (!selectedImage) return;
 
         pieces.forEach(piece => {
-            ctx.save();
+            //por cada pieza calculo el centro de la pieza en canvas
             const centerX = piece.canvasX + piece.width / 2;
             const centerY = piece.canvasY + piece.height / 2;
+            //guardo el estado del contexto
+            ctx.save();
+            //muevo el origen al centro de la pieza
             ctx.translate(centerX, centerY);
+            //roto el contexto según piece.rotation
             ctx.rotate(piece.rotation * Math.PI / 180);
+            //se recorta la porción correcta de la imagen fuente (sourceX/Y/Width/Height) y se la dibuja centrada en el origen rotado.
             ctx.drawImage(
-                image1,
+                imageActual,
                 piece.sourceX,
                 piece.sourceY,
                 piece.sourceWidth,
@@ -111,47 +114,66 @@ document.addEventListener("DOMContentLoaded", function () {
                 piece.width,
                 piece.height
             );
+            //vuelvo al estado original del contexto (antes de translate/rotate).
             ctx.restore();
-        });
+        });//cada pieza aparece en su posición con rotación propia
 
         // Si está resuelto, detener el tiempo
         if (isPuzzleSolved()) {
-            clearInterval(timerInterval);
-            gameStarted = false;
-            playBtn = "Jugar de nuevo";
-
-            // Mensaje sobre el puzzle
-            ctx.fillStyle = "lime";
-            ctx.font = "30px Roboto";
-            ctx.textAlign = "center";
-            ctx.fillText("¡Puzzle resuelto!", 750, 320);
-
-            // Dibujar botón sobre el puzzle sin borrar nada
-            ctx.fillStyle = "#4444ff";
-            ctx.fillRect(playButton.x, playButton.y, playButton.width, playButton.height);
-            ctx.fillStyle = "white";
-            ctx.font = "18px Arial";
-            ctx.fillText(playBtn, playButton.x + playButton.width / 2, playButton.y + 30);
+            showMenssage();
         }
+    }
 
+    // --- funciones ---
+    function drawBtnPlay() {
+        // boton jugar
+        ctx.fillStyle = "#4444ff";
+        ctx.fillRect(playButton.x, playButton.y, playButton.width, playButton.height);
+        ctx.fillStyle = "white";
+        ctx.font = "18px Roboto";
+        ctx.textAlign = "center";
+        ctx.fillText(playBtn, playButton.x + playButton.width / 2, playButton.y + 30);
+    }
+
+    function drawTimer() {
+        // tiempo en pantalla
+        ctx.fillStyle = "white";
+        ctx.font = "16px Roboto";
+        ctx.textAlign = "left";
+        ctx.fillText(`Tiempo: ${time}s`, 700, 80);
+    }
+
+    function showMenssage() {
+        // mensaje en pantalla
+        clearInterval(timerInterval); //detiene el contador por segundos.
+        gameStarted = false; //marco que termino el juego
+        playBtn = "Jugar de nuevo"; //cambio el texto del boton por juegar de nuevo
+
+        ctx.fillStyle = "lime";
+        ctx.font = "30px Roboto";
+        ctx.textAlign = "center";
+        ctx.fillText("¡Puzzle resuelto!", 750, 320);
+        //pinto el boton jugar de nuevo 
+        drawBtnPlay();
     }
 
     function startGame() {
-        if (!selectedImage) return;
+        if (!selectedImage) return; // si no selecciono una imagen no hago nada
 
         pieces = [];
-        image1 = new Image();
-        image1.src = selectedImage;
+        imageActual = new Image();
+        imageActual.src = selectedImage;
 
-        image1.onload = function () {
-            const pieceWidth = image1.width / cols;
-            const pieceHeight = image1.height / rows;
-
+        imageActual.onload = function () {
+            //calculo el ancho y alto de cada pieza
+            const pieceWidth = imageActual.width / cols;
+            const pieceHeight = imageActual.height / rows;
+            //recorro filas y columnas
             for (let y = 0; y < rows; y++) {
                 for (let x = 0; x < cols; x++) {
                     const canvasX = posStartX + x * pieceWidth;
                     const canvasY = posStartY + y * pieceHeight;
-
+                    //por cada celda agrego un objeto pieza con sus coordenadas, tamaño, posicion en el canvas y rotacion
                     pieces.push({
                         sourceX: x * pieceWidth,
                         sourceY: y * pieceHeight,
@@ -165,64 +187,63 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 }
             }
-
+            //marco el inicio del juego en true y reseteo el tiempo en cero
             gameStarted = true;
             time = 0;
-
-            if (timerInterval) clearInterval(timerInterval);
+            //si ya habia un timerInterval lo limpio
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            //creo un nuevo timerInterval
             timerInterval = setInterval(() => {
-                time++;
-                drawPuzzle();
+                time++; //incremento el tiempo
+                drawPuzzle(); // vuelvo a dibujar el puzzle
             }, 1000);
-
-            drawPuzzle();
+            //llamo a drawPuzzle para mostrar el estado inicial 
+            drawPuzzle(); 
         };
+        //coloco el boton jugar de nuevo
         playBtn = "Jugar de nuevo";
     }
 
+    // --- eventos ---
+
+    //Calcula las coordenadas del click respecto al canvas (mouseX, mouseY) usando getBoundingClientRect().
     canvas.addEventListener("mousedown", function (event) {
         const rect = canvas.getBoundingClientRect();
         const mouseX = event.clientX - rect.left;
         const mouseY = event.clientY - rect.top;
 
-        // Clic en botón "Jugar"
-        if (
-            mouseX >= playButton.x && mouseX <= playButton.x + playButton.width &&
-            mouseY >= playButton.y && mouseY <= playButton.y + playButton.height
-        ) {
-            // Seleccionar imagen aleatoria
+        // si el click cae dentro de las coordenadas de playButton
+        if ((mouseX >= playButton.x) && (mouseX <= playButton.x + playButton.width) &&
+            (mouseY >= playButton.y) && (mouseY <= playButton.y + playButton.height)) {
+            // Seleccionar imagen aleatoria e inicializo el juego
             const randomIndex = Math.floor(Math.random() * thumbnails.length);
             selectedImage = thumbnails[randomIndex].src;
             startGame();
             return;
         }
 
-        if (!gameStarted) return;
-
-        // Clic en pieza
-        for (let i = 0; i < pieces.length; i++) {
-            const piece = pieces[i];
-            if (
-                mouseX >= piece.canvasX &&
-                mouseX <= piece.canvasX + piece.width &&
-                mouseY >= piece.canvasY &&
-                mouseY <= piece.canvasY + piece.height
-            ) {
-                // Botón izquierdo → -90°, derecho → +90°
-                if (event.button === 0) {
-                    piece.rotation = (piece.rotation - 90 + 360) % 360;
-                } else if (event.button === 2) {
+        // Clic en una pieza
+        for (const piece of pieces) {
+            //recorro las piezas y si el click cae dentro de la caja canvasX..canvasX+width y canvasY..canvasY+height, entonces
+            if ((mouseX >= piece.canvasX) && (mouseX <= piece.canvasX + piece.width) &&
+                (mouseY >= piece.canvasY) && (mouseY <= piece.canvasY + piece.height)) {
+                
+                if (event.button === 0) { // Botón izquierdo → rota la pieza -90°
+                    piece.rotation = (piece.rotation - 90 + 360) % 360; //asegura que la rotación quede en el rango 0..359
+                } else if (event.button === 2) { //derecho → rota la pieza 90°
                     piece.rotation = (piece.rotation + 90) % 360;
                 }
-                drawPuzzle();
+                drawPuzzle(); //actualizo la pantalla con la nueva rotacion
                 break;
             }
         }
     });
 
-    // Prevenir menú contextual en canvas
+    // Evito el menú contextual en canvas al hacer clic derecho
     canvas.addEventListener("contextmenu", event => event.preventDefault());
 
-    // Primer dibujo inicial (UI sin puzzle aún)
+    // inicializacion, al cargar la página se dibuja la interfaz inicial (miniaturas, botón Jugar y tiempo en 0)
     drawUI();
 });
