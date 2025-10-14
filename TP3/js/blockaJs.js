@@ -78,8 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
     //devuelvo una rotacion aleatoria
     function getRandomRotation() {
         //angulos
-        const rotations = [0, 90, 180, 270];
-        return rotations[Math.floor(Math.random() * rotations.length)];
+        //const rotations = [0, 90, 180, 270];
+        //Arreglo inecesario calculamos de forma dinamica
+        const rotations = (Math.floor(Math.random() * 4) * 90);
+        return rotations;
     }
     //si todas las piezas tienen rotacion 0 devuelve true
     function isPuzzleSolved() {
@@ -102,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.translate(centerX, centerY);
             //roto el contexto según piece.rotation
             ctx.rotate(piece.rotation * Math.PI / 180);
-            //se recorta la porción correcta de la imagen fuente (sourceX/Y/Width/Height) y se la dibuja centrada en el origen rotado.
+            
+            // Primero dibuja la pieza
             ctx.drawImage(
                 imageActual,
                 piece.sourceX,
@@ -114,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 piece.width,
                 piece.height
             );
+            // Luego aplica el filtro sobre la región ya dibujada
+            aplicarFiltro(ctx, piece.canvasX, piece.canvasY, piece.width, piece.height);
+            console.log("pX: "+ piece.sourceX, "pY: "+ piece.sourceY);
             //vuelvo al estado original del contexto (antes de translate/rotate).
             ctx.restore();
         });//cada pieza aparece en su posición con rotación propia
@@ -173,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 for (let x = 0; x < cols; x++) {
                     const canvasX = posStartX + x * pieceWidth;
                     const canvasY = posStartY + y * pieceHeight;
-                    //por cada celda agrego un objeto pieza con sus coordenadas, tamaño, posicion en el canvas y rotacion
+                    //por cada celda agrego un objeto pieza con sus coordenadas, tamaño, posicion en el canvas y rotacion.
                     pieces.push({
                         sourceX: x * pieceWidth,
                         sourceY: y * pieceHeight,
@@ -185,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         canvasY,
                         rotation: getRandomRotation()
                     });
+                    console.log("x: " +canvasX,"Y: "+ canvasY)
                 }
             }
             //marco el inicio del juego en true y reseteo el tiempo en cero
@@ -246,4 +253,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // inicializacion, al cargar la página se dibuja la interfaz inicial (miniaturas, botón Jugar y tiempo en 0)
     drawUI();
+
+
+
+//       function aplicarFiltro(ctx, iniX, iniY, w, h) {
+//         const imageData = ctx.getImageData(iniX,iniY, w, h);
+//         const data = imageData.data;
+//             for (let i = 0; i < data.length; i += 4) {
+//             data[i] = 255 - data[i];
+//             data[i + 1] = 255 - data[i + 1];
+//             data[i + 2] = 255 - data[i + 2];
+//             }
+//         ctx.putImageData(imageData, iniX, iniY);
+//   }
+
+
+
+    // Aplica el filtro importado sobre la región de la pieza
+    function aplicarFiltro(ctx, iniX, iniY, w, h){
+        // Selecciona aleatoriamente uno de los filtros importados
+        const filtros = [filtroBrillo, filtroGrices, filtroNegativo];
+        const filtro = filtros[Math.floor(Math.random() * filtros.length)];
+            filtro(ctx, iniX, iniY, w, h);
+        }
+
 });
