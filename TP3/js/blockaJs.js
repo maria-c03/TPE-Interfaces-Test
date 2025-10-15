@@ -14,9 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
         "img/imgBlocka/image6.jpg"
     ];
     //--- botón jugar ---
-    let playBtn = "Jugar";
+    let playBtn = "Jugar de nuevo";
     const playButton = {
-        x: 650,
+        x: 731,
+        y: 325,
+        width: 100,
+        height: 100
+    };
+
+    const playAgain = {
+        x: 680,
         y: 600,
         width: 200,
         height: 50
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cols = 2;
     const rows = 2;
     //posicion donde se dibujara la img del puzzle en el canvas
-    const posStartX = 660;
+    const posStartX = 680;
     const posStartY = 350;
 
     // Carga de miniaturas 
@@ -42,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const thumb = new Image();
         thumb.src = src;
         // calculo la posicion de la miniatura, separada por 110px 
-        const thumbX = 420 + index * 110;
+        const thumbX = 450 + index * 110;
         const thumbY = 150;
         //añado un objeto con la miniatura y su posicion al array thumbnails
         thumbnails.push({
@@ -67,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         //si el juego no esta activo, dibujo el boton de jugar
         if (!gameStarted) {
-            drawBtnPlay();
+            drawBtnPlayStart();
         }
         //muestro el tiempo de juego
         drawTimer();
@@ -78,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //devuelvo una rotacion aleatoria
     function getRandomRotation() {
         //angulos
-        //const rotations = [0, 90, 180, 270];
-        //Arreglo inecesario calculamos de forma dinamica
         const rotations = (Math.floor(Math.random() * 4) * 90);
         return rotations;
     }
@@ -104,22 +109,22 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.translate(centerX, centerY);
             //roto el contexto según piece.rotation
             ctx.rotate(piece.rotation * Math.PI / 180);
-            
+
             // Primero dibuja la pieza
             ctx.drawImage(
-                imageActual,
+                imageActual, //imagen base
                 piece.sourceX,
-                piece.sourceY,
+                piece.sourceY, //posición de la parte dentro de la imagen original
                 piece.sourceWidth,
-                piece.sourceHeight,
+                piece.sourceHeight, //tamaño de esa parte.
                 -piece.width / 2,
-                -piece.height / 2,
+                -piece.height / 2, //posición en el canvas, centrada en el origen
                 piece.width,
-                piece.height
+                piece.height //tamaño con que se dibuja.
             );
             // Luego aplica el filtro sobre la región ya dibujada
             aplicarFiltro(ctx, piece.canvasX, piece.canvasY, piece.width, piece.height);
-            console.log("pX: "+ piece.sourceX, "pY: "+ piece.sourceY);
+            console.log("pX: " + piece.sourceX, "pY: " + piece.sourceY);
             //vuelvo al estado original del contexto (antes de translate/rotate).
             ctx.restore();
         });//cada pieza aparece en su posición con rotación propia
@@ -131,14 +136,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- funciones ---
+    function drawBtnPlayStart() {
+        // circulo
+        ctx.beginPath();
+        const centerX = playButton.x + playButton.width / 2;
+        const centerY = playButton.y + playButton.height / 2;
+        const radius = Math.min(playButton.width, playButton.height) / 2;
+
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#F72585";
+        ctx.fill();
+
+        // --- Triángulo ---
+        ctx.beginPath();
+        ctx.lineJoin = "round";   // une las líneas con un borde redondeado
+        ctx.lineCap = "round";    // redondea los extremos de cada línea
+        // vértices del triángulo
+        const size = radius * 0.4; // proporción del tamaño del triángulo
+        ctx.moveTo(centerX - size / 2, centerY - size / 1.5); // punta superior izquierda
+        ctx.lineTo(centerX - size / 2, centerY + size / 1.5); // punta inferior izquierda
+        ctx.lineTo(centerX + size / 1.5, centerY); // punta derecha
+        ctx.closePath();
+
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 6; // el grosor da suavidad
+        ctx.stroke();
+        ctx.fill();
+    }
     function drawBtnPlay() {
-        // boton jugar
-        ctx.fillStyle = "#4444ff";
-        ctx.fillRect(playButton.x, playButton.y, playButton.width, playButton.height);
+        // boton volver a jugar
+        ctx.fillStyle = "#F72585";
+        ctx.fillRect(playAgain.x, playAgain.y, playAgain.width, playAgain.height);
         ctx.fillStyle = "white";
         ctx.font = "18px Roboto";
         ctx.textAlign = "center";
-        ctx.fillText(playBtn, playButton.x + playButton.width / 2, playButton.y + 30);
+        ctx.fillText(playBtn, playAgain.x + playAgain.width / 2, playAgain.y + 30);
     }
 
     function drawTimer() {
@@ -146,19 +179,18 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.fillStyle = "white";
         ctx.font = "16px Roboto";
         ctx.textAlign = "left";
-        ctx.fillText(`Tiempo: ${time}s`, 700, 80);
+        ctx.fillText(`Tiempo: ${time}s`, 731, 80);
     }
 
     function showMenssage() {
         // mensaje en pantalla
         clearInterval(timerInterval); //detiene el contador por segundos.
         gameStarted = false; //marco que termino el juego
-        playBtn = "Jugar de nuevo"; //cambio el texto del boton por juegar de nuevo
-
+       
         ctx.fillStyle = "lime";
         ctx.font = "30px Roboto";
         ctx.textAlign = "center";
-        ctx.fillText("¡Puzzle resuelto!", 750, 320);
+        ctx.fillText("¡Puzzle resuelto!", 775, 320);
         //pinto el boton jugar de nuevo 
         drawBtnPlay();
     }
@@ -191,7 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         canvasY,
                         rotation: getRandomRotation()
                     });
-                    console.log("x: " +canvasX,"Y: "+ canvasY)
                 }
             }
             //marco el inicio del juego en true y reseteo el tiempo en cero
@@ -207,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 drawPuzzle(); // vuelvo a dibujar el puzzle
             }, 1000);
             //llamo a drawPuzzle para mostrar el estado inicial 
-            drawPuzzle(); 
+            drawPuzzle();
         };
         //coloco el boton jugar de nuevo
         playBtn = "Jugar de nuevo";
@@ -229,6 +260,13 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedImage = thumbnails[randomIndex].src;
             startGame();
             return;
+        }else if ((mouseX >= playAgain.x) && (mouseX <= playAgain.x + playAgain.width) &&
+            (mouseY >= playAgain.y) && (mouseY <= playAgain.y + playAgain.height)) {
+            // Seleccionar imagen aleatoria e inicializo el juego
+            const randomIndex = Math.floor(Math.random() * thumbnails.length);
+            selectedImage = thumbnails[randomIndex].src;
+            startGame();
+            return;
         }
 
         // Clic en una pieza
@@ -236,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //recorro las piezas y si el click cae dentro de la caja canvasX..canvasX+width y canvasY..canvasY+height, entonces
             if ((mouseX >= piece.canvasX) && (mouseX <= piece.canvasX + piece.width) &&
                 (mouseY >= piece.canvasY) && (mouseY <= piece.canvasY + piece.height)) {
-                
+
                 if (event.button === 0) { // Botón izquierdo → rota la pieza -90°
                     piece.rotation = (piece.rotation - 90 + 360) % 360; //asegura que la rotación quede en el rango 0..359
                 } else if (event.button === 2) { //derecho → rota la pieza 90°
@@ -256,25 +294,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//       function aplicarFiltro(ctx, iniX, iniY, w, h) {
-//         const imageData = ctx.getImageData(iniX,iniY, w, h);
-//         const data = imageData.data;
-//             for (let i = 0; i < data.length; i += 4) {
-//             data[i] = 255 - data[i];
-//             data[i + 1] = 255 - data[i + 1];
-//             data[i + 2] = 255 - data[i + 2];
-//             }
-//         ctx.putImageData(imageData, iniX, iniY);
-//   }
+    //       function aplicarFiltro(ctx, iniX, iniY, w, h) {
+    //         const imageData = ctx.getImageData(iniX,iniY, w, h);
+    //         const data = imageData.data;
+    //             for (let i = 0; i < data.length; i += 4) {
+    //             data[i] = 255 - data[i];
+    //             data[i + 1] = 255 - data[i + 1];
+    //             data[i + 2] = 255 - data[i + 2];
+    //             }
+    //         ctx.putImageData(imageData, iniX, iniY);
+    //   }
 
 
 
     // Aplica el filtro importado sobre la región de la pieza
-    function aplicarFiltro(ctx, iniX, iniY, w, h){
+    function aplicarFiltro(ctx, iniX, iniY, w, h) {
         // Selecciona aleatoriamente uno de los filtros importados
         const filtros = [filtroBrillo, filtroGrices, filtroNegativo];
         const filtro = filtros[Math.floor(Math.random() * filtros.length)];
-            filtro(ctx, iniX, iniY, w, h);
-        }
+        filtro(ctx, iniX, iniY, w, h);
+    }
 
 });
