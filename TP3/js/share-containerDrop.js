@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.addEventListener('click', (e)=>{
         if(!shareBox.contains(e.target) && !btnShare.contains(e.target)
              || btnCancel.contains(e.target)){
-            console.log('Hola');
                 shareBox.classList.remove('active');
         }
     });

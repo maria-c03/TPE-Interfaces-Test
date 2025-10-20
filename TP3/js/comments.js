@@ -11,18 +11,23 @@ let comments = [
 const commentsList = document.getElementById("comments-list");
 const loadMoreBtn = document.getElementById("load-more");
 let inputBox = document.querySelector(".input-container .input-placeholder");
-const placeholderText = inputBox.textContent;
+const placeholderText = inputBox.textContent;// Texto placeholder del input
 
-let visibleCount = 3; // cuántos comentarios mostrar inicialmente
+let visibleCount = 3;  // Cantidad inicial de comentarios visibles
 
 // Renderizar lista
 function renderComments() {
   commentsList.innerHTML = "";
 
+// comments.slice(0, visibleCount) -->Toma un subconjunto del array comments, desde el índice 0 hasta visibleCount (sin incluirlo).
   comments.slice(0, visibleCount).forEach((comment, index) => {
+    //itero y para cada comentario obtengo su index
+
+    //creo el contenedor y le doy su clase
     const box = document.createElement("div");
     box.classList.add("comment-component");
 
+    //defino el html dentro del div
     box.innerHTML = `
       <div class="input-container">
       <div class="alto">
@@ -88,19 +93,23 @@ function renderComments() {
   </div>
         `;
 
+    //al div del html le indico que es padre de este nuevo div
     commentsList.appendChild(box);
   });
 
-  // ocultar botón si no hay más
+  // Oculta el botón "Ver más" si ya mostramos todos los comentarios
   loadMoreBtn.style.display =
     visibleCount >= comments.length ? "none" : "inline-block";
 
-  // manejar likes
+  // Agrega eventos de "like"
   document.querySelectorAll(".like-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
+      
+      // obtengo el atributo data-index del elemento padre del botón.
       const idx = btn.parentElement.getAttribute("data-index");
+      // Este índice (idx) indica la posición del comentario en el array comments.
       comments[idx].likes++;
-      renderComments(); // volver a pintar lista actualizada
+      renderComments(); // Recarga la lista de comentarios actualizada
     });
   });
 
@@ -108,10 +117,10 @@ function renderComments() {
   resetInputBox();
 }
 
-// botón "Ver más"
+// muetro 3 comentarios mas al hacer click
 loadMoreBtn.addEventListener("click", () => {
   visibleCount += 3;
-  renderComments();
+  renderComments();//vuelvo a cargar la lista
 });
 
 // Función para inicializar input editable
@@ -122,7 +131,7 @@ function resetInputBox() {
   newInput.textContent = placeholderText;
   parent.innerHTML = "";
   parent.appendChild(newInput);
-  inputBox = newInput;
+  inputBox = newInput; //inputBox ahora apunta a newInput
 
   // click para activar contenteditable
   inputBox.addEventListener("click", activateInput);
@@ -130,22 +139,22 @@ function resetInputBox() {
 
 // Activar input editable
 function activateInput(e) {
-  const parent = inputBox.parentElement;
+  const parent = inputBox.parentElement; //obtengo el elemento padre de inputBox
 
   const editable = document.createElement("div");
   editable.classList.add("input-placeholder");
-  editable.setAttribute("contenteditable", "true");
+  editable.setAttribute("contenteditable", "true"); //permito que pueda editar el usuario
   editable.style.outline = "none";
   editable.style.cursor = "text";
   editable.textContent = "";
-  parent.replaceChild(editable, inputBox);
+  parent.replaceChild(editable, inputBox); //Reemplazo el actual (inputBox) con el nuevo
   editable.focus();
 
   // Enter agrega comentario
   editable.addEventListener("keypress", (e) => {
-    if (e.key === "Enter" && editable.textContent.trim() !== "") {
+    if (e.key === "Enter" && editable.textContent.trim() !== "") { //trim() quita espacios innecesarios
       e.preventDefault();
-      comments.unshift({
+      comments.unshift({ //inserta al inicio del array comments con .unshift()
         user: "Tú",
         text: editable.textContent.trim(),
         likes: 0,
@@ -155,13 +164,13 @@ function activateInput(e) {
     }
   });
 
-  // Blur vuelve al placeholder si está vacío
+  // evento que se activa cuando el campo editable pierde el foco
   editable.addEventListener("blur", () => {
-    if (!editable.textContent.trim()) {
-      resetInputBox();
+    if (!editable.textContent.trim()) { //si esta vacio
+      resetInputBox(); //vuelvo al estado inicial
     }
   });
 }
 
-// inicializar
+// inicializo la interfaz
 renderComments();
