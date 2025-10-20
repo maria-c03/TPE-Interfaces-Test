@@ -9,6 +9,7 @@ class PuzzlePiece {
         this.canvasX = canvasX;
         this.canvasY = canvasY;
         this.rotation = this.getRandomRotation();
+        this.fixed = false;
     }
 
     // Devuelve una rotación aleatoria (0, 90, 180, 270 grados).
@@ -44,8 +45,9 @@ class PuzzlePiece {
     }
 
     // Rota la pieza en 90 grados (sentido horario o antihorario).
-    rotate(direction) { // direction: -1 sentido antihorario, 1 sentido horario
-        if (direction === -1) {
+    rotate(direction) {
+        if(this.fixed) return; //si esta fija no permito que se rote
+        if (direction === -1) { // direction: -1 sentido antihorario, 1 sentido horario
             this.rotation = (this.rotation - 90 + 360) % 360; //se usa el %360 para evitar negativos
         } else {
             this.rotation = (this.rotation + 90) % 360;

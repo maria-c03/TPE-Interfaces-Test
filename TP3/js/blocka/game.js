@@ -18,6 +18,9 @@ class PuzzleGame {
         this.backgroundImage = new Image();
         this.backgroundImage.src = "img/imgJuegos/marvel_blocka.png";
 
+        this.maxTime = null; // Tiempo máximo permitido (solo en difícil)
+        this.lost = false;   // Indica si el jugador perdió
+
         this.imageSources = [
             "img/imgBlocka/image1.png", "img/imgBlocka/image2.jpg", "img/imgBlocka/image3.jpg",
             "img/imgBlocka/image4.jpg", "img/imgBlocka/image5.jpg", "img/imgBlocka/image6.jpg"
@@ -30,6 +33,7 @@ class PuzzleGame {
 
         this.playButton = new Button(731, 325, 100, 100, "", "circle");
         this.finishButtons = []; // Almacena los botones de fin de juego
+        this.helpButton = new Button(728, 280, 100, 40, "Ayudita", "rect");
 
         this.dificultades = [
             { nombre: "Fácil", cols: 2, rows: 2, area: null },
@@ -107,6 +111,11 @@ class PuzzleGame {
         }
         this.timerInterval = setInterval(() => {
             this.time++;
+            // Si hay un tiempo máximo y lo superó → pierde
+            if (this.maxTime && this.time >= this.maxTime) {
+                this.loseGame();
+                return;
+            }
             this.drawPuzzle();
         }, 1000);
     }
@@ -133,9 +142,9 @@ class PuzzleGame {
             tempCanvas.width = imgTemp.width;
             tempCanvas.height = imgTemp.height;
             tempCtx.drawImage(imgTemp, 0, 0);
-            
+
             this.filtros.ctx = tempCtx;
-            
+
             const filtros = [
                 this.filtros.brillo.bind(this.filtros, 0, 0, imgTemp.width, imgTemp.height),
                 this.filtros.grices.bind(this.filtros, 0, 0, imgTemp.width, imgTemp.height),
@@ -153,6 +162,14 @@ class PuzzleGame {
                 this.createPieces();
             };
         };
+    }
+    loseGame() {
+        this.stopTimer();
+        this.lost = true;
+        this.gameState = "fin";
+
+        // Mostrar pantalla de derrota
+        this.drawUI();
     }
 
     // --- Dibujo ---
@@ -205,18 +222,28 @@ class PuzzleGame {
                     this.ctx.drawImage(thumb.image, thumb.x, thumb.y, thumb.width, thumb.height);
                 });
                 this.drawTimer();
-                
+
+                // 🔹 Si el nivel es difícil, mostrar botón de ayudita
+                if (this.cols >= 3 && this.rows >= 2) {
+                    this.helpButton.draw(this.ctx);
+                }
+
                 break;
 
             case "fin":
                 this.ctx.fillStyle = "#000000";
-                this.ctx.fillRect(0, 0, this.width, this.height); 
+                this.ctx.fillRect(0, 0, this.width, this.height);
 
-                this.ctx.fillStyle = "lime";
                 this.ctx.font = "30px Roboto";
                 this.ctx.textAlign = "center";
-                this.ctx.fillText("¡Puzzle resuelto!", this.width / 2, 280);
-                this.drawTimer();
+
+                if (this.lost) {
+                    this.ctx.fillStyle = "#F72585";
+                    this.ctx.fillText("¡Tiempo agotado! Perdiste el nivel.", 770, 280);
+                } else {
+                    this.ctx.fillStyle = "lime";
+                    this.ctx.fillText("¡Puzzle resuelto!", 770, 280);
+                }
 
                 // Muestro la imagen original
                 const pieceWidth = this.imageActual.width / this.cols;
@@ -232,7 +259,7 @@ class PuzzleGame {
 
     drawPuzzle() {
         if (this.gameState !== "jugando") return;
-        this.drawUI(); 
+        this.drawUI();
 
         if (!this.selectedImageSrc) return;
 
@@ -249,7 +276,12 @@ class PuzzleGame {
         this.ctx.fillStyle = "white";
         this.ctx.font = "16px Roboto";
         this.ctx.textAlign = "left";
-        this.ctx.fillText(`Tiempo: ${this.time}s`, 731, 80);
+        if (this.maxTime) { //tiempo restante
+            const remaining = Math.max(0, this.maxTime - this.time);
+            this.ctx.fillText(`Tiempo: ${remaining}s`, 731, 80);
+        } else { //tiempo transcurrido
+            this.ctx.fillText(`Tiempo: ${this.time}s`, 731, 80);
+        }
     }
 
     showMenssage() {
@@ -263,6 +295,26 @@ class PuzzleGame {
 
         this.drawUI();
     }
+
+    giveHelp() {
+        // Si ya hay una pieza fija, no permitir otra ayudita
+        const alreadyHelped = this.pieces.some(p => p.fixed);
+        if (alreadyHelped) return;
+
+        // Elegir una pieza aleatoria
+        const randomIndex = Math.floor(Math.random() * this.pieces.length);
+        const piece = this.pieces[randomIndex];
+
+        // Colocar la pieza correctamente
+        piece.rotation = 0;
+        piece.fixed = true;
+
+        // Penalizar con +5 segundos
+        this.time += 5;
+
+        this.drawPuzzle();
+    }
+
 
     // --- Manejo de eventos ---
 
@@ -286,6 +338,13 @@ class PuzzleGame {
                         this.cols = dif.cols;
                         this.rows = dif.rows;
 
+                        if (dif.nombre === "Difícil") {
+                            this.maxTime = 20;
+                        } else {
+                            this.maxTime = null; // Sin límite en otros niveles
+                        }
+                        this.lost = false;
+
                         const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
                         this.selectedImageSrc = this.thumbnails[randomIndex].src;
 
@@ -296,7 +355,12 @@ class PuzzleGame {
                 break;
 
             case "jugando":
+                if (this.cols >= 3 && this.rows >= 2 && this.helpButton.isClicked(mouseX, mouseY)) {
+                    this.giveHelp();
+                    return; // Evita que también se intente rotar una pieza
+                }
                 for (const piece of this.pieces) {
+                    if (piece.fixed) continue; //evito rotar piezas fijas
                     if (piece.isClicked(mouseX, mouseY)) {
                         piece.rotate(event.button === 0 ? -1 : 1); // Izquierda (-1) o derecha (1)
                         this.drawPuzzle();
@@ -316,7 +380,7 @@ class PuzzleGame {
                             } while (this.thumbnails[newIndex].src === this.selectedImageSrc && this.thumbnails.length > 1);
 
                             this.selectedImageSrc = this.thumbnails[newIndex].src;
-                            this.startGame(); 
+                            this.startGame();
                         } else if (btn.text === "Elegir dificultad") {
                             this.gameState = "menuDificultad";
                             this.drawUI();
