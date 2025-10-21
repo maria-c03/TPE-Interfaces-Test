@@ -34,9 +34,9 @@ class PuzzleGame {
     // Thumbnails UI state
     this.hoveredThumbIndex = null; // índice del thumbnail bajo el cursor
     this.selectedThumbIndex = null; // thumbnail seleccionado por el usuario
-    this.selectionAnimating = false; // evita interacciones durante la animación
     this.animationInterval = null;
     this.animationHighlightIndex = null; // índice actualmente resaltado por la animación
+    this.pendingSelectionIndex = null; // índice para iniciar animación una vez que se muestre 'jugando'
 
         this.playButton = new Button(731, 325, 100, 100, "", "circle");
         this.finishButtons = []; // Almacena los botones de fin de juego
@@ -75,53 +75,24 @@ class PuzzleGame {
 
     setupEventListeners() {
         this.canvas.addEventListener("mousedown", this.onCanvasClick.bind(this));
-        this.canvas.addEventListener("mousemove", this.onCanvasMove.bind(this));
-        this.canvas.addEventListener("mouseleave", this.onCanvasLeave.bind(this));
         this.canvas.addEventListener("contextmenu", event => event.preventDefault()); //evita el menú contextual del click derecho.
         this.backgroundImage.onload = () => this.drawUI(); //redibujo cuando la imagen de fondo carga.
     }
 
-    onCanvasMove(event) {
-        if (this.gameState !== "menuDificultad") return;
-        if (this.selectionAnimating) return; // no cambiar hover durante animación
-
-        const rect = this.canvas.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
-
-        let found = null;
-        for (let i = 0; i < this.thumbnails.length; i++) {
-            const t = this.thumbnails[i];
-            if (mouseX >= t.x && mouseX <= t.x + t.width && mouseY >= t.y && mouseY <= t.y + t.height) {
-                found = i;
-                break;
-            }
-        }
-        if (found !== this.hoveredThumbIndex) {
-            this.hoveredThumbIndex = found;
-            this.drawUI();
-        }
-    }
-
-    onCanvasLeave() {
-        if (this.hoveredThumbIndex !== null) {
-            this.hoveredThumbIndex = null;
-            this.drawUI();
-        }
-    }
 
     // Inicia una animación que resalta thumbnails en un orden aleatorio/por secuencia y termina en targetIndex
-    startThumbnailSelectionAnimation(targetIndex) {
+    startThumbnailSelectionAnimation(targetIndex, onComplete) {
         if (this.selectionAnimating) return;
         this.selectionAnimating = true;
 
         // Generar una secuencia: varias pasadas por todos los índices y terminar en targetIndex
+        // _ -> Significa que es una variable que no me importa su contenido
         const indexes = this.thumbnails.map((_, i) => i);
         const sequence = [];
         const passes = 3; // cuántas veces recorrer
         for (let p = 0; p < passes; p++) {
             // mezclo los índices para dar sensación aleatoria
-            const shuffled = indexes.slice().sort(() => Math.random() - 0.5);
+            const shuffled = indexes.slice().sort(() => Math.random() - 0.8);
             sequence.push(...shuffled);
         }
         // Aseguro que el último sea el target
@@ -142,6 +113,7 @@ class PuzzleGame {
                 this.selectedThumbIndex = targetIndex;
                 this.selectedImageSrc = this.thumbnails[targetIndex].src;
                 this.drawUI();
+                Promise.resolve().then(() => onComplete && onComplete()).catch(e => console.error(e));
                 return;
             }
             this.animationHighlightIndex = sequence[seqPos];
@@ -297,14 +269,18 @@ class PuzzleGame {
                     this.ctx.textBaseline = "middle";
                     this.ctx.fillText(dif.nombre, btnX + btnWidth / 2, btnY + btnHeight / 2);
                 });
+                break;
+
+            case "jugando":
+                this.ctx.fillStyle = "#000000";
+                this.ctx.fillRect(0, 0, this.width, this.height);
 
                 // Dibujo thumbnails (seleccionables)
                 this.thumbnails.forEach((thumb, i) => {
                     // imagen base
                     this.ctx.drawImage(thumb.image, thumb.x, thumb.y, thumb.width, thumb.height);
 
-                    // decidir si dibujar borde: hovered, animating highlight o seleccionado
-                    const isHovered = this.hoveredThumbIndex === i;
+                    // decidir si dibujar borde: animating highlight o seleccionado
                     const isAnimating = this.animationHighlightIndex === i;
                     const isSelected = this.selectedThumbIndex === i;
 
@@ -313,28 +289,26 @@ class PuzzleGame {
                         this.ctx.strokeStyle = "#FFD166";
                         this.ctx.lineWidth = 6;
                         this.ctx.strokeRect(thumb.x - 4, thumb.y - 4, thumb.width + 8, thumb.height + 8);
-                    } else if (isHovered) {
-                        // borde rosa al pasar por encima
-                        this.ctx.strokeStyle = "#F72585";
-                        this.ctx.lineWidth = 4;
-                        this.ctx.strokeRect(thumb.x - 2, thumb.y - 2, thumb.width + 4, thumb.height + 4);
-                    } else if (isSelected) {
+                    } else if(isSelected) {
                         // borde permanente indicando selección
                         this.ctx.strokeStyle = "#4ADE80"; // verde claro
                         this.ctx.lineWidth = 4;
                         this.ctx.strokeRect(thumb.x - 2, thumb.y - 2, thumb.width + 4, thumb.height + 4);
                     }
                 });
-                break;
 
-            case "jugando":
-                this.ctx.fillStyle = "#000000";
-                this.ctx.fillRect(0, 0, this.width, this.height);
-
-                this.thumbnails.forEach((thumb) => {
-                    this.ctx.drawImage(thumb.image, thumb.x, thumb.y, thumb.width, thumb.height);
-                });
                 this.drawTimer();
+
+                // Si hay una selección pendiente (viene de elegir dificultad o "Jugar de nuevo"),
+                // iniciar la animación ahora que la UI 'jugando' es visible.
+                if (this.pendingSelectionIndex !== null) {
+                    const target = this.pendingSelectionIndex;
+                    this.pendingSelectionIndex = null; // evitar reinicios
+                    this.startThumbnailSelectionAnimation(target, () => {
+                        // cuando termina la animación, iniciar el juego con la miniatura seleccionada
+                        this.startGame();
+                    });
+                }
 
                 // 🔹 Si el nivel es difícil, mostrar botón de ayudita
                 if (this.cols >= 3 && this.rows >= 2) {
@@ -450,7 +424,7 @@ class PuzzleGame {
                     const t = this.thumbnails[i];
                     const a = t.area;
                     if (a && mouseX >= a.x && mouseX <= a.x + a.width && mouseY >= a.y && mouseY <= a.y + a.height) {
-                        // Iniciar animación que terminará en la miniatura i
+                        // Iniciar animación que terminará en la miniatura i (pero no empezar el juego todavía)
                         this.startThumbnailSelectionAnimation(i);
                         return;
                     }
@@ -470,15 +444,11 @@ class PuzzleGame {
                         }
                         this.lost = false;
 
-                        // Si ya hay una miniatura seleccionada, usarla; si no, fallback aleatorio
-                        if (this.selectedThumbIndex !== null) {
-                            this.selectedImageSrc = this.thumbnails[this.selectedThumbIndex].src;
-                        } else {
-                            const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
-                            this.selectedImageSrc = this.thumbnails[randomIndex].src;
-                        }
-
-                        this.startGame();
+                        // Seleccionar aleatoriamente una miniatura pero esperar a que la UI muestre 'jugando' para animar
+                        const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
+                        this.pendingSelectionIndex = randomIndex;
+                        this.gameState = "jugando";
+                        this.drawUI();
                         return;
                     }
                 }
@@ -503,14 +473,14 @@ class PuzzleGame {
                 for (const btn of this.finishButtons) {
                     if (btn.isClicked(mouseX, mouseY)) {
                         if (btn.text === "Jugar de nuevo") {
-                            // Selecciono una imagen aleatoria diferente
-                            let newIndex;
-                            do {
-                                newIndex = Math.floor(Math.random() * this.thumbnails.length);
-                            } while (this.thumbnails[newIndex].src === this.selectedImageSrc && this.thumbnails.length > 1);
+                            // Volver a seleccionar aleatoriamente una miniatura pero ejecutar la animación
+                            // una vez que la pantalla 'jugando' esté visible
+                            const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
+                            this.pendingSelectionIndex = randomIndex;
+                            this.gameState = "jugando";
+                            this.drawUI();
+                            return;
 
-                            this.selectedImageSrc = this.thumbnails[newIndex].src;
-                            this.startGame();
                         } else if (btn.text === "Elegir dificultad") {
                             this.gameState = "menuDificultad";
                             this.drawUI();
