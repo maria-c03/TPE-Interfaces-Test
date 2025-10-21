@@ -31,12 +31,12 @@ class PuzzleGame {
         this.imageActual = new Image(); //imagen que contendrá la versión con filtro
         this.imageOriginal = null;
 
-    // Thumbnails UI state
-    this.hoveredThumbIndex = null; // índice del thumbnail bajo el cursor
-    this.selectedThumbIndex = null; // thumbnail seleccionado por el usuario
-    this.animationInterval = null;
-    this.animationHighlightIndex = null; // índice actualmente resaltado por la animación
-    this.pendingSelectionIndex = null; // índice para iniciar animación una vez que se muestre 'jugando'
+        // Thumbnails UI state
+        this.hoveredThumbIndex = null; // índice del thumbnail bajo el cursor
+        this.selectedThumbIndex = null; // thumbnail seleccionado por el usuario
+        this.animationInterval = null;
+        this.animationHighlightIndex = null; // índice actualmente resaltado por la animación
+        this.pendingSelectionIndex = null; // índice para iniciar animación una vez que se muestre 'jugando'
 
         this.playButton = new Button(731, 325, 100, 100, "", "circle");
         this.finishButtons = []; // Almacena los botones de fin de juego
@@ -161,7 +161,7 @@ class PuzzleGame {
         }
         this.timerInterval = setInterval(() => {
             this.time++;
-            // Si hay un tiempo máximo y lo superó → pierde
+            // Si hay un tiempo máximo y lo superó, entonces se pierde el nivel
             if (this.maxTime && this.time >= this.maxTime) {
                 this.loseGame();
                 return;
@@ -289,7 +289,7 @@ class PuzzleGame {
                         this.ctx.strokeStyle = "#FFD166";
                         this.ctx.lineWidth = 6;
                         this.ctx.strokeRect(thumb.x - 4, thumb.y - 4, thumb.width + 8, thumb.height + 8);
-                    } else if(isSelected) {
+                    } else if (isSelected) {
                         // borde permanente indicando selección
                         this.ctx.strokeStyle = "#4ADE80"; // verde claro
                         this.ctx.lineWidth = 4;
@@ -310,7 +310,7 @@ class PuzzleGame {
                     });
                 }
 
-                // 🔹 Si el nivel es difícil, mostrar botón de ayudita
+                // Si el nivel es difícil, mostrar botón de ayudita
                 if (this.cols >= 3 && this.rows >= 2) {
                     this.helpButton.draw(this.ctx);
                 }
@@ -419,7 +419,6 @@ class PuzzleGame {
                 break;
 
             case "menuDificultad":
-                // ¿Hicieron click sobre alguna thumbnail? -> iniciar animación de selección
                 for (let i = 0; i < this.thumbnails.length; i++) {
                     const t = this.thumbnails[i];
                     const a = t.area;
@@ -430,7 +429,6 @@ class PuzzleGame {
                     }
                 }
 
-                // Si no fue una thumbnail, comprobar botones de dificultad
                 for (const dif of this.dificultades) {
                     const a = dif.area;
                     if (a && mouseX >= a.x && mouseX <= a.x + a.width && mouseY >= a.y && mouseY <= a.y + a.height) {
@@ -473,6 +471,9 @@ class PuzzleGame {
                 for (const btn of this.finishButtons) {
                     if (btn.isClicked(mouseX, mouseY)) {
                         if (btn.text === "Jugar de nuevo") {
+                            //reinicio el estado antes de empezar otra partida
+                            this.lost = false;
+                            this.time = 0;
                             // Volver a seleccionar aleatoriamente una miniatura pero ejecutar la animación
                             // una vez que la pantalla 'jugando' esté visible
                             const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
@@ -482,6 +483,7 @@ class PuzzleGame {
                             return;
 
                         } else if (btn.text === "Elegir dificultad") {
+                            this.time = 0;
                             this.gameState = "menuDificultad";
                             this.drawUI();
                         }
