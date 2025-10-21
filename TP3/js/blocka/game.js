@@ -330,6 +330,7 @@ class PuzzleGame {
                 } else {
                     this.ctx.fillStyle = "lime";
                     this.ctx.fillText("¡Puzzle resuelto!", 770, 280);
+                    this.drawTimer();
                 }
 
                 // Muestro la imagen original
