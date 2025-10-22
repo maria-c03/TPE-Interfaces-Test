@@ -32,11 +32,9 @@ class PuzzleGame {
         this.imageOriginal = null;
 
     // Thumbnails UI state
-    this.hoveredThumbIndex = null; // índice del thumbnail bajo el cursor
-    this.selectedThumbIndex = null; // thumbnail seleccionado por el usuario
     this.animationInterval = null;
-    this.animationHighlightIndex = null; // índice actualmente resaltado por la animación
-    this.pendingSelectionIndex = null; // índice para iniciar animación una vez que se muestre 'jugando'
+    this.animationIndex = null; // índice actualmente resaltado por la animación
+    this.pendingIndex = null; // índice para iniciar animación una vez que se muestre 'jugando'
 
         this.playButton = new Button(731, 325, 100, 100, "", "circle");
         this.finishButtons = []; // Almacena los botones de fin de juego
@@ -82,8 +80,6 @@ class PuzzleGame {
 
     // Inicia una animación que resalta thumbnails en un orden aleatorio/por secuencia y termina en targetIndex
     startThumbnailSelectionAnimation(targetIndex, onComplete) {
-        if (this.selectionAnimating) return;
-        this.selectionAnimating = true;
 
         // Generar una secuencia: varias pasadas por todos los índices y terminar en targetIndex
         // _ -> Significa que es una variable que no me importa su contenido
@@ -92,14 +88,14 @@ class PuzzleGame {
         const passes = 3; // cuántas veces recorrer
         for (let p = 0; p < passes; p++) {
             // mezclo los índices para dar sensación aleatoria
-            const shuffled = indexes.slice().sort(() => Math.random() - 0.8);
+            const shuffled = indexes.slice().sort(() => Math.random() - 0.5);
             sequence.push(...shuffled);
         }
         // Aseguro que el último sea el target
         sequence.push(targetIndex);
 
         let seqPos = 0;
-        this.animationHighlightIndex = sequence[0];
+        this.animationIndex = sequence[0];
         this.drawUI();
 
         this.animationInterval = setInterval(() => {
@@ -108,15 +104,14 @@ class PuzzleGame {
                 // fin de animación
                 clearInterval(this.animationInterval);
                 this.animationInterval = null;
-                this.animationHighlightIndex = null;
-                this.selectionAnimating = false;
+                this.animationIndex = null;
                 this.selectedThumbIndex = targetIndex;
                 this.selectedImageSrc = this.thumbnails[targetIndex].src;
                 this.drawUI();
                 Promise.resolve().then(() => onComplete && onComplete()).catch(e => console.error(e));
                 return;
             }
-            this.animationHighlightIndex = sequence[seqPos];
+            this.animationIndex = sequence[seqPos];
             this.drawUI();
         }, 120); // 120ms por paso -> animación rápida
     }
@@ -281,7 +276,7 @@ class PuzzleGame {
                     this.ctx.drawImage(thumb.image, thumb.x, thumb.y, thumb.width, thumb.height);
 
                     // decidir si dibujar borde: animating highlight o seleccionado
-                    const isAnimating = this.animationHighlightIndex === i;
+                    const isAnimating = this.animationIndex === i;
                     const isSelected = this.selectedThumbIndex === i;
 
                     if (isAnimating) {
@@ -301,9 +296,9 @@ class PuzzleGame {
 
                 // Si hay una selección pendiente (viene de elegir dificultad o "Jugar de nuevo"),
                 // iniciar la animación ahora que la UI 'jugando' es visible.
-                if (this.pendingSelectionIndex !== null) {
-                    const target = this.pendingSelectionIndex;
-                    this.pendingSelectionIndex = null; // evitar reinicios
+                if (this.pendingIndex !== null) {
+                    const target = this.pendingIndex;
+                    this.pendingIndex = null; // evitar reinicios
                     this.startThumbnailSelectionAnimation(target, () => {
                         // cuando termina la animación, iniciar el juego con la miniatura seleccionada
                         this.startGame();
@@ -446,7 +441,7 @@ class PuzzleGame {
 
                         // Seleccionar aleatoriamente una miniatura pero esperar a que la UI muestre 'jugando' para animar
                         const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
-                        this.pendingSelectionIndex = randomIndex;
+                        this.pendingIndex = randomIndex;
                         this.gameState = "jugando";
                         this.drawUI();
                         return;
@@ -476,7 +471,7 @@ class PuzzleGame {
                             // Volver a seleccionar aleatoriamente una miniatura pero ejecutar la animación
                             // una vez que la pantalla 'jugando' esté visible
                             const randomIndex = Math.floor(Math.random() * this.thumbnails.length);
-                            this.pendingSelectionIndex = randomIndex;
+                            this.pendingIndex = randomIndex;
                             this.gameState = "jugando";
                             this.drawUI();
                             return;
