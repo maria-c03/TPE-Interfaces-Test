@@ -91,6 +91,38 @@
         </div>
     </header>
 
+    <!-- Estructura del Panel del Carrito -->
+  <div class="carrito-overlay" id="carrito-overlay">
+    <div class="carrito-panel" id="carrito-panel">
+
+      <!-- Header del Carrito -->
+      <div class="carrito-header">
+        <h3>Tu Carrito de Compras</h3>
+        <i class="fa-solid fa-xmark icon-hover" aria-label="Cerrar carrito" id="btn-cerrar-carrito"></i>
+      </div>
+
+      <!-- Lista de Productos (El contenido será inyectado por JS) -->
+      <div class="carrito-productos" id="carrito-productos">
+        <!-- Contenido dinámico aquí -->
+      </div>
+
+      <!-- Resumen y Acciones -->
+      <div class="carrito-footer">
+        <div class="carrito-resumen">
+          <p>Subtotal: <span id="carrito-subtotal">$ 0.00</span></p>
+          <p class="resumen-total">Total: <span id="carrito-total">$ 0.00</span></p>
+        </div>
+
+        <button class="btn-primario-cart">Ir a Pagar</button>
+        <button class="btn-secundario-cart">Seguir Comprando</button>
+        <div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
     <main class="home">
         <!-- Carrusel principal-->
         <section class="sliders">
@@ -292,39 +324,7 @@
         </nav>
     </footer>
 
-    <!-- Estructura del Panel del Carrito -->
-    <div class="carrito-overlay" id="carrito-overlay">
-        <div class="carrito-panel" id="carrito-panel">
-
-            <!-- Header del Carrito -->
-            <div class="carrito-header">
-                <h3>Tu Carrito de Compras</h3>
-                <i class="fa-solid fa-xmark icon-hover" aria-label="Cerrar carrito" id="btn-cerrar-carrito"></i>
-            </div>
-
-            <!-- Lista de Productos (El contenido será inyectado por JS) -->
-            <div class="carrito-productos" id="carrito-productos">
-                <!-- Contenido dinámico aquí -->
-            </div>
-
-            <!-- Resumen y Acciones -->
-            <div class="carrito-footer">
-                <div class="carrito-resumen">
-                    <p>Subtotal: <span id="carrito-subtotal">$ 0.00</span></p>
-                    <p class="resumen-total">Total: <span id="carrito-total">$ 0.00</span></p>
-                </div>
-
-                <button class="btn-primario-cart">Ir a Pagar</button>
-                <button class="btn-secundario-cart">Seguir Comprando</button>
-                <div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- <script type="text/javascript" src="js/lodMain.js"></script> -->
+    <script type="text/javascript" src="js/lodMain.js"></script>
     <script type="text/javascript" src="js/loadCart.js"></script>
     <script type="text/javascript" src="js/carouselPopularesMovile.js"></script>
     <script type="text/javascript" src="js/loadSidebar.js"></script>

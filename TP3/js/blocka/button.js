@@ -8,10 +8,8 @@ class Button {
         this.shape = shape;
     }
 
-    // Dibuja el botón.
     draw(ctx) {
         ctx.fillStyle = "#F72585";
-        
         if (this.shape === "circle") {
             //calculo el centro y el radio
             const centerX = this.x + this.width / 2;
@@ -34,7 +32,7 @@ class Button {
             ctx.closePath();
             ctx.fillStyle = "white";
             ctx.strokeStyle = "white";
-            ctx.lineWidth = 6; 
+            ctx.lineWidth = 6;
             ctx.stroke();
             ctx.fill();
 
@@ -44,11 +42,11 @@ class Button {
             ctx.font = "22px Roboto";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.fillText(this.text, this.x + this.width / 2, this.y + this.height / 2 );
+            ctx.fillText(this.text, this.x + this.width / 2, this.y + this.height / 2);
         }
     }
 
-    // Comprueba si un punto (mouseX, mouseY) está dentro del área del botón.
+    // verifico si se hizo click en el boton
     isClicked(mouseX, mouseY) {
         if (this.shape === "circle") {
             const centerX = this.x + this.width / 2;
