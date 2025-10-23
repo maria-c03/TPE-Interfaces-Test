@@ -242,6 +242,9 @@ class PuzzleGame {
         this.stopTimer();
         this.lost = true;
         this.gameState = "fin";
+        const btnRepetir = new Button(570, 600, 200, 60, "Jugar de nuevo", "rect");
+        const btnMenu = new Button(790, 600, 200, 60, "Elegir dificultad", "rect");
+        this.finishButtons = [btnRepetir, btnMenu];
         this.drawUI();
     }
 
@@ -390,7 +393,7 @@ class PuzzleGame {
 
                 if (this.lost) {
                     this.ctx.fillStyle = "#F72585";
-                    this.ctx.fillText("¡Tiempo agotado! Perdiste el nivel.", 770, 280);
+                    this.ctx.fillText("¡Tiempo agotado! Perdiste el nivel.", 780, 140);
                 } else {
                     this.ctx.fillStyle = "lime";
                     this.ctx.fillText("¡Puzzle resuelto!", 780, 140);
