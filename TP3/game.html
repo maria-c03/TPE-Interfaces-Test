@@ -36,8 +36,8 @@
     </div>
     <div class="iconos">
       <img src="./img/icons/loged-profile-icon.png" alt="Perfil de usuario" id="user">
-      <i class="fa-solid fa-cart-shopping img-iconos icon-hover" aria-label="Carro de compras"></i>
-
+      <i class="fa-solid fa-cart-shopping img-iconos icon-hover" id="btn-abrir-carrito"
+        aria-label="Carro de compras"></i>
     </div>
     <div class="profile-settings-container">
       <div class="prof-toggle-cancel">
@@ -80,14 +80,46 @@
         </ul>
       </div>
       <div class="social-icons">
-            <a href="index.html"><i class="fa-brands fa-facebook"></i></a>
-            <a href="index.html"><i class="fa-brands fa-google"></i></a>
-            <a href="index.html"><i class="fa-brands fa-reddit-alien"></i></a>
-            <a href="index.html"><i class="fa-brands fa-instagram"></i></a>
-            <a href="index.html"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="index.html"><i class="fa-brands fa-facebook"></i></a>
+        <a href="index.html"><i class="fa-brands fa-google"></i></a>
+        <a href="index.html"><i class="fa-brands fa-reddit-alien"></i></a>
+        <a href="index.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="index.html"><i class="fa-brands fa-x-twitter"></i></a>
       </div>
     </div>
   </header>
+
+  <!-- Estructura del Panel del Carrito -->
+  <div class="carrito-overlay" id="carrito-overlay">
+    <div class="carrito-panel" id="carrito-panel">
+
+      <!-- Header del Carrito -->
+      <div class="carrito-header">
+        <h3>Tu Carrito de Compras</h3>
+        <i class="fa-solid fa-xmark icon-hover" aria-label="Cerrar carrito" id="btn-cerrar-carrito"></i>
+      </div>
+
+      <!-- Lista de Productos (El contenido será inyectado por JS) -->
+      <div class="carrito-productos" id="carrito-productos">
+        <!-- Contenido dinámico aquí -->
+      </div>
+
+      <!-- Resumen y Acciones -->
+      <div class="carrito-footer">
+        <div class="carrito-resumen">
+          <p>Subtotal: <span id="carrito-subtotal">$ 0.00</span></p>
+          <p class="resumen-total">Total: <span id="carrito-total">$ 0.00</span></p>
+        </div>
+
+        <button class="btn-primario-cart">Ir a Pagar</button>
+        <button class="btn-secundario-cart">Seguir Comprando</button>
+        <div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <div id="sidebar-placeholder"></div>
 
@@ -95,15 +127,15 @@
 
     <section>
       <ul class="breadcrumb">
-        <li><a>
+        <li><a href="index.html">
             <p>Home</p><a></li>
         <li><img src="./img/icons/breadcrumb-separator.png"></li>
-        <li><a>
+        <li><a href="game.html">
             <p>Logíca</p>
           </a></li>
         <li><img src="./img/icons/breadcrumb-separator.png"></li>
-        <li><a>
-            <p>Peg Simpsonizado</p>
+        <li><a href="game.html">
+            <p>Marvel Blocka!</p>
           </a></li>
       </ul>
     </section>
@@ -248,7 +280,7 @@
                 </svg>
               </div>
               <span class="user-name">Tú</span>
-              <span class="register-message">Debes registrarte para comentar</span>
+              <span class="register-message"></span>
             </div>
           </div>
 
@@ -363,7 +395,9 @@
       </ul>
     </nav>
   </footer>
-  <script type="text/javascript" src="./js/share-containerDrop.js"></script>
+
+  <script type="text/javascript" src="js/loadCart.js"></script>
+  <script type="text/javascript" src="js/share-containerDrop.js"></script>
   <script type="text/javascript" src="js/profileDrop.js"></script>
   <script type="text/javascript" src="js/carousel.js"></script>
   <script type="text/javascript" src="js/loadSidebar.js"></script>
