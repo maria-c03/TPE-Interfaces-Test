@@ -2,6 +2,10 @@ class Ficha extends Figura {
     constructor(posX, posY, imagenSrc, radio, onLoadCallback) {
         super(posX, posY, null, null);
         this.radio = radio;
+
+        this.resaltado = false; 
+        this.resaltadoEstilo = "#F72585"; // Estilo por defecto
+
         this.imagen = new Image();
         this.imagen.src = imagenSrc;
         this.loaded = false;
@@ -12,6 +16,11 @@ class Ficha extends Figura {
         };
     }
 
+    setFilaColumna(row,col){
+        this.row = row;
+        this.col = col;
+    }
+
     draw(ctx) {
         if (!this.loaded || !this.imagen.complete) return;
 
@@ -19,28 +28,33 @@ class Ficha extends Figura {
             this.imagen,
             this.posX - this.radio,
             this.posY - this.radio,
-            this.radio * 2,
-            this.radio * 2
+            this.radio*2,
+            this.radio*2
         );
 
         if (this.resaltado) {
+            const radioResaltado = this.radio;
             ctx.beginPath();
-            ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
+            ctx.arc(this.posX, this.posY, radioResaltado, 0, 2 * Math.PI);
             ctx.strokeStyle = this.resaltadoEstilo;
             ctx.lineWidth = 5;
             ctx.stroke();
             ctx.closePath();
         }
     }
+    // Método para activar/desactivar el resaltado
+    setResaltado(resaltar) {
+        this.resaltado = resaltar;
+    }
 
     getRadius() {
-        return this.radius;
+        return this.radio;
     }
 
     isPointInside(x, y) {
         const dx = this.posX - x;
         const dy = this.posY - y;
-        return Math.sqrt(dx * dx + dy * dy) < this.radius;
+        return Math.sqrt(dx * dx + dy * dy) < this.radio;
     }
 }
 

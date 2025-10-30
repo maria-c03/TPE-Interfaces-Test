@@ -11,6 +11,15 @@ class TableroVista {
         this.y = 0;
         this.width = 0;
         this.height = 0;
+
+        // VARIABLES PARA EL DRAG-AND-DROP 
+        this.lastClickedFigure = null;
+        this.isMouseDown = false;
+        
+        //ENLAZAR Y REGISTRAR EVENTOS
+        this.canvas.addEventListener("mousedown", this.onMouseDown.bind(this));
+        this.canvas.addEventListener("mouseup", this.onMouseUp.bind(this));
+        this.canvas.addEventListener("mousemove", this.onMouseMove.bind(this));
     }
 
     draw() {
@@ -43,13 +52,13 @@ class TableroVista {
         const positions = [];
 
         const crossMask = [
-            [0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1],
             [1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 0, 1, 1, 1],
             [1, 1, 1, 1, 1, 1, 1],
-            [0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1],
         ];
 
         const rows = crossMask.length;
@@ -69,4 +78,44 @@ class TableroVista {
         return positions;
     }
 
+    findClickedFigure(x, y) {
+        const fichas = this.tablero.getFichas();
+        // Recorrer las fichas en orden inverso para que las dibujadas al final (más arriba) se detecten primero
+        for (let i = fichas.length - 1; i >= 0; i--) {
+            const ficha = fichas[i];
+            if (ficha.isPointInside(x, y)) {
+                return ficha;
+            }
+        }
+        return null;
+    }
+    onMouseDown(e) {
+        this.isMouseDown = true;
+        // 1. Si había una ficha seleccionada, la desresalta
+        if (this.lastClickedFigure != null) {
+            this.lastClickedFigure.setResaltado(false);
+            this.lastClickedFigure = null;
+        }
+
+        // 2. Busca si se ha clickeado una nueva ficha
+        let clickFig = this.findClickedFigure(e.layerX, e.layerY);
+        if (clickFig != null) {
+            clickFig.setResaltado(true); // Puedes elegir el color
+            this.lastClickedFigure = clickFig;
+        }
+        this.draw(); // Redibuja
+    }
+
+    onMouseMove(e) {
+        if (this.isMouseDown && this.lastClickedFigure != null) {
+            // 3. Mueve la ficha seleccionada
+            this.lastClickedFigure.setPosition(e.layerX, e.layerY);
+            this.draw(); // Redibuja para mostrar la nueva posición
+        }
+    }
+
+    onMouseUp(e) {
+        this.isMouseDown = false;
+        // Aquí podrías agregar la lógica para verificar si el movimiento es válido
+    }
 }
