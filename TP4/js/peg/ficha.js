@@ -4,7 +4,7 @@ class Ficha extends Figura {
         this.radio = radio;
 
         this.resaltado = false; 
-        this.resaltadoEstilo = "#F72585"; // Estilo por defecto
+        this.resaltadoEstilo = "#F72585"; 
 
         this.imagen = new Image();
         this.imagen.src = imagenSrc;
