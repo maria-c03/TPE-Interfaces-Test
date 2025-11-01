@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tableroVista.draw();
 
         const posiciones = tableroVista.generarPosicionesCruz();
+        // 7 equvale a cantidad de columnas/filas de la mascara.
         const radio = Math.min(tableroVista.width / 7, tableroVista.height / 7);
         console.log(posiciones)
 

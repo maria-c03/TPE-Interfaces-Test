@@ -25,7 +25,7 @@ class TableroVista {
         const scale = canvasHeight / img.height;
         const newWidth = img.width * scale;
         const x = (canvas.width - newWidth) / 2;
-        const y = 0;
+        const y = 0; // dibuja desde el punto mas alto.
 
         this.x = x;
         this.y = y;
@@ -43,13 +43,13 @@ class TableroVista {
         const positions = [];
 
         const crossMask = [
-            [0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0],
-            [1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 0, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1],
-            [0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [ 1,  1, 1, 1, 1,  1,  1],
+            [ 1,  1, 1, 0, 1,  1,  1],
+            [ 1,  1, 1, 1, 1,  1,  1],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1],
         ];
 
         const rows = crossMask.length;

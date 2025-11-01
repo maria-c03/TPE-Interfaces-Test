@@ -1,3 +1,5 @@
+
+// Ficha = circulo = tipo de Figura.
 class Ficha extends Figura {
     constructor(posX, posY, imagenSrc, radio, onLoadCallback) {
         super(posX, posY, null, null);
@@ -13,6 +15,7 @@ class Ficha extends Figura {
     }
 
     draw(ctx) {
+        // la imagen debe estar cargada. de lo contrario no la dibujo
         if (!this.loaded || !this.imagen.complete) return;
 
         ctx.drawImage(
@@ -25,12 +28,16 @@ class Ficha extends Figura {
 
         if (this.resaltado) {
             ctx.beginPath();
-            ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
+            ctx.arc(this.posX, this.posY, this.getDiameter(), 0, 2 * Math.PI);
             ctx.strokeStyle = this.resaltadoEstilo;
             ctx.lineWidth = 5;
             ctx.stroke();
             ctx.closePath();
         }
+    }
+
+    getDiameter(){
+        return this.radius * 2;
     }
 
     getRadius() {
