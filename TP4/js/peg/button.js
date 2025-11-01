@@ -39,7 +39,7 @@ class Button {
         } else if (this.shape === "rect") {
             ctx.fillRect(this.x, this.y, this.width, this.height);
             ctx.fillStyle = "white";
-            ctx.font = "22px Roboto";
+            ctx.font = "26px Roboto";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText(this.text, this.x + this.width / 2, this.y + this.height / 2);

@@ -10,9 +10,9 @@ class Tablero {
         this.estado = [
             [-1, -1, 0, 0, 0, -1, -1],
             [-1, -1, 0, 0, 0, -1, -1],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
+            [ 0,  0, 0, 0, 0,  0,  0],
+            [ 0,  0, 0, 0, 0,  0,  0],
+            [ 0,  0, 0, 0, 0,  0,  0],
             [-1, -1, 0, 0, 0, -1, -1],
             [-1, -1, 0, 0, 0, -1, -1]
         ];
@@ -26,17 +26,17 @@ class Tablero {
         this.estado = [
             [-1, -1, 1, 1, 1, -1, -1],
             [-1, -1, 1, 1, 1, -1, -1],
-            [1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 0, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1],
+            [ 1,  1, 1, 1, 1,  1,  1],
+            [ 1,  1, 1, 0, 1,  1,  1],
+            [ 1,  1, 1, 1, 1,  1,  1],
             [-1, -1, 1, 1, 1, -1, -1],
             [-1, -1, 1, 1, 1, -1, -1]
         ];
 
-        // Dejar hueco donde hizo clic el jugador
+        // hueco vacio
         this.estado[rowHueco][colHueco] = 0;
 
-        // Crear las fichas
+        // crear las fichas
         this.inicializarFichas();
     }
 
@@ -97,14 +97,14 @@ class Tablero {
 
     reiniciar() {
         this.estado = [
-            [-1, -1, 1, 1, 1, -1, -1],
-            [-1, -1, 1, 1, 1, -1, -1],
-            [1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 0, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1],
-            [-1, -1, 1, 1, 1, -1, -1],
-            [-1, -1, 1, 1, 1, -1, -1]
-        ];
+            [-1, -1, 1, 1, 1, -1, -1],//fila 0
+            [-1, -1, 1, 1, 1, -1, -1],// 1
+            [ 1,  1, 1, 1, 1,  1,  1],// 2
+            [ 1,  1, 1, 0, 1,  1,  1],// 3
+            [ 1,  1, 1, 1, 1,  1,  1],// 4
+            [-1, -1, 1, 1, 1, -1, -1],// 5
+            [-1, -1, 1, 1, 1, -1, -1] // 6
+        ];//col0  1  2  3  4   5   6 
 
         this.inicializarFichas();
     }
@@ -114,14 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const tablero = new Tablero();
     tablero.backgroundImage.onload = () => {
         const tableroVista = new TableroVista("canvasPeg", tablero);
-        // Dibujar el tablero inicial
-        tableroVista.draw();
-        const btnReiniciar = document.getElementById("btnReiniciar");
-        if (btnReiniciar) {
-            btnReiniciar.addEventListener("click", () => {
-                tablero.reiniciar();
-                tableroVista.draw();
-            });
-        }
+       
     };
 });
