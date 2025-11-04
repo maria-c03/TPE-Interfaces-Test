@@ -1,11 +1,10 @@
-class Tablero {
+class PegModel {
     constructor() {
         this.backgroundImage = new Image();
         this.backgroundImage.src = "img/imgPeg/tablero.png";
         this.loaded = false;
         this.fichas = [];
-        this.tipoFicha = null; // al inicio no hay ficha seleccionada
-
+        this.tipoFicha = null;
         // Estado vacío (sin fichas)
         this.estado = [
             [-1, -1, 0, 0, 0, -1, -1],
@@ -33,10 +32,8 @@ class Tablero {
             [-1, -1, 1, 1, 1, -1, -1]
         ];
 
-        // hueco vacio
         this.estado[rowHueco][colHueco] = 0;
 
-        // crear las fichas
         this.inicializarFichas();
     }
 
@@ -108,12 +105,9 @@ class Tablero {
 
         this.inicializarFichas();
     }
+    
+    actualizarTipoFicha(src) {
+        this.tipoFicha = src;
+        this.fichas.forEach(f => f.imagen.src = src);
+    }
 }
-// ----------INICIALIZACION-----------
-document.addEventListener("DOMContentLoaded", function () {
-    const tablero = new Tablero();
-    tablero.backgroundImage.onload = () => {
-        const tableroVista = new TableroVista("canvasPeg", tablero);
-       
-    };
-});
