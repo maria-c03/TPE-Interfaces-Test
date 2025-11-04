@@ -1,12 +1,33 @@
 # Grupo 42
 
-## Cabrera Nieto, Maria de los angeles - Mastroberardini, Tobías - Lamas, Martin.
+**Integrantes:**  
+- Cabrera Nieto, María de los Ángeles  
+- Mastroberardini, Tobías  
+- Lamas, Martín  
 
-# Enlaces a los TP
+---
 
-## https://maria-c03.github.io/TPE-Interfaces-Test/TP1/
+## Enlaces a los Trabajos Prácticos
 
-## https://maria-c03.github.io/TPE-Interfaces-Test/TP2/
+### TP1 – Prototipo en Figma
+- Realización de un **prototipo en alta fidelidad / prototipo interactivo** en **Figma**.  
+- **[Ver TP1](https://maria-c03.github.io/TPE-Interfaces-Test/TP1/)**  
 
-## https://maria-c03.github.io/TPE-Interfaces-Test/TP3/
-Podrás encontrar el juego "Marvel Blocka" en la primer card del carrusel "Porque jugaste a Monopoly" 
+### TP2 – Implementación Web
+- Continuación del trabajo anterior, utilizando **HTML5, CSS3** (incluyendo animaciones simples) y **JavaScript** para implementar el prototipo.  
+- **[Ver TP2](https://maria-c03.github.io/TPE-Interfaces-Test/TP2/)**  
+
+### TP3 – Videojuego Block
+- Desarrollo de un **videojuego tipo Block**, trabajado completamente desde el **canvas** dibujando la interfaz.  
+- **[Ver TP3 – Block](https://maria-c03.github.io/TPE-Interfaces-Test/TP3/game-blocka.html)**  
+
+### TP4 – Videojuego Peg Solitaire
+- Desarrollo de un **videojuego Peg Solitaire**, también completamente implementado en **canvas**.  
+- **[TP4](https://maria-c03.github.io/TPE-Interfaces-Test/TP4/game.html)** 
+
+---
+
+💡 **Nota:** Los juegos desarrollados se encuentra en el primer carrusel **"Porque jugaste a Monopoly"** de los TP 3 y 4.
+
+
+
