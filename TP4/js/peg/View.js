@@ -172,14 +172,9 @@ class View {
         this.mostrarOverlay("fin");
     }
 
-    /**
-     * Establece la ficha actualmente seleccionada SIN resaltado
-     * @param {Ficha|null} ficha - Ficha a seleccionar o null para deseleccionar
-     */
     setSelectedFicha(ficha) {
         this.selectedFicha = ficha;
     }
-
 
     //  Limpia la selección actual y los hints
     clearSelection() {
