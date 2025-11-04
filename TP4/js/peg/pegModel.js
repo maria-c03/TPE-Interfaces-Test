@@ -46,11 +46,13 @@ class PegModel {
         for (let row = 0; row < this.estado.length; row++) {
             for (let col = 0; col < this.estado[row].length; col++) {
                 if (this.estado[row][col] !== -1) {
+                    console.log("x:" + (offsetX + col * size) + " y:" + (offsetY + row * size));
                     posiciones.push({
                         row,
                         col,
                         x: offsetX + col * size,
                         y: offsetY + row * size
+
                     });
                 }
             }
