@@ -185,7 +185,7 @@ class PuzzleGame {
         }
         this.timerInterval = setInterval(() => {
             this.time++;
-            // Si hay un tiempo máximo y lo superó → pierde
+            // Si hay un tiempo máximo y lo superó, entonces se pierde el nivel
             if (this.maxTime && this.time >= this.maxTime) {
                 this.loseGame();
                 return;
@@ -572,6 +572,7 @@ class PuzzleGame {
                             this.drawUI();
                             return;
                         } else if (btn.text === "Elegir dificultad") {
+                            this.time = 0;
                             this.gameState = "menuDificultad";
                             this.drawUI();
                         }
