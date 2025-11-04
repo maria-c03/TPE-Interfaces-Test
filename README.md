@@ -23,7 +23,7 @@
 
 ### TP4 – Videojuego Peg Solitaire
 - Desarrollo de un **videojuego Peg Solitaire**, también completamente implementado en **canvas**.  
-- **[TP4](https://maria-c03.github.io/TPE-Interfaces-Test/TP4/game.html)** 
+- **[Ver TP4 - Peg](https://maria-c03.github.io/TPE-Interfaces-Test/TP4/game.html)** 
 
 ---
 
