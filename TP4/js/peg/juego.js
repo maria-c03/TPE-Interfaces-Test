@@ -3,22 +3,23 @@ let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
-
 let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
 
-
-class Juego {
-
-}
-
-function drawFigure(){
+function drawFigure() {
     clearCanvas();
-    for (let i = 0; i< figures.length; i++){
+    for (let i = 0; i < figures.length; i++) {
         figures[i].draw();
     }
 }
+
+function clearCanvas(){
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0, canvasWidth, canvasHeight);
+}
+
+
 function findClickedFigure(x, y) {
     for (let i = 0; i < figures.length; i++) {
         const element = figures[i];
@@ -44,14 +45,14 @@ function onMouseDown(e) {
     drawFigure();
 }
 
-function onMouseMove(e){
-    if(isMouseDown && lastClickedFigure != null){
+function onMouseMove(e) {
+    if (isMouseDown && lastClickedFigure != null) {
         lastClickedFigure.setPosition(e.layerX, e.layerY);
         drawFigure();
     }
 }
 
-function onMouseUp(e){
+function onMouseUp(e) {
     isMouseDown = false;
 }
 //eventos del mouse

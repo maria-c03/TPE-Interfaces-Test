@@ -4,81 +4,119 @@ class Tablero {
         this.backgroundImage.src = "img/imgPeg/tablero.png";
         this.loaded = false;
         this.fichas = [];
+        this.tipoFicha = null; // al inicio no hay ficha seleccionada
+
+        // Estado vacío (sin fichas)
+        this.estado = [
+            [-1, -1, 0, 0, 0, -1, -1],
+            [-1, -1, 0, 0, 0, -1, -1],
+            [ 0,  0, 0, 0, 0,  0,  0],
+            [ 0,  0, 0, 0, 0,  0,  0],
+            [ 0,  0, 0, 0, 0,  0,  0],
+            [-1, -1, 0, 0, 0, -1, -1],
+            [-1, -1, 0, 0, 0, -1, -1]
+        ];
 
         this.backgroundImage.onload = () => {
             this.loaded = true;
         };
     }
 
-    agregarFicha(ficha) {
-        this.fichas.push(ficha);
+    llenarTableroConHueco(rowHueco, colHueco) {
+        this.estado = [
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [ 1,  1, 1, 1, 1,  1,  1],
+            [ 1,  1, 1, 0, 1,  1,  1],
+            [ 1,  1, 1, 1, 1,  1,  1],
+            [-1, -1, 1, 1, 1, -1, -1],
+            [-1, -1, 1, 1, 1, -1, -1]
+        ];
+
+        // hueco vacio
+        this.estado[rowHueco][colHueco] = 0;
+
+        // crear las fichas
+        this.inicializarFichas();
     }
 
-    getFichas() {
-        return this.fichas;
+    generarPosicionesCruz() {
+        const posiciones = [];
+        const offsetX = 485;
+        const offsetY = 80;
+        const size = 100;
+
+        for (let row = 0; row < this.estado.length; row++) {
+            for (let col = 0; col < this.estado[row].length; col++) {
+                if (this.estado[row][col] !== -1) {
+                    console.log("x:" + (offsetX + col * size) + " y:" + (offsetY + row * size));
+                    posiciones.push({
+                        row,
+                        col,
+                        x: offsetX + col * size,
+                        y: offsetY + row * size
+
+                    });
+                }
+            }
+        }
+        return posiciones;
     }
-}
-// --- Inicialización ---
-document.addEventListener("DOMContentLoaded", function () {
-    const tablero = new Tablero();
 
-    tablero.backgroundImage.onload = () => {
-        const tableroVista = new TableroVista("canvasPeg", tablero);
+    inicializarFichas() {
+        if (!this.tipoFicha) return; // no crear fichas si no hay seleccionada
 
-        // Dibujar el tablero vacío
-        tableroVista.draw();
+        this.fichas = [];
+        const posiciones = this.generarPosicionesCruz();
+        const radioFicha = 40;
 
-        const posiciones = tableroVista.generarPosicionesCruz();
-        // 7 equvale a cantidad de columnas/filas de la mascara.
-        const radio = Math.min(tableroVista.width / 7, tableroVista.height / 7);
-        console.log(posiciones)
-
-        // creo las 32 fichas
-        posiciones.forEach((pos, i) => {
-            const ficha = new Ficha(pos.x, pos.y, "img/imgPeg/homer.png", radio, () => {
-                tableroVista.draw();
-            });
-            tablero.agregarFicha(ficha);
+        posiciones.forEach(pos => {
+            if (this.estado[pos.row][pos.col] === 1) {
+                const ficha = new Ficha(pos.x, pos.y, this.tipoFicha, radioFicha);
+                ficha.setFilaColumna(pos.row, pos.col);
+                this.agregarFicha(ficha);
+            }
         });
 
-        tablero.getFichas()[0].setPosition(688, 78);
-        tablero.getFichas()[1].setPosition(788, 78);
-        tablero.getFichas()[2].setPosition(888, 78);
-        tablero.getFichas()[3].setPosition(688, 179);
-        tablero.getFichas()[4].setPosition(788, 179);
-        tablero.getFichas()[5].setPosition(888, 179);
+        if (this.fichas.length >= 32) {
+            const manualPos = [
+                [690, 80], [790, 80], [890, 80],
+                [690, 180], [790, 180], [890, 180],
+                [484, 280], [585, 280], [690, 280], [790, 280], [890, 280], [990, 280], [1090, 280],
+                [484, 380], [585, 380], [690, 380], [890, 380], [990, 380], [1090, 380],
+                [484, 480], [585, 480], [690, 480], [790, 480], [890, 480], [990, 480], [1090, 480],
+                [690, 580], [790, 580], [890, 580], [690, 680], [790, 680], [890, 680]
+            ];
+            this.fichas.forEach((f, i) => {
+                if (manualPos[i]) f.setPosition(manualPos[i][0], manualPos[i][1]);
+            });
+        }
+    }
 
-        tablero.getFichas()[6].setPosition(486, 280);
-        tablero.getFichas()[7].setPosition(586, 280);
-        tablero.getFichas()[8].setPosition(687, 280);
-        tablero.getFichas()[9].setPosition(787, 280);
-        tablero.getFichas()[10].setPosition(888, 280);
-        tablero.getFichas()[11].setPosition(988, 280);
-        tablero.getFichas()[12].setPosition(1089, 280);
+    agregarFicha(ficha) { this.fichas.push(ficha); }
+    getFichas() { return this.fichas; }
+    getEstado() { return this.estado; }
 
-        tablero.getFichas()[13].setPosition(486, 380);
-        tablero.getFichas()[14].setPosition(586, 380);
-        tablero.getFichas()[15].setPosition(687, 380);
-        tablero.getFichas()[16].setPosition(888, 380);
-        tablero.getFichas()[17].setPosition(988, 380);
-        tablero.getFichas()[18].setPosition(1089, 380);
+    reiniciar() {
+        this.estado = [
+            [-1, -1, 1, 1, 1, -1, -1],//fila 0
+            [-1, -1, 1, 1, 1, -1, -1],// 1
+            [ 1,  1, 1, 1, 1,  1,  1],// 2
+            [ 1,  1, 1, 0, 1,  1,  1],// 3
+            [ 1,  1, 1, 1, 1,  1,  1],// 4
+            [-1, -1, 1, 1, 1, -1, -1],// 5
+            [-1, -1, 1, 1, 1, -1, -1] // 6
+        ];//col0  1  2  3  4   5   6 
 
-        tablero.getFichas()[19].setPosition(486, 481);
-        tablero.getFichas()[20].setPosition(586, 481);
-        tablero.getFichas()[21].setPosition(687, 481);
-        tablero.getFichas()[22].setPosition(787, 481);
-        tablero.getFichas()[23].setPosition(888, 481);
-        tablero.getFichas()[24].setPosition(988, 481);
-        tablero.getFichas()[25].setPosition(1089, 481);
+        this.inicializarFichas();
+    }
+}
 
-        tablero.getFichas()[26].setPosition(688, 582);
-        tablero.getFichas()[27].setPosition(788, 582);
-        tablero.getFichas()[28].setPosition(888, 582);
-        tablero.getFichas()[29].setPosition(688, 683);
-        tablero.getFichas()[30].setPosition(788, 683);
-        tablero.getFichas()[31].setPosition(888, 683);
-        
-        tableroVista.draw();
+// ----------INICIALIZACION-----------
+document.addEventListener("DOMContentLoaded", function () {
+    const tablero = new Tablero();
+    tablero.backgroundImage.onload = () => {
+        const tableroVista = new TableroVista("canvasPeg", tablero);
+       
     };
 });
-

@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/peg-game.css" />
 </head>
 
 <body>
@@ -145,8 +146,95 @@
         <button class="btn-play"><i class="fa-solid fa-play"></i></button> -->
          <canvas id="canvasPeg" width="1562" height="750">
           <p>Su navegador no soporta HTML5</p>
-
         </canvas>
+
+          <div id="overlay-inicio" class="game-overlay">
+            <button id="btn-play" class="btn-play-circle">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+
+          <div id="overlay-seleccion" class="game-overlay">
+            <div class="overlay-content">
+              <h2>Selecciona un personaje</h2>
+              <div class="fichas-container">
+                <button class="ficha-option" data-ficha="img/imgPeg/homer2.png">
+                  <img src="img/imgPeg/homer2.png" alt="Homer">
+                  <span>Homer</span>
+                </button>
+                <button class="ficha-option" data-ficha="img/imgPeg/lissa2.png">
+                  <img src="img/imgPeg/lissa2.png" alt="Lisa">
+                  <span>Lisa</span>
+                </button>
+                <button class="ficha-option" data-ficha="img/imgPeg/marge.png">
+                  <img src="img/imgPeg/marge.png" alt="Marge">
+                  <span>Marge</span>
+                </button>
+                <button class="ficha-option" data-ficha="img/imgPeg/bart2.png">
+                  <img src="img/imgPeg/bart2.png" alt="Bart">
+                  <span>Bart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="overlay-instrucciones" class="game-overlay">
+            <div class="overlay-content instrucciones-content">
+              <button id="close-instrucciones" class="close-overlay">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <h2>Instrucciones</h2>
+              <div class="instrucciones-text">
+                <h3>Inicio del juego:</h3>
+                <ul>
+                  <li>Haz clic en la casilla de <strong>Fichas</strong></li>
+                  <li>Selecciona un personaje para comenzar la partida</li>
+                </ul>
+
+                <h3>Cómo jugar:</h3>
+                <ul>
+                  <li>Haz clic y mantén presionado sobre una ficha</li>
+                  <li>Salta con esta sobre otra ficha adyacente</li>
+                  <li>¡Cuidado! Solo puedes saltar si hay un espacio vacío del otro lado</li>
+                  <li>Las flechas te ayudarán a ver los movimientos permitidos</li>
+                  <li>Repite el salto hasta que quede una sola ficha</li>
+                  <li>Solo ganas si la última ficha queda en el centro del tablero</li>
+                </ul>
+
+                <h3>Objetivo:</h3>
+                <p>Elimina todas las fichas excepto una, que debe quedar en el centro del tablero.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overlay de Fin de Juego -->
+          <div id="overlay-fin" class="game-overlay">
+            <div class="overlay-content">
+              <h2 id="fin-mensaje">¡Ganaste!</h2>
+              <div class="btn-group">
+                <button id="btn-reiniciar-fin" class="btn-primary">Reiniciar</button>
+                <button id="btn-menu-fin" class="btn-secondary">Menú</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles del Juego -->
+          <div id="game-controls">
+            <div id="timer-display">Tiempo: 0s</div>
+            <button id="btn-instrucciones" class="control-btn">
+              <i class="fa-solid fa-circle-info"></i> Instrucciones
+            </button>
+            <button id="btn-fichas" class="control-btn">
+              <i class="fa-solid fa-users"></i> Fichas
+            </button>
+            <button id="btn-reiniciar" class="control-btn">
+              <i class="fa-solid fa-rotate-right"></i> Reiniciar
+            </button>
+            <button id="btn-menu" class="control-btn">
+              <i class="fa-solid fa-house"></i> Menú
+            </button>
+          </div>
+        </div>
       </div>
       <div class="game-description">
         <div class="game-description-left">
@@ -406,17 +494,15 @@
   <script type="text/javascript" src="js/carousel.js"></script>
   <script type="text/javascript" src="js/loadSidebar.js"></script>
   <script type="text/javascript" src="js/comments.js"></script>
-   <!-- <script type="text/javascript" src="js/peg/juego.js"></script> -->
 
-  <script type="text/javascript" src="js/peg/button.js"></script>
+  <!-- <script type="text/javascript" src="js/peg/button.js"></script> -->
    
-  <script type="text/javascript" src="js/peg/figura.js"></script>
-  <script type="text/javascript" src="js/peg/ficha.js"></script>
-  <script type="text/javascript" src="js/peg/tableroVista.js"></script>
-
-  <script type="text/javascript" src="js/peg/tablero.js"></script>
-  <!-- <script type="text/javascript" src="js/peg/juego.js"></script> -->
-
+  <!-- Scripts del juego en orden MVC -->
+  <script type="text/javascript" src="js/peg/figura2.js"></script>
+  <script type="text/javascript" src="js/peg/ficha2.js"></script>
+  <script type="text/javascript" src="js/peg/Model.js"></script>
+  <script type="text/javascript" src="js/peg/View.js"></script>
+  <script type="text/javascript" src="js/peg/Controller.js"></script>
 </body>
 
 </html>
