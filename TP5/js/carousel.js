@@ -47,6 +47,7 @@ const games = {
     recomendados: [
         new Game("Marvel Blocka!", "marvel_blocka.jpg", 0.00),
         new Game("Peg simpsonizado", "re_peg-solitarie.png", 0.00),
+        new Game("Flappy", "re_flappy.jpg", 0.00),
         new Game("townsmen", "re_townsmen.jpg", 9.99),
         new Game("Stardew Valley", "re_stardew-valley.jpg", 15.99),
         new Game("Palia", "re_palia.jpg", 0.00),
@@ -54,7 +55,6 @@ const games = {
         new Game("Desperados", "re_desperados.jpg", 0.00),
         new Game("Biped", "re_biped.jpg", 5.00),
         new Game("Dredge", "re_dredge.jpg", 10.00),
-        new Game("Kings hand", "re_kings-hand.jpg", 0.00),
     ],
     logica: [
         new Game("Kings hand", "re_kings-hand.jpg", 0.00),
@@ -246,6 +246,9 @@ function createCard(game, carousel){
         }
         else if(game.name == "Marvel Blocka!"){
             linkGame.href = "game-blocka.html";
+        }
+        else if(game.name == "Flappy"){
+            linkGame.href = "game-flappy.html";
         }
         else{
             linkGame.href = "index.html";

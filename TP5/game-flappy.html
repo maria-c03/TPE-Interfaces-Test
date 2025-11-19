@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body tabindex="0">
   <!-- Checkbox debe estar al mismo nivel que el sidebar-container -->
   <input type="checkbox" id="menu-toggle" />
 
@@ -140,19 +140,67 @@
       </ul>
     </section>
     <section class="game-section">
-      <div class="game-container">
-        <!-- <img src="./img/imgJuegos/marvel_blocka.jpg" alt="peg simpsonizado"> -->
-        <canvas id="canvas" width="1562" height="750">
-          <p>Su navegador no soporta HTML5</p>
+      <div class="game-container flappyGame">
 
-        </canvas>
-        <!-- <button class="btn-play"><i class="fa-solid fa-play"></i></button> -->
+        <div class="layer layer-7"></div>
+        <div class="layer layer-6"></div>
+        <div class="layer layer-5"></div>
+        <div class="layer layer-4"></div>
+        <div class="layer layer-3"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-1"></div>
+
+        <canvas id="canvas" width="1562" height="750"></canvas>
+
+        <!-- MODAL INICIO -->
+        <div id="startModal" class="modal show">
+          <div class="modal-content">
+            <h3 class="game-title">Flappy Game</h2>
+              <p class="game-p">Presiona el botón para comenzar</p>
+              <button id="btnStart">Jugar</button>
+          </div>
+        </div>
+
+        <!-- MODAL GAME OVER -->
+        <div id="gameOverModal" class="modal hide">
+          <div class="modal-content">
+            <h3 class="game-title">Game Over</h2>
+              <p id="finalScore">Tu puntaje: 0</p>
+              <p class="game-p">Mejor puntaje: <span id="bestScoreLabel">0</span></p>
+              <button id="btnRestart">Reiniciar</button>
+          </div>
+        </div>
+
+        <div id="timer" class="timer">60s</div>
+
+        <!-- pj -->
+        <div class="et" id="et"></div>
+        <div class="bird move" id="character"></div>
+        <div class="ghost" id="ghost"></div>
+
+
+        <!-- Botón visible siempre -->
+        <button id="btnInstructions" class="info-btn">Instrucciones</button>
+
+        <!-- Modal de instrucciones -->
+        <div id="instructionsModal" class="modal-instruction hide">
+          <div class="modal-content-instruction">
+            <span class="close" id="closeInstructions">&times;</span>
+            <h3 class="inst-title">Cómo jugar</h3>
+            <ul>
+              <li>Presiona ESPACIO para que el pájaro suba.</li>
+              <li>Evita chocar con las tuberías.</li>
+              <li>Intenta conseguir la mayor puntuación posible.</li>
+              <li>Ojo! tenés límite de tiempo: ¡sobrevive antes de que se acabe!</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="game-description">
         <div class="game-description-left">
           <div class="game-title">
             <h2>Flappy Game!</h2>
-            <!-- <button class="btn-share"><i class="fa-solid fa-share"></i><h3>Compartir</h3></button> -->
             <button class="btn-share"><img src="./img/icons/share-icon.png">
               <h3>Compartir</h3>
             </button>
@@ -180,9 +228,10 @@
             </div>
           </div>
           <p>Este es un videojuego de tipo <a href="game-flappy.html">arcade</a> de estilo simple donde controlaras a
-             Flappy haciendolo volar entre tuberías sin que choque contra ellas.
+            Flappy haciendolo volar entre tuberías sin que choque contra ellas.
           </p>
-          <p>El objetivo es conseguir la mayor puntuación posible esquivando los obstáculos, y el juego termina si el pájaro choca.</p>
+          <p>El objetivo es conseguir la mayor puntuación posible esquivando los obstáculos, y el juego termina si el
+            pájaro choca.</p>
           <div>
             <p>Desarrollador: <a href="game-flappy.html">Treka</a></p>
             <p>Publicado en: Diciembre de 2025.</p>
@@ -400,7 +449,11 @@
   <script type="text/javascript" src="js/loadSidebar.js"></script>
   <script type="text/javascript" src="js/comments.js"></script>
 
-
+  <script type="text/javascript" src="js/flappy/explosion.js"></script>
+  <script type="text/javascript" src="js/flappy/bird.js"></script>
+  <script type="text/javascript" src="js/flappy/pipe.js"></script>
+  <script type="text/javascript" src="js/flappy/flappy.js"></script>
+  <script type="text/javascript" src="js/flappy/main.js"></script>
 </body>
 
 </html>

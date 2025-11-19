@@ -2564,4 +2564,336 @@ label[for="menu-toggle"] {
     margin: 15px;
     width: 1550px;
   }
+
+
+
+
+
+
+
+
+
+
+  /* --------FLAPPY GAME CSS --------*/
+
+  @keyframes scroll {
+    0% {
+      background-position-x: 0px;
+    }
+
+    100% {
+      background-position-x: -1562px;
+    }
+  }
+
+  .layer {
+    min-height: 750px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: repeat-x;
+    background-size: cover;
+    z-index: 0;
+  }
+
+  .layer-7 {
+    background-image: url(../img/imgFlappy/parallax/layer07_Sky.png);
+    animation: scroll 15s infinite linear;
+  }
+
+
+  .layer-6 {
+    background-image: url(../img/imgFlappy/parallax/layer06_Rocks.png);
+    animation: scroll 12s infinite linear;
+  }
+
+  .layer-5 {
+    background-image: url(../img/imgFlappy/parallax/layer05_Clouds.png);
+    animation: scroll 9s infinite linear;
+  }
+
+
+  .layer-4 {
+    background-image: url(../img/imgFlappy/parallax/layer04_Hills_2.png);
+    animation: scroll 6s infinite linear;
+  }
+
+  .layer-3 {
+    background-image: url(../img/imgFlappy/parallax/layer03_Hills_1.png);
+    animation: scroll 3s infinite linear;
+  }
+
+  .layer-2 {
+    background-image: url(../img/imgFlappy/parallax/layer02_Trees.png);
+    animation: scroll 2s infinite linear;
+  }
+
+  .layer-1 {
+    background-image: url(../img/imgFlappy/parallax/layer01_Ground.png);
+    animation: scroll 1s infinite linear;
+  }
+
+
+  /* --- CANVAS ARRIBA DE LAS CAPAS --- */
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    background: transparent;
+  }
+
+
+  /* ----PJ---- */
+  #character {
+    top: 350px;
+    left: 300px;
+    width: 64px;
+    height: 55px;
+    position: absolute;
+    background: url(../img/imgFlappy/birds.png) left center;
+    animation: fly 1s steps(4) infinite;
+    z-index: 100;
+  }
+
+  @keyframes fly {
+    0% {
+      background-position: 0px;
+    }
+
+    100% {
+      background-position: -256px;
+    }
+  }
+
+  #et {
+    top: 648px;
+    left: 1100px;
+    width: 72.5px;
+    height: 100px;
+    position: absolute;
+    z-index: 90;
+    background: url(../img/imgFlappy/p1_spritesheet.png);
+    animation: move 0.8s steps(6) infinite,
+      run 12s linear infinite;
+  }
+
+  @keyframes move {
+    0% {
+      background-position: 0px;
+    }
+
+    100% {
+      background-position: -435px;
+    }
+  }
+
+  @keyframes run {
+    0% {
+      left: -50px;
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
+
+  #ghost {
+    top: 50px;
+    left: 1300px;
+    width: 158px;
+    height: 158px;
+    position: absolute;
+    z-index: 90;
+    background: url(../img/imgFlappy/spritesheet.png);
+    animation: ghost 2s steps(10) infinite,
+      ghostBounce 2s ease-in-out infinite,
+      ghostAppear 5s linear infinite;
+  }
+
+  @keyframes ghost {
+    0% {
+      background-position: 0px;
+    }
+
+    100% {
+      background-position: -1580px;
+    }
+  }
+
+  @keyframes ghostBounce {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-30px);
+    }
+  }
+
+  @keyframes ghostAppear {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+
+  /* ===== MODAL===== */
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    transition: 0.3s ease;
+  }
+
+  .modal.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .modal.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-content {
+    background: #F72585;
+    padding: 30px 40px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: Roboto;
+  }
+
+  .modal-content button {
+    margin-top: 25px;
+    width: 200px;
+    height: 80px;
+    padding: 12px 25px;
+    background: #7a194e;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .modal-content button:hover {
+    background: #fdbbd9;
+    color: black;
+  }
+
+  .game-title {
+    color: white;
+    font-size: 30px;
+    font-family: Roboto;
+    justify-content: center;
+  }
+
+  p.game-p,
+  #finalScore {
+    font-size: 22px;
+    color: white;
+  }
+
+  /* =====TIMER===== */
+  .timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-size: 40px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: black;
+    z-index: 90;
+    background-color: #ffffff8e;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+
+
+  /* ====INSTRUCCIONES==== */
+  .info-btn {
+    position: absolute;
+    top: 700px;
+    left: 1370px;
+    z-index: 200;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #f72585;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .modal-instruction {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+  }
+
+  .modal-content-instruction {
+    display: flex;
+    background-color: #fdbbd9;
+    border-radius: 8px;
+    width: 700px;
+    height: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-instruction.hide {
+    display: none;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .inst-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+
+  .modal-content-instruction ul li{
+    font-size: 23px;
+    font-family: "Roboto";
+    margin-bottom: 10px;
+  }
 }
