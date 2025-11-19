@@ -10,11 +10,11 @@ class Pipe {
         this.counted = false; //bandera para contar el score una sola vez
     }
 
-    update(ctx, canvas, gameSpeed) {
+    update(ctx, canvas, gameSpeed, flappyGame) {
         this.x -= gameSpeed; //muevo la tuberia hacia la izquierda en funcion a la velocidad del juego
 
         if (!this.counted && this.x + this.width < this.bird.x) {
-            game.score++;
+            flappyGame.score++;
             this.counted = true;
         }
         this.draw(ctx, canvas);

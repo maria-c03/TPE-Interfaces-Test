@@ -2749,6 +2749,26 @@ label[for="menu-toggle"] {
     }
   }
 
+  #bread {
+    top: -700px;
+    left: 300px;
+    width: 95px;
+    height: 68px;
+    position: absolute;
+    z-index: 90;
+    background: url(../img/imgFlappy/pan.png);
+    animation: apilar 1s steps(3) infinite;
+  }
+
+   @keyframes apilar {
+     0% {
+      background-position: 0px;
+    }
+
+    100% {
+      background-position: -285px;
+    }
+  }
 
   /* ===== MODAL===== */
   .modal {
@@ -2891,7 +2911,7 @@ label[for="menu-toggle"] {
     font-weight: bold;
   }
 
-  .modal-content-instruction ul li{
+  .modal-content-instruction ul li {
     font-size: 23px;
     font-family: "Roboto";
     margin-bottom: 10px;

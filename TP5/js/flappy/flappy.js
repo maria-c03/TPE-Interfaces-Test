@@ -9,12 +9,13 @@ class FlappyGame {
         this.spacepressed = false;
         this.frame = 0;
         this.score = 0;
-        this.gameSpeed = 3;
+        this.gameSpeed = 2;
         this.gameOver = false;
         this.frameId = null;
         this.timeLimit = 60;
 
         this.bird = new Bird();
+        this.bread = new Bread();
         this.pipes = [];
         this.explosions = [];
 
@@ -47,6 +48,8 @@ class FlappyGame {
         if (!this.gameOver) {
             this.handlePipes();
             this.bird.update(this);
+            this.bread.update(this);
+            this.handleBreadCollision();
             this.frame++;
         } else {
             this.handlePipes();     // tuberias detenidas
@@ -80,11 +83,11 @@ class FlappyGame {
             return;
         }
 
-        if (this.frame % 150 === 0) {
+        if (this.frame % 150 === 0) { 
             this.pipes.push(new Pipe(this.canvas, this.bird));
         }
 
-        this.pipes.forEach(pipe => pipe.update(this.ctx, this.canvas, this.gameSpeed));
+        this.pipes.forEach(pipe => pipe.update(this.ctx, this.canvas, this.gameSpeed, this));
 
         if (this.pipes.length > 20) this.pipes.shift();
     }
@@ -93,46 +96,63 @@ class FlappyGame {
         for (let pipe of this.pipes) {
 
             if (
-                this.bird.x < pipe.x + pipe.width &&
-                this.bird.x + this.bird.width > pipe.x &&
+                this.bird.x < pipe.x + pipe.width &&           //borde izquierdo del pajaro antes del borde derecho de la tuberia
+                this.bird.x + this.bird.width > pipe.x &&      //borde derecho del pajaro despues del borde izquierdo de la tuberia
                 (
-                    this.bird.y < pipe.top ||
-                    this.bird.y + this.bird.height > this.canvas.height - pipe.bottom
+                    this.bird.y < pipe.top ||                                              //el pajaro esta por encima de la tuberia superior
+                    this.bird.y + this.bird.height > this.canvas.height - pipe.bottom      //el pajaro esta por debajo de la tuberia inferior
                 )
             ) {
                 if (!this.gameOver) {
                     this.gameOverHandler();
-                    clearInterval(this.timerId);
                 }
             }
         }
     }
 
     gameOverHandler() {
-    if (this.gameOver) return;
+        if (this.gameOver) return;
 
-    this.gameOver = true;
+        this.gameOver = true;
+        clearInterval(this.timerId);
+        this.timerId = null;
+        // Explosion
+        this.explosions.push(new Explosion(this.bird.x, this.bird.y));
 
-    // Explosion
-    this.explosions.push(new Explosion(this.bird.x, this.bird.y));
+        // Guardar score
+        localStorage.setItem("lastScore", this.score);
 
-    // Guardar score
-    localStorage.setItem("lastScore", this.score);
+        const best = localStorage.getItem("bestScore");
+        if (!best || this.score > best) {
+            localStorage.setItem("bestScore", this.score);
+        }
 
-    const best = localStorage.getItem("bestScore");
-    if (!best || this.score > best) {
-        localStorage.setItem("bestScore", this.score);
+        // Mostrar scores
+        document.getElementById("finalScore").innerText = "Tu puntaje: " + this.score;
+        document.getElementById("bestScoreLabel").innerText = localStorage.getItem("bestScore");
+
+        // Mostrar modal
+        document.getElementById("gameOverModal").classList.remove("hide");
+        document.getElementById("gameOverModal").classList.add("show");
     }
 
-    // Mostrar scores
-    document.getElementById("finalScore").innerText = "Tu puntaje: " + this.score;
-    document.getElementById("bestScoreLabel").innerText = localStorage.getItem("bestScore");
+    handleBreadCollision() {
+        if (this.bread.collected) return;
 
-    // Mostrar modal
-    document.getElementById("gameOverModal").classList.remove("hide");
-    document.getElementById("gameOverModal").classList.add("show");
-}
+        if (this.bread.checkCollision(this.bird)) {
+            this.bread.collected = true;
+            // Aumentar velocidad del juego
+            this.gameSpeed += 3;
+            // Ocultar pan
+            this.bread.hide();
 
+            // Reiniciar después de un segundo
+            setTimeout(() => {
+                this.bread.show();
+                this.bread.reset();
+            }, 1000);
+        }
+    }
 
     startTimer() {
         this.timerId = setInterval(() => {
