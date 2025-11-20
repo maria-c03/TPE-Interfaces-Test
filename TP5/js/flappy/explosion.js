@@ -1,29 +1,21 @@
 class Explosion {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.frame = 0;
-        this.frameCounter = 0; // Contador para ralentizar
-        this.frameRate = 8;    // Cambia de frame cada 3 ciclos de animate()
-        this.totalFrames = 6; // 6 frames
-        this.frameWidth = 32; //ancho de cada frame
-        this.frameHeight = 32; //alto del frame
+    constructor() {
+        this.element = document.getElementById("explotion");
     }
 
-    update() {
-        this.frameCounter++;
-        if (this.frameCounter % this.frameRate === 0) { // Solo avanza si se cumple el frameRate
-            this.frame++;
-        }
-    }
+    update(x, y) {
+        const offsetX = 8;
+        const offsetY = 3.5; // para que se vea centrada la explosión con respecto al pájaro
 
-    draw(ctx, explosionImage) {
-        ctx.drawImage(
-            explosionImage,
-            this.frame * this.frameWidth, 0,
-            this.frameWidth, this.frameHeight,
-            this.x, this.y,
-            70, 70
-        );
+        this.element.style.top = `${y + offsetY}px`;
+        this.element.style.left = `${x + offsetX}px`;
+
+        this.element.style.display = "block";
+        this.element.style.animation = "boom 1s steps(8) forwards";
+        this.element.onanimationend = () => {
+            this.element.style.display = "none";
+            // Limpia el listener para que no interfiera si se vuelve a usar el elemento
+            this.element.onanimationend = null;
+        };
     }
 }

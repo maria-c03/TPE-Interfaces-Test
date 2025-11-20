@@ -2770,6 +2770,29 @@ label[for="menu-toggle"] {
     }
   }
 
+  #explotion {
+    display: none;
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    width: 48px;
+    height: 48px;
+    background: url(../img/imgFlappy/explosion_48.png);
+    animation: boom 1s steps(8) forwards;
+    z-index: 150;
+  }
+
+  @keyframes boom {
+    0% {
+      background-position: 0px;
+    }
+
+    100% {
+      background-position: -384px;
+    }
+  }
+
+
   /* ===== MODAL===== */
   .modal {
     position: absolute;
@@ -2931,7 +2954,8 @@ label[for="menu-toggle"] {
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.5s, transform 0.5s;
-    transform: translate(-50%, -20px); /* levanta un poco al ocultarse */
+    transform: translate(-50%, -20px);
+    /* levanta un poco al ocultarse */
     pointer-events: none;
     z-index: 1000;
     background-color: #a9319b8d;

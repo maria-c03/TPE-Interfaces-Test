@@ -16,12 +16,8 @@ class FlappyGame {
 
         this.bird = new Bird();
         this.bread = new Bread();
+        this.explotion = new Explosion();
         this.pipes = [];
-        this.explosions = [];
-
-        // --- Imagen de explosión ---
-        this.explosionImage = new Image();
-        this.explosionImage.src = "img/imgFlappy/explosion.png";
 
         this.setupControls();
     }
@@ -55,7 +51,6 @@ class FlappyGame {
             this.bird.hide();     // pajaro detenido
         }
 
-        this.handleExplosions();
         this.drawScore();
         this.handleCollisions();
 
@@ -69,13 +64,6 @@ class FlappyGame {
         this.ctx.fillText(this.score, 1450, 70);
     }
 
-    handleExplosions() {
-        for (let e of this.explosions) {
-            e.update();
-            e.draw(this.ctx, this.explosionImage);
-        }
-    }
-
     handlePipes() {
         if (this.gameOver) {
             this.pipes.forEach(pipe => pipe.draw(this.ctx, this.canvas));
@@ -83,7 +71,6 @@ class FlappyGame {
         }
 
         this.pipeDistanceCounter += this.gameSpeed;
-console.log(this.pipeDistanceCounter);
         if (this.pipeDistanceCounter >= this.pipeSpacing) {
             this.pipes.push(new Pipe(this.canvas, this.bird));
             this.pipeDistanceCounter = 0;
@@ -122,7 +109,7 @@ console.log(this.pipeDistanceCounter);
         clearInterval(this.timerId);
         this.timerId = null;
         // Explosion
-        this.explosions.push(new Explosion(this.bird.x, this.bird.y));
+        this.explotion.update(this.bird.x, this.bird.y);
 
         // Guardar score
         localStorage.setItem("lastScore", this.score);
