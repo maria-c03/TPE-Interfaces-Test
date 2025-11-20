@@ -156,8 +156,8 @@
         <div id="startModal" class="modal show">
           <div class="modal-content">
             <h3 class="game-title">Flappy Game</h3>
-              <p class="game-p">Presiona el botón para comenzar</p>
-              <button id="btnStart">Jugar</button>
+            <p class="game-p">Presiona el botón para comenzar</p>
+            <button id="btnStart">Jugar</button>
           </div>
         </div>
 
@@ -179,8 +179,10 @@
         <div class="ghost" id="ghost"></div>
         <div class="bread" id="bread"></div>
 
-
-
+        <!-- Modal notificacion bonus -->
+        <div id="bonusNotification">
+          <h3 class="bonus">BONUS: Velocidad</h3>
+        </div>
         <!-- Botón visible siempre -->
         <button id="btnInstructions" class="info-btn">Instrucciones</button>
 
@@ -192,8 +194,9 @@
             <ul>
               <li>Presiona ESPACIO para que el pájaro suba.</li>
               <li>Evita chocar con las tuberías.</li>
+              <li>Con los panes obtienes un BONUS de velocidad.</li>
               <li>Intenta conseguir la mayor puntuación posible.</li>
-              <li>Ojo! tenés límite de tiempo: ¡sobrevive antes de que se acabe!</li>
+              <li>Cuidado! tenés límite de tiempo: ¡sobrevive antes de que se acabe!</li>
             </ul>
           </div>
         </div>
@@ -242,15 +245,15 @@
         <div class="game-description-right">
           <div class="controls-title">
             <h2>Controles</h2>
-            <div>
+            <!-- <div>
               <img src="./img/icons/leftClick.png" alt="Icono controles">
               <p>Eleva a Flappy</p>
-            </div>
+            </div> -->
           </div>
-          <p>Utiliza el mouse para hacer volar a Flappy </p>
+          <p>Utiliza el teclado</p>
           <ul>
             <li>
-              <p>Haz click sobre la pantalla de juego para que Flappy vuele.</p>
+              <p>Preciona ESPACIO para que Flappy vuele.</p>
             </li>
             <li>
               <p>Repite este proceso evitantdo que choque contra las tuberias

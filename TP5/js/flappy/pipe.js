@@ -1,11 +1,17 @@
+const pipeTop = new Image();
+pipeTop.src = "img/imgFlappy/treeTop.png";
+const pipeBottom = new Image();
+pipeBottom.src = "img/imgFlappy/treeBottom.png";
+
 class Pipe {
     constructor(canvas, bird) {
         this.canvas = canvas;
         this.bird = bird;
-        this.top = (Math.random() * canvas.height / 2) + 20;
-        this.bottom = (Math.random() * canvas.height / 2) + 20;
+        const gap = 300; // hueco fijo donde pasa el pájaro
+        this.top = Math.random() * (canvas.height - gap);
+        this.bottom = canvas.height - this.top - gap;
         this.x = canvas.width;
-        this.width = 100;
+        this.width = 130;
         this.color = "#F72585";
         this.counted = false; //bandera para contar el score una sola vez
     }
@@ -21,8 +27,20 @@ class Pipe {
     }
 
     draw(ctx, canvas) {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, 0, this.width, this.top);
-        ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
+        ctx.drawImage(
+            pipeTop,
+            this.x,
+            this.top - pipeTop.height,
+            this.width,
+            pipeTop.height
+        );
+
+        ctx.drawImage(
+            pipeBottom,
+            this.x,
+            canvas.height - this.bottom,
+            this.width,
+            pipeBottom.height
+        );
     }
 }

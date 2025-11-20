@@ -14,9 +14,6 @@ class Explosion {
         this.frameCounter++;
         if (this.frameCounter % this.frameRate === 0) { // Solo avanza si se cumple el frameRate
             this.frame++;
-            if (this.frame >= this.totalFrames) {
-                this.frame = 0; //reinicio el frame para loop infinito
-            }
         }
     }
 

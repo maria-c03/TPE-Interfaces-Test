@@ -7,12 +7,12 @@ class FlappyGame {
 
         // --- Estado del juego ---
         this.spacepressed = false;
-        this.frame = 0;
         this.score = 0;
         this.gameSpeed = 2;
         this.gameOver = false;
-        this.frameId = null;
         this.timeLimit = 60;
+        this.pipeDistanceCounter = 200; // distancia recorrida desde la última tubería
+        this.pipeSpacing = 400;        // distancia fija entre tuberías
 
         this.bird = new Bird();
         this.bread = new Bread();
@@ -50,9 +50,8 @@ class FlappyGame {
             this.bird.update(this);
             this.bread.update(this);
             this.handleBreadCollision();
-            this.frame++;
         } else {
-            this.handlePipes();     // tuberias detenidas
+            this.handlePipes();   // tuberias detenidas
             this.bird.hide();     // pajaro detenido
         }
 
@@ -60,7 +59,7 @@ class FlappyGame {
         this.drawScore();
         this.handleCollisions();
 
-        this.frameId = requestAnimationFrame(() => this.animate());
+        requestAnimationFrame(() => this.animate());
     }
 
     drawScore() {
@@ -83,8 +82,11 @@ class FlappyGame {
             return;
         }
 
-        if (this.frame % 150 === 0) { 
+        this.pipeDistanceCounter += this.gameSpeed;
+console.log(this.pipeDistanceCounter);
+        if (this.pipeDistanceCounter >= this.pipeSpacing) {
             this.pipes.push(new Pipe(this.canvas, this.bird));
+            this.pipeDistanceCounter = 0;
         }
 
         this.pipes.forEach(pipe => pipe.update(this.ctx, this.canvas, this.gameSpeed, this));
@@ -107,6 +109,9 @@ class FlappyGame {
                     this.gameOverHandler();
                 }
             }
+        }
+        if ((this.bird.y + this.bird.height >= this.height) || (this.bird.y <= 0)) {
+            if (!this.gameOver) this.gameOverHandler();
         }
     }
 
@@ -142,9 +147,10 @@ class FlappyGame {
         if (this.bread.checkCollision(this.bird)) {
             this.bread.collected = true;
             // Aumentar velocidad del juego
-            this.gameSpeed += 3;
+            this.gameSpeed += 6;
             // Ocultar pan
             this.bread.hide();
+            this.bread.showBonusNotification();
 
             // Reiniciar después de un segundo
             setTimeout(() => {
@@ -170,6 +176,3 @@ class FlappyGame {
         }, 1000);
     }
 }
-document.getElementById("btnRestart").addEventListener("click", () => {
-    location.reload();
-});

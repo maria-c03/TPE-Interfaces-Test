@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btnRestart").addEventListener("click", () => {
         document.getElementById("gameOverModal").classList.add("hide");
-        game = new FlappyGame("canvas");
-        game.animate();
-        game.startTimer();
+         location.reload();
     });
     
     const btnInstructions = document.getElementById("btnInstructions");

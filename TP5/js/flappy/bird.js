@@ -1,29 +1,18 @@
 class Bird {
     constructor() {
-        this.x = 300; // Posición inicial en el eje X
-        this.y = 350; // Posición inicial en el eje Y
-        this.v = 0;   // Velocidad vertical
-        this.width = 64;  // Ancho del pájaro
-        this.height = 55; // Alto del pájaro
-        this.weight = 1;  // Peso para la gravedad
-        this.element = document.getElementById("character"); // pajaro en el DOM
+        this.x = 300; 
+        this.y = 350; 
+        this.v = 0;   // velocidad vertical
+        this.width = 64;  
+        this.height = 55; 
+        this.weight = 1;  //gravedad
+        this.element = document.getElementById("character"); 
     }
 
     update(game) {
-        if (this.y > game.canvas.height - this.height) {
-            this.y = game.canvas.height - this.height;
-            this.v = 0;
-        } else {
-            this.v += this.weight;
-            this.v *= 0.9;
-            this.y += this.v;
-        }
-
-        if (this.y < 0 + this.height) {
-            this.y = this.height;
-            this.v = 0;
-        }
-
+        this.v += this.weight;
+        this.v *= 0.9;
+        this.y += this.v;
         if (game.spacepressed) {
             this.flap();
         }
